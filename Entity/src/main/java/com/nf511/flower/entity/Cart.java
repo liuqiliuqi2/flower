@@ -8,6 +8,8 @@ public class Cart {
   private long userId;
   private long cartAmount;
 
+  private Flower flower;
+
 
   public long getCartId() {
     return cartId;
@@ -44,6 +46,14 @@ public class Cart {
     this.cartAmount = cartAmount;
   }
 
+  public Flower getFlower() {
+    return flower;
+  }
+
+  public void setFlower(Flower flower) {
+    this.flower = flower;
+  }
+
   @Override
   public String toString() {
     return "Cart{" +
@@ -51,6 +61,7 @@ public class Cart {
             ", flowerId=" + flowerId +
             ", userId=" + userId +
             ", cartAmount=" + cartAmount +
+            ", flower=" + flower +
             '}';
   }
 }

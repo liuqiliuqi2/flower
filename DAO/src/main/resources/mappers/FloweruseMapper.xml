@@ -8,7 +8,7 @@
     </select>
 
     <!--查询id-->
-    <select id="selectAllFloweruseId" resultMap="Floweruse">
+    <select id="selectAllFloweruseId" resultType="Floweruse">
       select  * from floweruse where flowerUseId=#{flowerUseId}
     </select>
 

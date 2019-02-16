@@ -6,9 +6,28 @@
     <select id="getFlower" resultMap="Flower_All" parameterType="map">
         SELECT * FROM
         flower f,floweruse fu,flowertype ft,flowerbranchnumber fb,state s
-        WHERE
-        f.floweruseId=fu.floweruseId AND f.flowertypeId=ft.flowerTypeId AND f.flowerbranchnumberId=fb.flowerBranchNumberId AND f.stateId=s.stateId
-    <!--limit #{skip},#{size}-->
+        <where>
+            f.flowerUseId=fu.flowerUseId AND f.flowerTypeId=ft.flowerTypeId AND
+            f.flowerBranchNumberId=fb.flowerBranchNumberId AND f.stateId=s.stateId
+
+            <if test="flowerId!=null and flowerId!=''">
+                and f.flowerId=#{flowerId}
+            </if>
+            <if test="flowerUseName!=null and flowerUseName!=''">
+                and fu.flowerUseName=#{flowerUseName}
+            </if>
+            <if test="flowerTypeName!=null and flowerTypeName!=''">
+                and ft.flowerTypeName=#{flowerTypeName}
+            </if>
+            <if test="flowerBranchNumber!=null and flowerBranchNumber!=''">
+                and fb.flowerBranchNumber=#{flowerBranchNumber}
+            </if>
+            <if test="flowerMaterials!=null and flowerMaterials!=''">
+                and f.flowerMaterials like concat(concat('%',#{flowerMaterials}),'%')
+            </if>
+
+        </where>
+        ORDER BY flowerDateTime DESC limit #{skip},#{size}
     </select>
     <resultMap id="Flower_All" type="Flower">
         <id property="flowerId" column="flowerId"></id>
@@ -44,5 +63,27 @@
             <result property="stateName" column="stateName"></result>
         </association>
     </resultMap>
+
+    <select id="getFlowerCount" resultType="int">
+        select count(*) from flower f,floweruse fu,flowertype ft,flowerbranchnumber fb,state s
+        <where>
+            f.flowerUseId=fu.flowerUseId AND f.flowerTypeId=ft.flowerTypeId AND
+            f.flowerBranchNumberId=fb.flowerBranchNumberId AND f.stateId=s.stateId
+
+            <if test="flowerUseName!=null and flowerUseName!=''">
+                and fu.flowerUseName=#{flowerUseName}
+            </if>
+            <if test="flowerTypeName!=null and flowerTypeName!=''">
+                and ft.flowerTypeName=#{flowerTypeName}
+            </if>
+            <if test="flowerBranchNumber!=null and flowerBranchNumber!=''">
+                and fb.flowerBranchNumber=#{flowerBranchNumber}
+            </if>
+            <if test="flowerMaterials!=null and flowerMaterials!=''">
+                and f.flowerMaterials like concat(concat('%',#{flowerMaterials}),'%')
+            </if>
+
+        </where>
+    </select>
 
 </mapper>

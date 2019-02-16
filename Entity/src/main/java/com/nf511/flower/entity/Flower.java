@@ -20,8 +20,11 @@ public class Flower {
   private long stateId;
 
   private Flowertype flowertype;
+  private String flowerTypeName;
   private Floweruse floweruse;
+  private String flowerUseName;
   private Flowerbranchnumber flowerbranchnumber;
+  private String flowerBranchNumber;
   private State state;
   private int skip;
   private int size;
@@ -207,6 +210,31 @@ public class Flower {
     this.size = size;
   }
 
+
+  public String getFlowerTypeName() {
+    return flowerTypeName;
+  }
+
+  public void setFlowerTypeName(String flowerTypeName) {
+    this.flowerTypeName = flowerTypeName;
+  }
+
+  public String getFlowerUseName() {
+    return flowerUseName;
+  }
+
+  public void setFlowerUseName(String flowerUseName) {
+    this.flowerUseName = flowerUseName;
+  }
+
+  public String getFlowerBranchNumber() {
+    return flowerBranchNumber;
+  }
+
+  public void setFlowerBranchNumber(String flowerBranchNumber) {
+    this.flowerBranchNumber = flowerBranchNumber;
+  }
+
   @Override
   public String toString() {
     return "Flower{" +
@@ -219,15 +247,18 @@ public class Flower {
             ", flowerInventory=" + flowerInventory +
             ", flowerImageName='" + flowerImageName + '\'' +
             ", flowerName='" + flowerName + '\'' +
-            ", flowerDateTime=" + flowerDateTime +
+            ", flowerDateTime='" + flowerDateTime + '\'' +
             ", flowerMaterials='" + flowerMaterials + '\'' +
             ", flowerPackaging='" + flowerPackaging + '\'' +
             ", flowerLanguage='" + flowerLanguage + '\'' +
             ", flowerIntroduce='" + flowerIntroduce + '\'' +
             ", stateId=" + stateId +
             ", flowertype=" + flowertype +
+            ", flowerTypeName='" + flowerTypeName + '\'' +
             ", floweruse=" + floweruse +
+            ", flowerUseName='" + flowerUseName + '\'' +
             ", flowerbranchnumber=" + flowerbranchnumber +
+            ", flowerBranchNumber='" + flowerBranchNumber + '\'' +
             ", state=" + state +
             ", skip=" + skip +
             ", size=" + size +

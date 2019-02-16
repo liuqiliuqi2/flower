@@ -4,21 +4,43 @@
 <mapper namespace="com.nf511.flower.dao.CartDao"><!--.dao-->
     <!--id应该是接口中的方法，结果类型如没有配置别名则应该使用全名称-->
 
+    <!--查询全部-->
+    <select id="selectAllCart" resultMap="allCart">
+         select * FROM cart c,flower f WHERE c.flowerId=f.flowerId
+         and userId=#{userId}
+    </select>
+
     <resultMap id="allCart" type="Cart">
         <id column="cartId" property="cartId"></id>
         <result column="flowerId" property="flowerId"></result>
         <result column="userId" property="userId"></result>
         <result column="cartAmount" property="cartAmount"></result>
+        <!--映射关系，指定属性与属性的类型-->
+        <association property="flower" javaType="Flower">
+            <id property="flowerId" column="flowerId"></id>
+            <result property="flowerTypeId" column="flowerTypeId"></result>
+            <result property="flowerUseId" column="flowerUseId"></result>
+            <result property="flowerBranchNumberId" column="flowerBranchNumberId"></result>
+            <result property="flowerMarketPrice" column="flowerMarketPrice"></result>
+            <result property="flowerPrice" column="flowerPrice"></result>
+            <result property="flowerInventory" column="flowerInventory"></result>
+            <result property="flowerImageName" column="flowerImageName"></result>
+            <result property="flowerName" column="flowerName"></result>
+            <result property="flowerDateTime" column="flowerDateTime"></result>
+            <result property="flowerMaterials" column="flowerMaterials"></result>
+            <result property="flowerPackaging" column="flowerPackaging"></result>
+            <result property="flowerLanguage" column="flowerLanguage"></result>
+            <result property="flowerIntroduce" column="flowerIntroduce"></result>
+            <result property="stateId" column="stateId"></result>
+        </association>
     </resultMap>
+
 
     <!--查询id-->
     <select id="selectAllCartId" resultMap="allCart">
       select  * from Cart where cartId=#{cartId}
     </select>
-    <!--查询全部-->
-    <select id="selectAllCart" resultMap="allCart">
-         select * from Cart
-    </select>
+
     <!--分页查询-->
     <select id="selectAllCartByPage" resultMap="allCart">
          select * from Cart limit #{pagelimit},#{size};

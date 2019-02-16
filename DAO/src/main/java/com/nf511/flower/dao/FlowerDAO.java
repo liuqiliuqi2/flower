@@ -8,4 +8,8 @@ public interface FlowerDAO {
 
     List<Flower> getFlower( Flower flower);
 
+    int getFlowerCount(Flower flower);
+
+
+
 }

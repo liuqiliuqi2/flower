@@ -6,7 +6,10 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 public interface CartDao {
-    List<Cart> selectAllCart();
+    List<Cart> selectAllCart(int userId);
+
+
+
     Cart selectAllCartId(@Param("cartId") int cartId);
     List<Cart>selectAllCartByPage(@Param("pagelimit") int pagelimit, @Param("size") int size);
     int insertCart(Cart cart);

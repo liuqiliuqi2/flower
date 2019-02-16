@@ -12,8 +12,8 @@ import java.util.List;
 public class CartImpl implements CartService {
     @Autowired
     CartDao cartDao;
-    public List<Cart> selectAllCart() {
-        return cartDao.selectAllCart();
+    public List<Cart> selectAllCart(int userId) {
+        return cartDao.selectAllCart(userId);
     }
 
     public Cart selectAllCartId(int cartId) {

@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 public interface OrderDao {
-    List<Order> selectAllOrder();
+    List<Order> selectAllOrder(Order order);
     Order selectAllOrderId(@Param("orderId") int orderId);
     List<Order>selectAllOrderByPage(@Param("pagelimit") int pagelimit, @Param("size") int size);
     int insertOrder(Order order);
