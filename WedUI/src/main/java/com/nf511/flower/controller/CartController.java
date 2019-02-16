@@ -28,18 +28,6 @@ public class CartController {
         return cartService.selectAllCart(userId);
     }
 
-
-
-
-    /**
-     * 根据ID查询
-     * */
-    @RequestMapping(path = "/selectAllCartId",method = RequestMethod.POST)
-    @ResponseBody
-    public R selectAllCartId(int cartId){
-        return R.ok(cartService.selectAllCartId(cartId));
-    }
-
     /**
      * 添加
      * */
@@ -50,12 +38,21 @@ public class CartController {
     }
 
     /**
-     * 修改
+     * 修改购物车商品数量
      * */
-    @RequestMapping(path = "/updateCart",method = RequestMethod.POST)
+    @RequestMapping(path = "/updateCartAmount",method = RequestMethod.POST)
     @ResponseBody
-    public R updateCart(Cart cart){
-        return R.ok(cartService.updateCart(cart));
+    public R updateCartAmount(int cartId,int cartAmount){
+        return R.ok(cartService.updateCartAmount(cartId,cartAmount));
+    }
+
+    /**
+     * 根据ID查询
+     * */
+    @RequestMapping(path = "/selectAllCartId",method = RequestMethod.POST)
+    @ResponseBody
+    public R selectAllCartId(@RequestBody List<Integer> cartIds){
+        return R.ok(cartService.selectAllCartId(cartIds));
     }
 
     /**
@@ -65,6 +62,17 @@ public class CartController {
     @ResponseBody
     public R deleteCart(int cartId){
         return R.ok(cartService.deleteCart(cartId));
+    }
+
+
+
+    /**
+     * 修改
+     * */
+    @RequestMapping(path = "/updateCart",method = RequestMethod.POST)
+    @ResponseBody
+    public R updateCart(Cart cart){
+        return R.ok(cartService.updateCart(cart));
     }
 
     /**

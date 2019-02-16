@@ -16,9 +16,7 @@ public class CartImpl implements CartService {
         return cartDao.selectAllCart(userId);
     }
 
-    public Cart selectAllCartId(int cartId) {
-        return cartDao.selectAllCartId(cartId);
-    }
+
 
     public List<Cart> selectAllCartByPage(int pagelimit, int size) {
         return cartDao.selectAllCartByPage(pagelimit, size);
@@ -28,12 +26,20 @@ public class CartImpl implements CartService {
         return cartDao.insertCart(cart);
     }
 
+    public int updateCartAmount(int cartId, int cartAmount) {
+        return cartDao.updateCartAmount(cartId,cartAmount);
+    }
+
     public int updateCart(Cart cart) {
         return cartDao.updateCart(cart);
     }
 
     public int deleteCart(int cartId) {
         return cartDao.deleteCart(cartId);
+    }
+
+    public List<Cart> selectAllCartId(List<Integer> cartIds) {
+        return cartDao.selectAllCartId(cartIds);
     }
 
     public int deleteAll(List<Integer> items) {

@@ -7,13 +7,13 @@ import java.util.List;
 
 public interface CartDao {
     List<Cart> selectAllCart(int userId);
-
-
-
-    Cart selectAllCartId(@Param("cartId") int cartId);
-    List<Cart>selectAllCartByPage(@Param("pagelimit") int pagelimit, @Param("size") int size);
     int insertCart(Cart cart);
-    int updateCart(Cart cart);
+    int updateCartAmount(@Param("cartId") int cartId, @Param("cartAmount") int cartAmount);
     int deleteCart(@Param("cartId") int cartId);
+    List<Cart> selectAllCartId(@Param("cartIds") List<Integer> cartIds);
+
+
+    List<Cart>selectAllCartByPage(@Param("pagelimit") int pagelimit, @Param("size") int size);
+    int updateCart(Cart cart);
     int deleteAll(@Param("cartIds") List<Integer> items);
 }

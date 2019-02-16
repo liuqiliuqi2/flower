@@ -1,8 +1,6 @@
 package com.nf511.flower.dao;
 
-import com.nf511.flower.entity.Cart;
 import org.junit.After;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,33 +14,21 @@ import static org.junit.Assert.*;
 @ContextConfiguration(locations = { "classpath:applicationContext.xml"})
 //使用标准的JUnit @RunWith注释来告诉JUnit使用Spring TestRunner
 @RunWith(SpringJUnit4ClassRunner.class)
-public class CartDaoTest {
+public class AddressDaoTest {
 
     @Autowired
-    CartDao cartDao;
+    AddressDao addressDao;
 
     @Before
     public void setUp() throws Exception {
-
     }
 
     @After
     public void tearDown() throws Exception {
-
     }
 
     @Test
-    public void selectAllCart() {
-        System.out.println(cartDao.selectAllCart(100000000));
-    }
-
-    @Test
-    public void insertCart() {
-
-        Cart cart=new Cart();
-        cart.setFlowerId(3);
-        cart.setUserId(100000000);
-        cart.setCartAmount(1);
-        Assert.assertEquals(1, cartDao.insertCart(cart));
+    public void selectAllAddress() {
+        System.out.println(addressDao.selectAllAddress(100000000));
     }
 }

@@ -9,7 +9,6 @@
          select * FROM cart c,flower f WHERE c.flowerId=f.flowerId
          and userId=#{userId}
     </select>
-
     <resultMap id="allCart" type="Cart">
         <id column="cartId" property="cartId"></id>
         <result column="flowerId" property="flowerId"></result>
@@ -35,21 +34,37 @@
         </association>
     </resultMap>
 
+    <!--添加-->
+    <insert id="insertCart" parameterType="Cart" useGeneratedKeys="true" keyProperty="cartId">
+        insert into Cart(flowerId,userId,cartAmount)
+        values (#{flowerId},#{userId},#{cartAmount})
+    </insert>
 
-    <!--查询id-->
-    <select id="selectAllCartId" resultMap="allCart">
-      select  * from Cart where cartId=#{cartId}
-    </select>
-
-    <!--分页查询-->
-    <select id="selectAllCartByPage" resultMap="allCart">
-         select * from Cart limit #{pagelimit},#{size};
-    </select>
+    <!--修改购物车商品数量-->
+    <update id="updateCartAmount" parameterType="Cart">
+      update Cart set cartAmount=#{cartAmount} where cartId=#{cartId}
+    </update>
 
     <!--删除-->
     <delete id="deleteCart" parameterType="int">
         delete from Cart where cartId=#{cartId};
     </delete>
+
+    <!--查询id-->
+    <select id="selectAllCartId" resultMap="allCart">
+        select * from Cart WHERE cartId in
+        <foreach collection="cartIds" open="(" item="cartId" separator="," close=")">
+            #{cartId}
+        </foreach>
+    </select>
+
+
+
+
+    <!--分页查询-->
+    <select id="selectAllCartByPage" resultMap="allCart">
+         select * from Cart limit #{pagelimit},#{size};
+    </select>
 
     <!--批量删除-->
     <delete id="deleteAll" parameterType="java.util.List">
@@ -64,11 +79,7 @@
         </where>
     </delete>
 
-    <!--添加-->
-    <insert id="insertCart" parameterType="Cart" useGeneratedKeys="true" keyProperty="cartId">
-        insert into Cart(flowerId,userId,cartAmount)
-        values (#{flowerId},#{userId},#{cartAmount})
-    </insert>
+
     <!--修改-->
     <update id="updateCart" parameterType="Cart">
       update Cart set flowerId=#{flowerId},userId=#{userId},cartAmount=#{cartAmount} where cartId=#{cartId}

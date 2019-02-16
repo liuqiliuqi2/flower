@@ -15,8 +15,10 @@
 
     <!--查询所有-->
     <select id="selectAllAddress" resultMap="allAddress">
-      select  * from Address
+      select * from Address where userId=#{userId}
     </select>
+
+
     <!--查询id-->
     <select id="selectAddressId" resultMap="allAddress">
       select  * from Address where addressId=#{addressId}
@@ -50,8 +52,10 @@
         insert into address(userId,consigneeName,consigneePhone,address,detailedAddress)
         values (#{userId},#{consigneeName},#{consigneePhone},#{address},#{detailedAddress})
     </insert>
+
     <!--修改-->
     <update id="updateAddress" parameterType="Address">
-      update address set userId=#{userId},consigneeName=#{consigneeName},consigneePhone=#{consigneePhone},address=#{address},detailedAddress=#{detailedAddress} where addressId=#{addressId}
+      update address set consigneeName=#{consigneeName},consigneePhone=#{consigneePhone},address=#{address},detailedAddress=#{detailedAddress} where addressId=#{addressId}
     </update>
+
 </mapper>

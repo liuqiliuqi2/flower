@@ -23,8 +23,8 @@ public class AddressController {
      * */
     @RequestMapping(path = "/selectAllAddress",method = RequestMethod.POST)
     @ResponseBody
-    public List<Address> selectAllAddress(){
-        return addressService.selectAllAddress();
+    public List<Address> selectAllAddress(int userId){
+        return addressService.selectAllAddress(userId);
     }
 
     /**

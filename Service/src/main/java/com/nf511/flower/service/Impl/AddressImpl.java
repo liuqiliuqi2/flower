@@ -14,8 +14,8 @@ public class AddressImpl implements AddressService {
     @Autowired
     AddressDao addressDao;
 
-    public List<Address> selectAllAddress() {
-        return addressDao.selectAllAddress();
+    public List<Address> selectAllAddress(int userId) {
+        return addressDao.selectAllAddress(userId);
     }
 
     public Address selectAddressId(int addressId) {
