@@ -1,0 +1,76 @@
+package com.nf511.flower.controller;
+
+import com.nf511.flower.common.R;
+import com.nf511.flower.entity.Address;
+import com.nf511.flower.service.AddressService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.List;
+
+@Controller
+@RequestMapping(path = "/address")
+public class AddressController {
+    @Autowired
+    AddressService addressService;
+
+    /**
+     * 查询全部
+     * */
+    @RequestMapping(path = "/selectAllAddress",method = RequestMethod.POST)
+    @ResponseBody
+    public List<Address> selectAllAddress(){
+        return addressService.selectAllAddress();
+    }
+
+    /**
+     * 根据ID查询
+     * */
+    @RequestMapping(path = "/selectAddressId",method = RequestMethod.POST)
+    @ResponseBody
+    public R selectAddressId(int addressId){
+        return R.ok(addressService.selectAddressId(addressId));
+    }
+
+    /**
+     * 添加
+     * */
+    @RequestMapping(path = "/insertAddress",method = RequestMethod.POST)
+    @ResponseBody
+    public R insertAddress(Address address){
+        return R.ok(addressService.insertAddress(address));
+    }
+
+    /**
+     * 修改
+     * */
+    @RequestMapping(path = "/updateAddress",method = RequestMethod.POST)
+    @ResponseBody
+    public R updateAddress(Address address){
+        return R.ok(addressService.updateAddress(address));
+    }
+
+    /**
+     * 删除
+     * */
+    @RequestMapping(path = "/deleteAddress",method = RequestMethod.POST)
+    @ResponseBody
+    public R deleteAddress(int addressId){
+        return R.ok(addressService.deleteAddress(addressId));
+    }
+
+    /**
+     * 多删除
+     * */
+    @RequestMapping(path = "/deleteAll",method = RequestMethod.POST)
+    @ResponseBody
+    public R deleteAll(@RequestBody List<Integer> items){
+        return R.ok(addressService.deleteAll(items));
+    }
+
+
+}
