@@ -56,10 +56,10 @@ public class ExcelController {
      * @throws IOException
      */@RequestMapping(value = "/exploreCsvAddress",method = RequestMethod.GET)
     @ResponseBody
-    public void joinXml(HttpServletResponse response) throws IOException {
+    public void joinXml(HttpServletResponse response,int userId) throws IOException {
 
         //先获得所有数据
-        List<Address> addressList=addressService.selectAllAddress();
+        List<Address> addressList=addressService.selectAllAddress(userId);
         response.setHeader("Content-Type","application/octet-stream;charset=utf-8");
         response.setHeader("Content-Disposition","attachment;filename="+new String("地址信息".getBytes(),"UTF-8")+".csv");
         PrintWriter out=response.getWriter();
@@ -83,9 +83,9 @@ public class ExcelController {
      */
     @RequestMapping(value = "/exploreExcel")
     @SuppressWarnings("resource")
-    public void excel(HttpServletResponse response) throws IOException {
+    public void excel(HttpServletResponse response,int userId) throws IOException {
         //先获得所有数据
-        List<Address> addressList=addressService.selectAllAddress();
+        List<Address> addressList=addressService.selectAllAddress(userId);
 
         //设置标题
         String head = "地址信息";

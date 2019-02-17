@@ -38,11 +38,12 @@ public class CartDaoTest {
 
     @Test
     public void insertCart() {
-
         Cart cart=new Cart();
         cart.setFlowerId(3);
         cart.setUserId(100000000);
         cart.setCartAmount(1);
         Assert.assertEquals(1, cartDao.insertCart(cart));
+        System.out.println(cart.getCartId());
+
     }
 }
