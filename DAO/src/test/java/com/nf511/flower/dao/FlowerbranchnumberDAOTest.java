@@ -8,6 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 //指定bean注入的配置文件
@@ -31,5 +34,13 @@ public class FlowerbranchnumberDAOTest {
     public void getAllFlowerbranchnumber() {
 
         System.out.println(flowerbranchnumberDAO.getAllFlowerbranchnumber());
+    }
+
+    @Test
+    public void All() {
+        List list=new ArrayList();
+        list.add(1);
+        list.add(2);
+        System.out.println(flowerbranchnumberDAO.deleteAll(list));
     }
 }

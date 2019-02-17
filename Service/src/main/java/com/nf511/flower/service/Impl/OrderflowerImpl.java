@@ -26,8 +26,12 @@ public class OrderflowerImpl implements OrderflowerService {
         return orderflowerDao.selectAllOrderflowerByPage(pagelimit, size);
     }
 
-    public int insertOrderflower(Orderflower orderflower) {
-        return orderflowerDao.insertOrderflower(orderflower);
+    public int insertOrderflower(List<Integer> cartIds) {
+        return orderflowerDao.insertOrderflower(cartIds);
+    }
+
+    public int updateOrderflowerBycartId(int orderId, List<Integer> cartIds) {
+        return orderflowerDao.updateOrderflowerBycartId(orderId, cartIds);
     }
 
     public int updateOrderflower(Orderflower orderflower) {

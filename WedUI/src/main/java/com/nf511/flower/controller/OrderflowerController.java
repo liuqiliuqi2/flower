@@ -42,8 +42,17 @@ public class OrderflowerController {
      * */
     @RequestMapping(path = "/insertOrderflower",method = RequestMethod.POST)
     @ResponseBody
-    public R insertOrderflower(Orderflower orderflower){
-        return R.ok(orderflowerService.insertOrderflower(orderflower));
+    public R insertOrderflower(@RequestBody List<Integer> cartIds){
+        return R.ok(orderflowerService.insertOrderflower(cartIds));
+    }
+
+    /**
+     * 添加
+     * */
+    @RequestMapping(path = "/updateOrderflowerBycartId",method = RequestMethod.POST)
+    @ResponseBody
+    public R updateOrderflowerBycartId(@RequestBody int orderId,@RequestBody List<Integer> cartIds){
+        return R.ok(orderflowerService.updateOrderflowerBycartId(orderId,cartIds));
     }
 
     /**
