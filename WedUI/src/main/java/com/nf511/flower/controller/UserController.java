@@ -20,6 +20,19 @@ public class UserController {
     UserService userService;
 
     /**
+     * 根据手机号或邮箱查询
+     * */
+    @RequestMapping("/selectByUserPhoneAndMailbox")
+    @ResponseBody
+    public R selectByUserPhoneAndMailbox(String userPhoneAndMailbox){
+        return R.ok(userService.selectByUserPhoneAndMailbox(userPhoneAndMailbox));
+    }
+
+
+
+
+
+    /**
      * 查询全部用户
      * */
     @RequestMapping(path = "/selectAllUser",method = RequestMethod.POST)

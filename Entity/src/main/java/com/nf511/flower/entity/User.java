@@ -10,7 +10,7 @@ public class User {
   private String userPhone;
   private String userAddress;
   private String userHeadPortrait;
-  private java.sql.Date userBirthday;
+  private String userBirthday;
 
 
   public long getUserId() {
@@ -75,7 +75,6 @@ public class User {
     this.userAddress = userAddress;
   }
 
-
   public String getUserHeadPortrait() {
     return userHeadPortrait;
   }
@@ -84,12 +83,11 @@ public class User {
     this.userHeadPortrait = userHeadPortrait;
   }
 
-
-  public java.sql.Date getUserBirthday() {
+  public String getUserBirthday() {
     return userBirthday;
   }
 
-  public void setUserBirthday(java.sql.Date userBirthday) {
+  public void setUserBirthday(String userBirthday) {
     this.userBirthday = userBirthday;
   }
 

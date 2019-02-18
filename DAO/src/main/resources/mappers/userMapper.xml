@@ -4,6 +4,20 @@
 <mapper namespace="com.nf511.flower.dao.UserDao"><!--.dao-->
     <!--id应该是接口中的方法，结果类型如没有配置别名则应该使用全名称-->
 
+    <!--查询手机号或邮箱-->
+    <select id="selectByUserPhoneAndMailbox" resultMap="allUser">
+      select  * from user where userPhone=#{userPhoneAndMailbox} or userMailbox=#{userPhoneAndMailbox}
+    </select>
+
+    <!--修改-->
+    <update id="updateUser" parameterType="User">
+      update user set
+      userPassword=#{userPassword},userSex=#{userSex},userName=#{userName},
+      userMailbox=#{userMailbox},userPhone=#{userPhone},userAddress=#{userAddress},
+      userHeadPortrait=#{userHeadPortrait},userBirthday=#{userBirthday}
+      where userId=#{userId}
+    </update>
+
     <!--结果集-->
     <resultMap id="allUser" type="User">
         <id column="userId" property="userId"></id>
@@ -58,8 +72,4 @@
         insert into user(userPassword,userSex,userName,userMailbox,userPhone,userAddress,userHeadPortrait,userBirthday)
         values (#{userPassword},#{userSex},#{userName},#{userMailbox},#{userPhone},#{userAddress},#{userHeadPortrait},#{userBirthday})
     </insert>
-    <!--修改-->
-    <update id="updateUser" parameterType="User">
-      update user set stateName=#{stateName} where userId=#{userId}
-    </update>
 </mapper>

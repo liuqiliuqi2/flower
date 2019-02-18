@@ -17,6 +17,12 @@ public class UserImpl implements UserService {
     @Autowired
     UserDao userDao;
 
+    public User selectByUserPhoneAndMailbox(String userPhoneAndMailbox) {
+        return userDao.selectByUserPhoneAndMailbox(userPhoneAndMailbox);
+    }
+
+
+
     public List<User> selectAllUser() {
         return userDao.selectAllUser();
     }
