@@ -15,9 +15,8 @@
 
     <!--查询所有-->
     <select id="selectAllAddress" resultMap="allAddress">
-      select * from Address where userId=#{userId}
+--       select * from Address where userId=#{userId}
     </select>
-
 
     <!--查询id-->
     <select id="selectAddressId" resultMap="allAddress">
