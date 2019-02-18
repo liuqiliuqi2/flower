@@ -15,17 +15,17 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
 
 @Controller
-@RequestMapping(path = "/orderService")
+@RequestMapping(path = "/order")
 public class OrderController {
     @Autowired
     OrderService orderService;
     /**
      * 查询全部
      * */
-    @RequestMapping(path = "/selectAllOrder",method = RequestMethod.POST)
+    @RequestMapping(path = "/selectAllOrder",method = RequestMethod.GET)
     @ResponseBody
-    public List<Order> selectAllOrder(){
-        return orderService.selectAllOrder();
+    public List<Order> selectAllOrder(int userId){
+        return orderService.selectAllOrder(userId);
     }
 
     /**

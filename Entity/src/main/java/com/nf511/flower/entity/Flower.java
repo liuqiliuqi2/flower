@@ -18,6 +18,9 @@ public class Flower {
   private String flowerLanguage;
   private String flowerIntroduce;
   private long stateId;
+  private long flowerSalesVolume;
+  private double flowerTotalSales;
+
 
   private Flowertype flowertype;
   private String flowerTypeName;
@@ -235,6 +238,22 @@ public class Flower {
     this.flowerBranchNumber = flowerBranchNumber;
   }
 
+  public long getFlowerSalesVolume() {
+    return flowerSalesVolume;
+  }
+
+  public void setFlowerSalesVolume(long flowerSalesVolume) {
+    this.flowerSalesVolume = flowerSalesVolume;
+  }
+
+  public double getFlowerTotalSales() {
+    return flowerTotalSales;
+  }
+
+  public void setFlowerTotalSales(double flowerTotalSales) {
+    this.flowerTotalSales = flowerTotalSales;
+  }
+
   @Override
   public String toString() {
     return "Flower{" +
@@ -253,6 +272,8 @@ public class Flower {
             ", flowerLanguage='" + flowerLanguage + '\'' +
             ", flowerIntroduce='" + flowerIntroduce + '\'' +
             ", stateId=" + stateId +
+            ", flowerSalesVolume=" + flowerSalesVolume +
+            ", flowerTotalSales=" + flowerTotalSales +
             ", flowertype=" + flowertype +
             ", flowerTypeName='" + flowerTypeName + '\'' +
             ", floweruse=" + floweruse +

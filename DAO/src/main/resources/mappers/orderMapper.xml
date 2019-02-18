@@ -13,7 +13,10 @@
         #{orderAddress},#{orderDetailedAddress},#{orderDeliveryTime},#{orderBuyerName},
         #{orderBuyerPhone},#{orderGreetingMessage},#{userId})
     </insert>
-
+    <!--查询全部-->
+    <select id="selectAllOrder" resultMap="allOrder">
+         select * from `order` where userId=#{userId}
+    </select>
 
 
 
@@ -35,13 +38,12 @@
         <result column="orderBuyerPhone" property="orderBuyerPhone"></result>
     </resultMap>
     <!--查询id-->
+
+
     <select id="selectAllOrderId" resultMap="allOrder">
       select  * from order where orderId=#{orderId}
     </select>
-    <!--查询全部-->
-    <select id="selectAllOrder" resultMap="allOrder">
-         select * from order
-    </select>
+
     <!--分页查询-->
     <select id="selectAllOrderByPage" resultMap="allOrder">
          select * from order limit #{pagelimit},#{size};

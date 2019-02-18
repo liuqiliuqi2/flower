@@ -17,4 +17,16 @@ public class FlowerServiceImpl implements FlowerService {
     public List<Flower> getFlower(Flower flower) {
         return flowerDAO.getFlower(flower);
     }
+
+    public int getFlowerCount(Flower flower) {
+        return flowerDAO.getFlowerCount(flower);
+    }
+
+    public int insertFlower(Flower flower) {
+        return flowerDAO.insertFlower(flower);
+    }
+
+    public int UpdateFlowerStateId(int flowerId, int stateId) {
+        return flowerDAO.UpdateFlowerStateId(flowerId, stateId);
+    }
 }

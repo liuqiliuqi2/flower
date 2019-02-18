@@ -1,6 +1,7 @@
 package com.nf511.flower.dao;
 
 import com.nf511.flower.entity.Flower;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -10,6 +11,8 @@ public interface FlowerDAO {
 
     int getFlowerCount(Flower flower);
 
+    int insertFlower(Flower flower);
 
+    int UpdateFlowerStateId(@Param("flowerId") long flowerId, @Param("stateId") long stateId);
 
 }

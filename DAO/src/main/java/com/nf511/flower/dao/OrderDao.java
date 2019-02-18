@@ -10,9 +10,10 @@ public interface OrderDao {
 
     int insertOrder(Order order);
     Order selectAllOrderId(@Param("orderId") int orderId);
+    List<Order> selectAllOrder(@Param("userId") int userId);
 
 
-    List<Order> selectAllOrder();
+
     List<Order>selectAllOrderByPage(@Param("pagelimit") int pagelimit, @Param("size") int size);
     int updateOrder(Order order);
     int deleteOrder(@Param("orderId") int orderId);
