@@ -10,11 +10,6 @@ public interface UserDao {
 
     User selectByUserPhoneAndMailbox(@Param("userPhoneAndMailbox") String userPhoneAndMailbox);
     int updateUser(User user);
-
-
-
-
-
     List<User> selectAllUser();
     User userLogin(@Param("userName") String userName, @Param("userPassword") String userPassword);
     User selectUserId(@Param("userId") int userId);
