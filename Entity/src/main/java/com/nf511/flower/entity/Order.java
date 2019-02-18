@@ -1,6 +1,8 @@
 package com.nf511.flower.entity;
 
 
+import java.util.List;
+
 public class Order {
 
   private long orderId;
@@ -16,6 +18,11 @@ public class Order {
   private String orderBuyerPhone;
   private String orderGreetingMessage;
   private long userId;
+
+  private int skip;
+  private int size;
+
+  private List<Orderflower> orderflowerList;
 
 
   public long getOrderId() {
@@ -134,6 +141,31 @@ public class Order {
     this.userId = userId;
   }
 
+
+  public int getSkip() {
+    return skip;
+  }
+
+  public void setSkip(int skip) {
+    this.skip = skip;
+  }
+
+  public int getSize() {
+    return size;
+  }
+
+  public void setSize(int size) {
+    this.size = size;
+  }
+
+  public List<Orderflower> getOrderflowerList() {
+    return orderflowerList;
+  }
+
+  public void setOrderflowerList(List<Orderflower> orderflowerList) {
+    this.orderflowerList = orderflowerList;
+  }
+
   @Override
   public String toString() {
     return "Order{" +
@@ -150,6 +182,9 @@ public class Order {
             ", orderBuyerPhone='" + orderBuyerPhone + '\'' +
             ", orderGreetingMessage='" + orderGreetingMessage + '\'' +
             ", userId=" + userId +
+            ", skip=" + skip +
+            ", size=" + size +
+            ", orderflowerList=" + orderflowerList +
             '}';
   }
 }

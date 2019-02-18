@@ -1,5 +1,6 @@
 package com.nf511.flower.dao;
 
+import com.nf511.flower.entity.Order;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,8 +29,12 @@ public class OrderDaoTest {
 
     @Test
     public void selectAllOrder() {
-
-        System.out.println(orderDao.selectAllOrder(100000000));
+        Order order=new Order();
+        order.setUserId(100000000);
+        order.setOrderState(8);
+        order.setSkip(0);
+        order.setSize(1);
+        System.out.println(orderDao.selectAllOrder(order));
 
     }
 }

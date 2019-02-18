@@ -15,12 +15,15 @@
     </insert>
     <!--查询全部-->
     <select id="selectAllOrder" resultMap="allOrder">
-         select * from `order` where userId=#{userId}
+        select * from `order` o,orderflower op
+        <where>
+            o.orderId=op.orderId and userId=#{userId}
+            <if test="orderState!=8">
+                and orderState =#{orderState}
+            </if>
+        </where>
+        ORDER BY orderDate DESC limit #{skip},#{size}
     </select>
-
-
-
-
     <!--id应该是接口中的方法，结果类型如没有配置别名则应该使用全名称-->
     <resultMap id="allOrder" type="Order">
         <id column="orderId" property="orderId"></id>
@@ -34,12 +37,28 @@
         <result column="orderDeliveryTime" property="orderDeliveryTime"></result>
         <result column="orderBuyerName" property="orderBuyerName"></result>
         <result column="orderBuyerPhone" property="orderBuyerPhone"></result>
-        <result column="orderBuyerPhone" property="orderBuyerPhone"></result>
-        <result column="orderBuyerPhone" property="orderBuyerPhone"></result>
+        <result column="orderGreetingMessage" property="orderGreetingMessage"></result>
+        <result column="userId" property="userId"></result>
+        <!--映射集合，指定属性与属性的类型-->
+        <collection property="orderflowerList" resultMap="orderflowerLists">
+
+        </collection>
     </resultMap>
+
+    <resultMap id="orderflowerLists" type="orderflower">
+        <id property="orderflowerId" column="orderflowerId"></id>
+        <result property="flowerId" column="flowerId"></result>
+        <result property="orderId" column="orderId"></result>
+        <result property="orderFlowerAmount" column="orderFlowerAmount"></result>
+        <result property="cartId" column="cartId"></result>
+    </resultMap>
+
+
+
+
+
+
     <!--查询id-->
-
-
     <select id="selectAllOrderId" resultMap="allOrder">
       select  * from order where orderId=#{orderId}
     </select>

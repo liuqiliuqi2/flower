@@ -14,8 +14,8 @@ public class OrderImpl  implements OrderService {
     @Autowired
     OrderDao orderDao;
 
-    public List<Order> selectAllOrder(int userId) {
-        return orderDao.selectAllOrder(userId);
+    public List<Order> selectAllOrder(Order order) {
+        return orderDao.selectAllOrder(order);
     }
 
     public Order selectAllOrderId(int orderId) {
