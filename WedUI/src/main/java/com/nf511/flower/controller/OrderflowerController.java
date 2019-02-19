@@ -17,8 +17,43 @@ import java.util.List;
 @Controller
 @RequestMapping(path = "/orderflowerService")
 public class OrderflowerController {
+
     @Autowired
     OrderflowerService orderflowerService;
+
+
+    /**
+     * 添加
+     * */
+    @RequestMapping(path = "/insertOrderflower",method = RequestMethod.POST)
+    @ResponseBody
+    public R insertOrderflower(@RequestBody List<Integer> cartIds){
+        return R.ok(orderflowerService.insertOrderflower(cartIds));
+    }
+
+    /**
+     * 修改订单商品编号
+     * */
+    @RequestMapping(path = "/updateOrderflowerBycartId",method = RequestMethod.POST)
+    @ResponseBody
+    public R updateOrderflowerBycartId(@RequestBody int orderId,@RequestBody List<Integer> cartIds){
+        return R.ok(orderflowerService.updateOrderflowerBycartId(orderId,cartIds));
+    }
+
+    /**
+     * 根据订单编号查询订单商品
+     * */
+    @RequestMapping(path = "/selectAllByOrderId",method = RequestMethod.POST)
+    @ResponseBody
+    public R selectAllByOrderId(int orderId){
+        return R.ok(orderflowerService.selectAllByOrderId(orderId));
+    }
+
+
+
+
+
+
     /**
      * 查询全部
      * */
@@ -37,23 +72,7 @@ public class OrderflowerController {
         return R.ok(orderflowerService.selectAllOrderflowerId(orderflowerId));
     }
 
-    /**
-     * 添加
-     * */
-    @RequestMapping(path = "/insertOrderflower",method = RequestMethod.POST)
-    @ResponseBody
-    public R insertOrderflower(@RequestBody List<Integer> cartIds){
-        return R.ok(orderflowerService.insertOrderflower(cartIds));
-    }
 
-    /**
-     * 添加
-     * */
-    @RequestMapping(path = "/updateOrderflowerBycartId",method = RequestMethod.POST)
-    @ResponseBody
-    public R updateOrderflowerBycartId(@RequestBody int orderId,@RequestBody List<Integer> cartIds){
-        return R.ok(orderflowerService.updateOrderflowerBycartId(orderId,cartIds));
-    }
 
     /**
      * 修改

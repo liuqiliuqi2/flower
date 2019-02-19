@@ -7,6 +7,7 @@ public class Orderflower {
   private long orderId;
   private long orderFlowerAmount;
   private long cartId;
+  private long orderFlowerPrice;
 
   private Flower flower;
 
@@ -62,6 +63,14 @@ public class Orderflower {
     this.cartId = cartId;
   }
 
+  public long getOrderFlowerPrice() {
+    return orderFlowerPrice;
+  }
+
+  public void setOrderFlowerPrice(long orderFlowerPrice) {
+    this.orderFlowerPrice = orderFlowerPrice;
+  }
+
   @Override
   public String toString() {
     return "Orderflower{" +
@@ -70,6 +79,7 @@ public class Orderflower {
             ", orderId=" + orderId +
             ", orderFlowerAmount=" + orderFlowerAmount +
             ", cartId=" + cartId +
+            ", orderFlowerPrice=" + orderFlowerPrice +
             ", flower=" + flower +
             '}';
   }

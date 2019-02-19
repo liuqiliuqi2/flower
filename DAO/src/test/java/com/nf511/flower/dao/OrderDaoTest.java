@@ -32,8 +32,6 @@ public class OrderDaoTest {
         Order order=new Order();
         order.setUserId(100000000);
         order.setOrderState(8);
-        order.setSkip(0);
-        order.setSize(1);
         System.out.println(orderDao.selectAllOrder(order));
 
     }

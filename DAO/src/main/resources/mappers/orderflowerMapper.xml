@@ -4,10 +4,10 @@
 <mapper namespace="com.nf511.flower.dao.OrderflowerDao"><!--.dao-->
 
     <!--添加-->
-    <insert id="insertOrderflower" parameterType="Orderflower" useGeneratedKeys="true" keyProperty="orderflowerId">
-        insert into orderflower(flowerId,orderFlowerAmount,cartId)
-        select flowerId,cartAmount,cartId from cart
-        where cartId in
+    <insert id="insertOrderflower" parameterType="Orderflower" useGeneratedKeys="true" keyColumn="orderflowerId">
+        insert into orderflower(flowerId,orderFlowerAmount,cartId,orderFlowerPrice)
+        select c.flowerId,c.cartAmount,c.cartId,f.flowerPrice from cart c,flower f
+        where c.flowerId=f.flowerId and cartId in
         <foreach collection="cartIds" item="cartId" open="(" separator="," close=")">
             #{cartId}
         </foreach>
@@ -40,6 +40,8 @@
         <result column="flowerId" property="flowerId"></result>
         <result column="orderId" property="orderId"></result>
         <result column="orderFlowerAmount" property="orderFlowerAmount"></result>
+        <result column="cartId" property="cartId"></result>
+        <result column="orderFlowerPrice" property="orderFlowerPrice"></result>
         <!--映射关系，指定属性与属性的类型-->
         <association property="flower" javaType="Flower">
             <id property="flowerId" column="flowerId"></id>

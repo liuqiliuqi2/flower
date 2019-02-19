@@ -8,14 +8,16 @@ public class Order {
   private long orderId;
   private double orderPrice;
   private long orderState;
-  private java.sql.Timestamp orderDate;
+  private String orderDate;
   private String orderConsigneeName;
   private String orderConsigneePhone;
   private String orderAddress;
   private String orderDetailedAddress;
-  private java.sql.Date orderDeliveryTime;
+  private String orderDeliveryTime;
+  private String orderDeliveryTimeFrame;
   private String orderBuyerName;
   private String orderBuyerPhone;
+  private String orderMailbox;
   private String orderGreetingMessage;
   private long userId;
 
@@ -52,11 +54,11 @@ public class Order {
   }
 
 
-  public java.sql.Timestamp getOrderDate() {
+  public String getOrderDate() {
     return orderDate;
   }
 
-  public void setOrderDate(java.sql.Timestamp orderDate) {
+  public void setOrderDate(String orderDate) {
     this.orderDate = orderDate;
   }
 
@@ -97,11 +99,11 @@ public class Order {
   }
 
 
-  public java.sql.Date getOrderDeliveryTime() {
+  public String getOrderDeliveryTime() {
     return orderDeliveryTime;
   }
 
-  public void setOrderDeliveryTime(java.sql.Date orderDeliveryTime) {
+  public void setOrderDeliveryTime(String orderDeliveryTime) {
     this.orderDeliveryTime = orderDeliveryTime;
   }
 
@@ -141,6 +143,21 @@ public class Order {
     this.userId = userId;
   }
 
+  public String getOrderDeliveryTimeFrame() {
+    return orderDeliveryTimeFrame;
+  }
+
+  public void setOrderDeliveryTimeFrame(String orderDeliveryTimeFrame) {
+    this.orderDeliveryTimeFrame = orderDeliveryTimeFrame;
+  }
+
+  public String getOrderMailbox() {
+    return orderMailbox;
+  }
+
+  public void setOrderMailbox(String orderMailbox) {
+    this.orderMailbox = orderMailbox;
+  }
 
   public int getSkip() {
     return skip;
@@ -172,14 +189,16 @@ public class Order {
             "orderId=" + orderId +
             ", orderPrice=" + orderPrice +
             ", orderState=" + orderState +
-            ", orderDate=" + orderDate +
+            ", orderDate='" + orderDate + '\'' +
             ", orderConsigneeName='" + orderConsigneeName + '\'' +
             ", orderConsigneePhone='" + orderConsigneePhone + '\'' +
             ", orderAddress='" + orderAddress + '\'' +
             ", orderDetailedAddress='" + orderDetailedAddress + '\'' +
-            ", orderDeliveryTime=" + orderDeliveryTime +
+            ", orderDeliveryTime='" + orderDeliveryTime + '\'' +
+            ", orderDeliveryTimeFrame='" + orderDeliveryTimeFrame + '\'' +
             ", orderBuyerName='" + orderBuyerName + '\'' +
             ", orderBuyerPhone='" + orderBuyerPhone + '\'' +
+            ", orderMailbox='" + orderMailbox + '\'' +
             ", orderGreetingMessage='" + orderGreetingMessage + '\'' +
             ", userId=" + userId +
             ", skip=" + skip +

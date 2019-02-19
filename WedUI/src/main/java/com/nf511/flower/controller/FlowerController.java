@@ -47,6 +47,12 @@ public class FlowerController {
         return R.ok(flowerService.UpdateFlowerStateId(flowerId,stateId));
     }
 
+    @RequestMapping("/updateFlower")
+    @ResponseBody
+    public R updateFlower(Flower flower){
+        return R.ok(flowerService.updateFlower(flower));
+    }
+
 
     //上传图片
     @RequestMapping(value="/put",method= RequestMethod.POST)

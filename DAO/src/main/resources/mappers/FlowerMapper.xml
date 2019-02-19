@@ -111,4 +111,14 @@
         where flowerId=#{flowerId}
     </update>
 
+    <!-- 修改鲜花状态 -->
+    <update id="updateFlower" parameterType="Flower">
+        update flower set
+        flowerTypeId=#{flowerTypeId},flowerUseId=#{flowerUseId},flowerBranchNumberId=#{flowerBranchNumberId},
+        flowerMarketPrice=#{flowerMarketPrice},flowerPrice=#{flowerPrice},flowerInventory=#{flowerInventory},
+        flowerName=#{flowerName},flowerMaterials=#{flowerMaterials},flowerPackaging=#{flowerPackaging},
+        flowerLanguage=#{flowerLanguage},flowerIntroduce=#{flowerIntroduce}
+        where flowerId=#{flowerId}
+    </update>
+
 </mapper>

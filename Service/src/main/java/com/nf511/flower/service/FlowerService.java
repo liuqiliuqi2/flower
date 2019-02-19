@@ -15,4 +15,6 @@ public interface FlowerService {
 
     int UpdateFlowerStateId(@Param("flowerId") int flowerId, @Param("stateId") int stateId);
 
+    int updateFlower(Flower flower);
+
 }

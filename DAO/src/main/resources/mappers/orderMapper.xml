@@ -7,11 +7,12 @@
     <insert id="insertOrder" parameterType="Order" useGeneratedKeys="true" keyProperty="orderId">
         insert into order
         (orderPrice,orderDate,orderConsigneeName,orderConsigneePhone,orderAddress,
-        orderDetailedAddress,orderDeliveryTime,orderBuyerName,orderBuyerPhone,orderGreetingMessage,userId)
+        orderDetailedAddress,orderDeliveryTime,orderDeliveryTimeFrame,orderBuyerName,
+        orderBuyerPhone,orderMailbox,orderGreetingMessage,userId)
         values
         (#{orderPrice},NOW(),#{orderConsigneeName},#{orderConsigneePhone},
-        #{orderAddress},#{orderDetailedAddress},#{orderDeliveryTime},#{orderBuyerName},
-        #{orderBuyerPhone},#{orderGreetingMessage},#{userId})
+        #{orderAddress},#{orderDetailedAddress},#{orderDeliveryTime},#{orderDeliveryTimeFrame},#{orderBuyerName},
+        #{orderBuyerPhone},#{orderMailbox},#{orderGreetingMessage},#{userId})
     </insert>
     <!--查询全部-->
     <select id="selectAllOrder" resultMap="allOrder">
@@ -22,7 +23,7 @@
                 and orderState =#{orderState}
             </if>
         </where>
-        ORDER BY orderDate DESC limit #{skip},#{size}
+        ORDER BY orderDate DESC
     </select>
     <!--id应该是接口中的方法，结果类型如没有配置别名则应该使用全名称-->
     <resultMap id="allOrder" type="Order">
@@ -35,8 +36,10 @@
         <result column="orderAddress" property="orderAddress"></result>
         <result column="orderDetailedAddress" property="orderDetailedAddress"></result>
         <result column="orderDeliveryTime" property="orderDeliveryTime"></result>
+        <result column="orderDeliveryTimeFrame" property="orderDeliveryTimeFrame"></result>
         <result column="orderBuyerName" property="orderBuyerName"></result>
         <result column="orderBuyerPhone" property="orderBuyerPhone"></result>
+        <result column="orderMailbox" property="orderMailbox"></result>
         <result column="orderGreetingMessage" property="orderGreetingMessage"></result>
         <result column="userId" property="userId"></result>
         <!--映射集合，指定属性与属性的类型-->

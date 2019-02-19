@@ -15,4 +15,7 @@ public interface FlowerDAO {
 
     int UpdateFlowerStateId(@Param("flowerId") long flowerId, @Param("stateId") long stateId);
 
+    int updateFlower(Flower flower);
+
+
 }

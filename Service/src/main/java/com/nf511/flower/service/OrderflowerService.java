@@ -10,6 +10,8 @@ public interface OrderflowerService {
 
     int insertOrderflower(@Param("cartIds") List<Integer> cartIds);
     int updateOrderflowerBycartId(@Param("orderId") int orderId,@Param("cartIds") List<Integer> cartIds);
+    List<Orderflower> selectAllByOrderId(@Param("orderId") int orderId);
+
 
 
 

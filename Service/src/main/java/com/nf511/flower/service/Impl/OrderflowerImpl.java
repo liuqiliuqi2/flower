@@ -34,6 +34,10 @@ public class OrderflowerImpl implements OrderflowerService {
         return orderflowerDao.updateOrderflowerBycartId(orderId, cartIds);
     }
 
+    public List<Orderflower> selectAllByOrderId(int orderId) {
+        return orderflowerDao.selectAllByOrderId(orderId);
+    }
+
     public int updateOrderflower(Orderflower orderflower) {
         return orderflowerDao.updateOrderflower(orderflower);
     }

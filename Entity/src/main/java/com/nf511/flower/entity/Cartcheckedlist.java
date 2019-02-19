@@ -19,7 +19,6 @@ public class Cartcheckedlist {
     this.cartCheckedListId = cartCheckedListId;
   }
 
-
   public long getFlowerId() {
     return flowerId;
   }
@@ -27,7 +26,6 @@ public class Cartcheckedlist {
   public void setFlowerId(long flowerId) {
     this.flowerId = flowerId;
   }
-
 
   public long getCartAmount() {
     return cartAmount;
