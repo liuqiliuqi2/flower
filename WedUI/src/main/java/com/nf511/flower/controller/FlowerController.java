@@ -47,6 +47,12 @@ public class FlowerController {
         return R.ok(flowerService.UpdateFlowerStateId(flowerId,stateId));
     }
 
+    @RequestMapping("/UpdateFlowerInventory")
+    @ResponseBody
+    public R UpdateFlowerInventory(int flowerId, int flowerInventory){
+        return R.ok(flowerService.UpdateFlowerInventory(flowerId,flowerInventory));
+    }
+
     @RequestMapping("/updateFlower")
     @ResponseBody
     public R updateFlower(Flower flower){

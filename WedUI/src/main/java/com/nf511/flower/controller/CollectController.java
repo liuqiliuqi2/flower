@@ -1,5 +1,6 @@
 package com.nf511.flower.controller;
 
+import com.nf511.flower.common.R;
 import com.nf511.flower.entity.Collect;
 import com.nf511.flower.service.CollectService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +21,8 @@ public class CollectController {
      * */
     @RequestMapping(path = "/selectAllCollect",method = RequestMethod.POST)
     @ResponseBody
-    public List<Collect> selectAllCollect(){
-        return collectService.selectAllCollect();
+    public R selectAllCollect(){
+        return R.ok(collectService.selectAllCollect());
     }
 
 }

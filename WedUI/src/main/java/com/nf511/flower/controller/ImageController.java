@@ -23,8 +23,8 @@ public class ImageController {
      * */
     @RequestMapping(path = "/selectAllImage",method = RequestMethod.POST)
     @ResponseBody
-    public List<Image> selectAllImage(){
-        return imageService.selectAllImage();
+    public R selectAllImage(){
+        return R.ok(imageService.selectAllImage());
     }
 
     /**

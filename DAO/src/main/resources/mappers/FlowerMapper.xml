@@ -111,7 +111,14 @@
         where flowerId=#{flowerId}
     </update>
 
-    <!-- 修改鲜花状态 -->
+    <!-- 修改鲜花库存 -->
+    <update id="UpdateFlowerInventory" parameterType="Flower">
+        update flower set
+        flowerInventory=#{flowerInventory}
+        where flowerId=#{flowerId}
+    </update>
+
+    <!-- 修改鲜花信息 -->
     <update id="updateFlower" parameterType="Flower">
         update flower set
         flowerTypeId=#{flowerTypeId},flowerUseId=#{flowerUseId},flowerBranchNumberId=#{flowerBranchNumberId},
@@ -120,5 +127,25 @@
         flowerLanguage=#{flowerLanguage},flowerIntroduce=#{flowerIntroduce}
         where flowerId=#{flowerId}
     </update>
+
+    <!--删除-->
+    <delete id="deleteAddress" parameterType="int">
+        delete from Address where addressId=#{addressId};
+    </delete>
+
+    <!--批量删除-->
+    <delete id="deleteAll" parameterType="java.util.List">
+        delete from User
+        <where>
+            <if test="addressId!=null and addressId.size() gt 0">
+                addressId in
+                <foreach collection="addressIds" item="item" open="(" separator="," close=")">
+                    #{item}
+                </foreach>
+            </if>
+        </where>
+    </delete>
+
+
 
 </mapper>

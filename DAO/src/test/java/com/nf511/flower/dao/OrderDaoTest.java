@@ -25,6 +25,7 @@ public class OrderDaoTest {
     @Test
     public void selectAllOrderId() {
 
+        System.out.println(orderDao.selectAllOrderId(1));
     }
 
     @Test

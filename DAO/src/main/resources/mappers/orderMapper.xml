@@ -56,15 +56,12 @@
         <result property="cartId" column="cartId"></result>
     </resultMap>
 
-
-
-
-
-
     <!--查询id-->
     <select id="selectAllOrderId" resultMap="allOrder">
-      select  * from order where orderId=#{orderId}
+      select  * from `order` where orderId=#{orderId}
     </select>
+
+
 
     <!--分页查询-->
     <select id="selectAllOrderByPage" resultMap="allOrder">

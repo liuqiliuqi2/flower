@@ -59,8 +59,8 @@ public class OrderflowerController {
      * */
     @RequestMapping(path = "/selectAllOrderflower",method = RequestMethod.POST)
     @ResponseBody
-    public List<Orderflower> selectAllOrderflower(){
-        return orderflowerService.selectAllOrderflower();
+    public R selectAllOrderflower(){
+        return R.ok(orderflowerService.selectAllOrderflower());
     }
 
     /**

@@ -24,8 +24,8 @@ public class OrderController {
      * */
     @RequestMapping(path = "/selectAllOrder",method = RequestMethod.GET)
     @ResponseBody
-    public List<Order> selectAllOrder(Order order){
-        return orderService.selectAllOrder(order);
+    public R selectAllOrder(Order order){
+        return R.ok(orderService.selectAllOrder(order));
     }
 
     /**

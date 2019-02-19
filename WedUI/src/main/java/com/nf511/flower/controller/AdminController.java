@@ -23,8 +23,8 @@ public class AdminController {
      * */
     @RequestMapping(path = "/selectAllAdmin",method = RequestMethod.POST)
     @ResponseBody
-    public List<Admin> selectAllAdmin(){
-        return adminService.selectAllAdmin();
+    public R selectAllAdmin(){
+        return R.ok(adminService.selectAllAdmin());
     }
 
     /**

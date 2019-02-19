@@ -9,7 +9,7 @@ import java.util.List;
 public interface OrderDao {
 
     int insertOrder(Order order);
-    Order selectAllOrderId(@Param("orderId") int orderId);
+    Order selectAllOrderId(@Param("orderId") long orderId);
     List<Order> selectAllOrder(Order order);
 
 

@@ -24,8 +24,8 @@ public class CartController {
      * */
     @RequestMapping(path = "/selectAllCart",method = RequestMethod.POST)
     @ResponseBody
-    public List<Cart> selectAllCart(int userId){
-        return cartService.selectAllCart(userId);
+    public R selectAllCart(int userId){
+        return R.ok(cartService.selectAllCart(userId));
     }
 
     /**

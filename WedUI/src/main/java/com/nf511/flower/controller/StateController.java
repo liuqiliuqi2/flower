@@ -23,8 +23,8 @@ public class StateController {
      * */
     @RequestMapping(path = "/selectAllState",method = RequestMethod.POST)
     @ResponseBody
-    public List<State> selectAllState(){
-        return stateService.selectAllState();
+    public R selectAllState(){
+        return R.ok(stateService.selectAllState());
     }
 
     /**

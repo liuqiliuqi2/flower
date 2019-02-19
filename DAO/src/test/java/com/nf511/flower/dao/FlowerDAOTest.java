@@ -76,4 +76,10 @@ public class FlowerDAOTest {
         System.out.println(flowerDAO.UpdateFlowerStateId(35,2));
     }
 
+    @Test
+    public void UpdateFlowerInventory() {
+        System.out.println(flowerDAO.UpdateFlowerInventory(35,2));
+    }
+
+
 }

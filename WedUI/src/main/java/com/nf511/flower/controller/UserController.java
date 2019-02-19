@@ -37,8 +37,8 @@ public class UserController {
      * */
     @RequestMapping(path = "/selectAllUser",method = RequestMethod.POST)
     @ResponseBody
-    public List<User> selectAllUser() {
-        return userService.selectAllUser();
+    public R selectAllUser() {
+        return R.ok(userService.selectAllUser());
     }
 
     /**
