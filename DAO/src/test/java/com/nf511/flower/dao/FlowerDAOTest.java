@@ -11,6 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 //指定bean注入的配置文件
@@ -77,9 +80,31 @@ public class FlowerDAOTest {
     }
 
     @Test
+    public void MoreUpdateFlowerStateId() {
+        List list=new ArrayList();
+        list.add(39);
+        list.add(40);
+        System.out.println(flowerDAO.MoreUpdateFlowerStateId(list,2));
+    }
+
+    @Test
     public void UpdateFlowerInventory() {
         System.out.println(flowerDAO.UpdateFlowerInventory(35,2));
     }
+
+    @Test
+    public void DeleteFlower() {
+        System.out.println(flowerDAO.DeleteFlower(36));
+    }
+
+    @Test
+    public void MoreDeleteFlower() {
+        List list=new ArrayList();
+        list.add(37);
+        list.add(38);
+        System.out.println(flowerDAO.MoreDeleteFlower(list));
+    }
+
 
 
 }

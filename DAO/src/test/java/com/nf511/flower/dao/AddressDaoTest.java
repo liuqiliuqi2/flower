@@ -31,4 +31,6 @@ public class AddressDaoTest {
     public void selectAllAddress() {
         System.out.println(addressDao.selectAllAddress(100000000));
     }
+
+
 }

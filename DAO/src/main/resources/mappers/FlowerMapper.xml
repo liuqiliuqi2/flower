@@ -10,6 +10,9 @@
             f.flowerUseId=fu.flowerUseId AND f.flowerTypeId=ft.flowerTypeId AND
             f.flowerBranchNumberId=fb.flowerBranchNumberId AND f.stateId=s.stateId
 
+            <if test="stateId!=null and stateId!=''">
+                and f.stateId=#{stateId}
+            </if>
             <if test="flowerId!=null and flowerId!=''">
                 and f.flowerId=#{flowerId}
             </if>
@@ -111,6 +114,16 @@
         where flowerId=#{flowerId}
     </update>
 
+    <!-- 多修改鲜花状态 -->
+    <update id="MoreUpdateFlowerStateId" parameterType="Flower">
+        update flower set
+        stateId=#{stateId}
+        where flowerId in
+        <foreach collection="flowerIds" item="flowerId" open="(" separator="," close=")">
+            #{flowerId}
+        </foreach>
+    </update>
+
     <!-- 修改鲜花库存 -->
     <update id="UpdateFlowerInventory" parameterType="Flower">
         update flower set
@@ -129,21 +142,17 @@
     </update>
 
     <!--删除-->
-    <delete id="deleteAddress" parameterType="int">
-        delete from Address where addressId=#{addressId};
+    <delete id="DeleteFlower" parameterType="int">
+        delete from flower where flowerId=#{flowerId};
     </delete>
 
     <!--批量删除-->
-    <delete id="deleteAll" parameterType="java.util.List">
-        delete from User
-        <where>
-            <if test="addressId!=null and addressId.size() gt 0">
-                addressId in
-                <foreach collection="addressIds" item="item" open="(" separator="," close=")">
-                    #{item}
-                </foreach>
-            </if>
-        </where>
+    <delete id="MoreDeleteFlower" parameterType="java.util.List">
+        delete from flower
+        where flowerId in
+        <foreach collection="flowerIds" item="flowerId" open="(" separator="," close=")">
+              #{flowerId}
+        </foreach>
     </delete>
 
 

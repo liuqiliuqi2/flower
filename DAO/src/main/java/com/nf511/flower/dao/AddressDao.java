@@ -9,11 +9,11 @@ public interface AddressDao {
     List<Address> selectAllAddress(int userId);
     int insertAddress(Address address);
 
-
-
     Address selectAddressId(@Param("addressId") int addressId);
     List<Address>selectAllAddressByPage(@Param("pagelimit") int pagelimit, @Param("size") int size);
     int updateAddress(Address address);
     int deleteAddress(@Param("addressId") int addressId);
     int deleteAll(@Param("addressIds") List<Integer> items);
+
+    List<Address>selectAddressOfUserId(@Param("userId") int userId);
 }

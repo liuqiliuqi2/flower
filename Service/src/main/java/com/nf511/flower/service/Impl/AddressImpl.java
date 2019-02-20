@@ -3,6 +3,7 @@ package com.nf511.flower.service.Impl;
 import com.nf511.flower.dao.AddressDao;
 import com.nf511.flower.entity.Address;
 import com.nf511.flower.service.AddressService;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -41,4 +42,5 @@ public class AddressImpl implements AddressService {
     public int deleteAll(List<Integer> items) {
         return addressDao.deleteAll(items);
     }
+
 }

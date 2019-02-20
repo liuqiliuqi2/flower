@@ -1,9 +1,6 @@
 package com.nf511.flower.dao;
-
-
 import com.nf511.flower.entity.User;
 import org.apache.ibatis.annotations.Param;
-
 import java.util.List;
 
 public interface UserDao {

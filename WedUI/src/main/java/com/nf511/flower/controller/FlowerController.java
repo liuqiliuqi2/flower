@@ -6,15 +6,13 @@ import com.nf511.flower.service.FlowerService;
 import com.nf511.flower.service.FlowertypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 @Controller
 @RequestMapping("/Flower")
@@ -47,6 +45,18 @@ public class FlowerController {
         return R.ok(flowerService.UpdateFlowerStateId(flowerId,stateId));
     }
 
+    @RequestMapping("/MoreUpdateFlowerStateIdStop")
+    @ResponseBody
+    public R MoreUpdateFlowerStateId(@RequestBody List<Integer> flowerIds){
+        return R.ok(flowerService.MoreUpdateFlowerStateId(flowerIds,1));
+    }
+
+    @RequestMapping("/MoreUpdateFlowerStateIdStart")
+    @ResponseBody
+    public R MoreUpdateFlowerStateIdStart(@RequestBody List<Integer> flowerIds){
+        return R.ok(flowerService.MoreUpdateFlowerStateId(flowerIds,2));
+    }
+
     @RequestMapping("/UpdateFlowerInventory")
     @ResponseBody
     public R UpdateFlowerInventory(int flowerId, int flowerInventory){
@@ -57,6 +67,18 @@ public class FlowerController {
     @ResponseBody
     public R updateFlower(Flower flower){
         return R.ok(flowerService.updateFlower(flower));
+    }
+
+    @RequestMapping("/MoreDeleteFlower")
+    @ResponseBody
+    public R MoreDeleteFlower(@RequestBody List<Integer> flowerIds){
+        return R.ok(flowerService.MoreDeleteFlower(flowerIds));
+    }
+
+    @RequestMapping("/DeleteFlower")
+    @ResponseBody
+    public R DeleteFlower(int flowerId){
+        return R.ok(flowerService.DeleteFlower(flowerId));
     }
 
 
