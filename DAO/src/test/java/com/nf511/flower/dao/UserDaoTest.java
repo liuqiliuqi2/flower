@@ -35,6 +35,11 @@ public class UserDaoTest {
         System.out.println(userDao.selectByUserPhoneAndMailbox("2392573484@qq.com"));
     }
 
+
+    @Test
+    public void selectUserId() {
+        System.out.println(userDao.selectUserId(100000000));
+    }
     @Test
     public void updateUser() {
         User user=new User();

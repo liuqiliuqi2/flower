@@ -21,4 +21,5 @@ public interface UserService {
 
     int deleteUser(@Param("userId") int userId);
     int deleteAll(@Param("userIds") List<Integer> items);
+
 }

@@ -25,11 +25,9 @@ public class UserController {
     @RequestMapping("/selectByUserPhoneAndMailbox")
     @ResponseBody
     public R selectByUserPhoneAndMailbox(String userPhoneAndMailbox){
+        System.out.printf(userPhoneAndMailbox);
         return R.ok(userService.selectByUserPhoneAndMailbox(userPhoneAndMailbox));
     }
-
-
-
 
 
     /**
