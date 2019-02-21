@@ -16,9 +16,9 @@
     </insert>
     <!--查询全部-->
     <select id="selectAllOrder" resultMap="allOrder">
-        select * from `order` o,orderflower op
+        select * from `order` o,orderflower op,flower f
         <where>
-            o.orderId=op.orderId and userId=#{userId}
+            o.orderId=op.orderId and op.flowerId=f.flowerId and userId=#{userId}
             <if test="orderState!=8">
                 and orderState =#{orderState}
             </if>
