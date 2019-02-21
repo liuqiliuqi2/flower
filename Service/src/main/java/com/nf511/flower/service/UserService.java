@@ -15,7 +15,9 @@ public interface UserService {
 
     int UpdateUserStateId(@Param("userId") long userId, @Param("userStateId") long userStateId);
 
-    int MoreUpdateFlowerStateId(@Param("userIds") List<Integer> userIds,@Param("userStateId") long userStateId);
+    int MoreUpdateUserStateId(@Param("userIds") List<Integer> userIds,@Param("userStateId") long userStateId);
+
+    int UpdateUserPassword(@Param("userId") long userId);
 
     int updateUser(User user);
 

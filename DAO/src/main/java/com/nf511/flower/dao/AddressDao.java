@@ -8,6 +8,10 @@ import java.util.List;
 public interface AddressDao {
     List<Address> selectAllAddress(int userId);
     int insertAddress(Address address);
+    int getAddressCount(int userId);
+
+
+
 
     Address selectAddressId(@Param("addressId") int addressId);
     List<Address>selectAllAddressByPage(@Param("pagelimit") int pagelimit, @Param("size") int size);
@@ -15,5 +19,4 @@ public interface AddressDao {
     int deleteAddress(@Param("addressId") int addressId);
     int deleteAll(@Param("addressIds") List<Integer> items);
 
-    List<Address>selectAddressOfUserId(@Param("userId") int userId);
 }

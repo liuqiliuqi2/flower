@@ -49,18 +49,18 @@ public class UserController {
     /**
      * 批量启用
      * */
-    @RequestMapping("/MoreUpdateFlowerStateIdStart")
+    @RequestMapping("/MoreUpdateUserStateIdStart")
     @ResponseBody
-    public R MoreUpdateFlowerStateIdStart(@RequestBody List<Integer> userIds){
-        return R.ok(userService.MoreUpdateFlowerStateId(userIds,9));
+    public R MoreUpdateUserStateIdStart(@RequestBody List<Integer> userIds){
+        return R.ok(userService.MoreUpdateUserStateId(userIds,9));
     }
     /**
      * 批量停用
      * */
-    @RequestMapping("/MoreUpdateFlowerStateIdStop")
+    @RequestMapping("/MoreUpdateUserStateIdStop")
     @ResponseBody
-    public R MoreUpdateFlowerStateIdStop(@RequestBody List<Integer> userIds){
-        return R.ok(userService.MoreUpdateFlowerStateId(userIds,10));
+    public R MoreUpdateUserStateIdStop(@RequestBody List<Integer> userIds){
+        return R.ok(userService.MoreUpdateUserStateId(userIds,10));
     }
 
     /**
@@ -70,6 +70,15 @@ public class UserController {
     @ResponseBody
     public R UpdateUserStateId(int userId,int userStateId){
         return R.ok(userService.UpdateUserStateId(userId,userStateId));
+    }
+
+    /**
+     * 修改状态
+     * */
+    @RequestMapping("/UpdateUserPassword")
+    @ResponseBody
+    public R UpdateUserPassword(int userId){
+        return R.ok(userService.UpdateUserPassword(userId));
     }
 
     /**
