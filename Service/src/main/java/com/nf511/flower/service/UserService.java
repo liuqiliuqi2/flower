@@ -3,10 +3,7 @@ package com.nf511.flower.service;
 
 import com.nf511.flower.entity.User;
 import org.apache.ibatis.annotations.Param;
-
-import java.security.NoSuchAlgorithmException;
 import java.util.List;
-import java.util.Map;
 
 public interface UserService {
 

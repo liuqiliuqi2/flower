@@ -22,7 +22,7 @@ public class UserController {
     /**
      * 查询全部用户
      * */
-    @RequestMapping(path = "/selectAllUser",method = RequestMethod.POST)
+    @RequestMapping(path = "/selectAllUser")
     @ResponseBody
     public R selectAllUser(User user) {
         return R.ok(userService.selectAllUser(user));
@@ -31,7 +31,7 @@ public class UserController {
     /**
      * 查询全部用户数量
      * */
-    @RequestMapping(path = "/getUserCount",method = RequestMethod.POST)
+    @RequestMapping(path = "/getUserCount")
     @ResponseBody
     public R getUserCount(User user) {
         return R.ok(userService.getUserCount(user));
