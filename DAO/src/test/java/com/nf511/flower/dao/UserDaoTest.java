@@ -31,15 +31,35 @@ public class UserDaoTest {
     }
 
     @Test
-    public void selectByUserName() {
+    public void selectAllUser() {
+        User user=new User();
+        user.setSkip(0);
+        user.setSize(3);
+        System.out.println(userDao.selectAllUser(user));
+    }
+
+    @Test
+    public void getUserCount() {
+        User user=new User();
+        System.out.println(userDao.getUserCount(user));
+    }
+
+    @Test
+    public void selectByUserPhoneAndMailbox() {
         System.out.println(userDao.selectByUserPhoneAndMailbox("2392573484@qq.com"));
+    }
+
+    @Test
+    public void UpdateUserStateId() {
+        System.out.println(userDao.UpdateUserStateId(100000000,9));
     }
 
 
     @Test
-    public void selectUserId() {
-        System.out.println(userDao.selectUserId(100000000));
+    public void deleteUser() {
+        System.out.println(userDao.deleteUser(100000000));
     }
+
     @Test
     public void updateUser() {
         User user=new User();

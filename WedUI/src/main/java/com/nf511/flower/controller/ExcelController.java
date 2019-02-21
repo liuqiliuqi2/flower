@@ -1,6 +1,7 @@
 package com.nf511.flower.controller;
 
 import com.nf511.flower.entity.Address;
+import com.nf511.flower.entity.Flower;
 import com.nf511.flower.service.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -135,6 +136,29 @@ public class ExcelController {
             response.getOutputStream().flush();
             response.getOutputStream().close();
         }
+    }
+
+
+    //商品导出
+    @RequestMapping("/pushcsv")
+    @ResponseBody
+    public void pushcsv(HttpServletResponse response,Flower flower) throws IOException {
+        response.setHeader("Content-Type","application/octet-stream;charset=utf-8");
+        response.setHeader("Content-Disposition","attachment;filename=product.csv");
+        PrintWriter out = response.getWriter();
+        //加上bom头,解决excel打开乱码问题
+        byte[] bomStrByteArr = new byte[] { (byte) 0xef, (byte) 0xbb, (byte) 0xbf };
+        String bomStr = new String(bomStrByteArr, "UTF-8");
+        out.write(bomStr);
+        System.out.println(bomStr);
+
+        List<Flower> list=flowerService.getFlower(flower);
+        StringBuffer str=new StringBuffer("");
+        str.append("鲜花编号,鲜花名称\r\n");
+        for (Flower commodity:list) {
+            str.append(commodity.getFlowerId()+","+commodity.getFlowerName()+"\r\n");
+        }
+        response.getWriter().write(str.toString());
     }
 
 }

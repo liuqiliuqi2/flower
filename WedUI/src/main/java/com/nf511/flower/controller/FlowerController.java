@@ -47,7 +47,7 @@ public class FlowerController {
 
     @RequestMapping("/MoreUpdateFlowerStateIdStop")
     @ResponseBody
-    public R MoreUpdateFlowerStateId(@RequestBody List<Integer> flowerIds){
+    public R MoreUpdateFlowerStateIdStop(@RequestBody List<Integer> flowerIds){
         return R.ok(flowerService.MoreUpdateFlowerStateId(flowerIds,1));
     }
 

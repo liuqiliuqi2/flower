@@ -4,20 +4,17 @@
 <mapper namespace="com.nf511.flower.dao.UserDao"><!--.dao-->
     <!--id应该是接口中的方法，结果类型如没有配置别名则应该使用全名称-->
 
-    <!--查询手机号或邮箱-->
-    <select id="selectByUserPhoneAndMailbox" resultMap="allUser">
-      select  * from user where userPhone=#{userPhoneAndMailbox} or userMailbox=#{userPhoneAndMailbox}
+    <!--查询所有-->
+    <select id="selectAllUser" resultMap="allUser">
+      select  * from user u,state s
+      <where>
+          u.userStateId=s.stateId
+          <if test="userName!=null and userName!=''">
+              and u.userName like concat(concat('%',#{userName}),'%')
+          </if>
+      </where>
+      ORDER BY u.registerDate DESC limit #{skip},#{size}
     </select>
-
-    <!--修改-->
-    <update id="updateUser" parameterType="User">
-      update user set
-      userPassword=#{userPassword},userSex=#{userSex},userName=#{userName},
-      userMailbox=#{userMailbox},userPhone=#{userPhone},userAddress=#{userAddress},
-      userHeadPortrait=#{userHeadPortrait},userBirthday=#{userBirthday}
-      where userId=#{userId}
-    </update>
-
     <!--结果集-->
     <resultMap id="allUser" type="User">
         <id column="userId" property="userId"></id>
@@ -29,25 +26,53 @@
         <result column="userAddress" property="userAddress"></result>
         <result column="userHeadPortrait" property="userHeadPortrait"></result>
         <result column="userBirthday" property="userBirthday"></result>
+        <result column="userStateId" property="userStateId"></result>
+        <result column="registerDate" property="registerDate"></result>
+        <association property="state" javaType="State">
+            <id property="stateId" column="stateId"></id>
+            <result property="stateName" column="stateName"></result>
+        </association>
     </resultMap>
 
-    <!--查询所有-->
-    <select id="selectAllUser" resultMap="allUser">
-      select  * from user
-    </select>
-    <!--查询id-->
-    <select id="selectUserId" resultMap="allUser">
-      select  * from user where userId=#{userId}
-    </select>
-    <!--登陆-->
-    <select id="userLogin" resultType="User">
-      select  * from user where userName=#{userName} and userPassword=#{userPassword}
+    <select id="getUserCount" resultType="int">
+        select count(*) from user u,state s
+        <where>
+            u.userStateId=s.stateId
+            <if test="userName!=null and userName!=''">
+                and u.userName like concat(concat('%',#{userName}),'%')
+            </if>
+        </where>
     </select>
 
-    <!--分页查询-->
-    <select id="selectAllUserByPage" resultMap="allUser">
-         select * from user limit #{pagelimit},#{size};
+    <!--查询手机号或邮箱-->
+    <select id="selectByUserPhoneAndMailbox" resultMap="allUser">
+      select  * from user where userPhone=#{userPhoneAndMailbox} or userMailbox=#{userPhoneAndMailbox}
     </select>
+
+    <!-- 修改用户状态 -->
+    <update id="UpdateUserStateId" parameterType="User">
+        update user set
+        userStateId=#{userStateId}
+        where userId=#{userId}
+    </update>
+
+    <!-- 多修改用户状态 -->
+    <update id="MoreUpdateFlowerStateId" parameterType="User">
+        update user set
+        userStateId=#{userStateId}
+        where userId in
+        <foreach collection="userIds" item="userId" open="(" separator="," close=")">
+            #{userId}
+        </foreach>
+    </update>
+
+    <!--修改-->
+    <update id="updateUser" parameterType="User">
+      update user set
+      userSex=#{userSex},userName=#{userName},userMailbox=#{userMailbox},
+      userPhone=#{userPhone},userAddress=#{userAddress},userBirthday=#{userBirthday}
+      where userId=#{userId}
+    </update>
 
     <!--删除-->
     <delete id="deleteUser" parameterType="int">
@@ -58,12 +83,10 @@
     <delete id="deleteAll" parameterType="java.util.List">
         delete from user
         <where>
-            <if test="userId!=null and userId.size() gt 0">
-                userId in
-                <foreach collection="userIds" item="item" open="(" separator="," close=")">
-                    #{item}
-                </foreach>
-            </if>
+           userId in
+           <foreach collection="userIds" item="userId" open="(" separator="," close=")">
+               #{userId}
+           </foreach>
         </where>
     </delete>
 

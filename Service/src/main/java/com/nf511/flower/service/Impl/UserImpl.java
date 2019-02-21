@@ -17,40 +17,40 @@ public class UserImpl implements UserService {
     @Autowired
     UserDao userDao;
 
+
+    public List<User> selectAllUser(User user) {
+        return userDao.selectAllUser(user);
+    }
+
+    public int getUserCount(User user) {
+        return userDao.getUserCount(user);
+    }
+
     public User selectByUserPhoneAndMailbox(String userPhoneAndMailbox) {
         return userDao.selectByUserPhoneAndMailbox(userPhoneAndMailbox);
     }
 
-
-
-    public List<User> selectAllUser() {
-        return userDao.selectAllUser();
-    }
-    public User userLogin(String userName,String userPassword){
-        return userDao.userLogin(userName,userPassword);
+    public int UpdateUserStateId(long userId, long userStateId) {
+        return userDao.UpdateUserStateId(userId, userStateId);
     }
 
-    public User selectUserId(int userId) {
-        return userDao.selectUserId(userId);
-    }
-
-    public List<User> selectAllUserByPage(int pagelimit, int size) {
-        return userDao.selectAllUserByPage(pagelimit,size);
-    }
-
-    public int insertUser(User user) {
-        return userDao.insertUser(user);
+    public int MoreUpdateFlowerStateId(List<Integer> userIds, long userStateId) {
+        return userDao.MoreUpdateFlowerStateId(userIds, userStateId);
     }
 
     public int updateUser(User user) {
         return userDao.updateUser(user);
     }
 
+    public int insertUser(User user) {
+        return userDao.insertUser(user);
+    }
+
     public int deleteUser(int userId) {
         return userDao.deleteUser(userId);
     }
 
-    public int deleteAll(List<Integer> items) {
-        return userDao.deleteAll(items);
+    public int deleteAll(List<Integer> userIds) {
+        return userDao.deleteAll(userIds);
     }
 }

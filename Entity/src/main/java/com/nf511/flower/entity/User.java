@@ -11,6 +11,12 @@ public class User {
   private String userAddress;
   private String userHeadPortrait;
   private String userBirthday;
+  private long userStateId;
+  private String registerDate;
+
+  private int skip;
+  private int size;
+  private State state;
 
 
   public long getUserId() {
@@ -91,6 +97,47 @@ public class User {
     this.userBirthday = userBirthday;
   }
 
+
+  public long getUserStateId() {
+    return userStateId;
+  }
+
+  public void setUserStateId(long userStateId) {
+    this.userStateId = userStateId;
+  }
+
+  public String getRegisterDate() {
+    return registerDate;
+  }
+
+  public void setRegisterDate(String registerDate) {
+    this.registerDate = registerDate;
+  }
+
+  public int getSkip() {
+    return skip;
+  }
+
+  public void setSkip(int skip) {
+    this.skip = skip;
+  }
+
+  public int getSize() {
+    return size;
+  }
+
+  public void setSize(int size) {
+    this.size = size;
+  }
+
+  public State getState() {
+    return state;
+  }
+
+  public void setState(State state) {
+    this.state = state;
+  }
+
   @Override
   public String toString() {
     return "User{" +
@@ -102,7 +149,12 @@ public class User {
             ", userPhone='" + userPhone + '\'' +
             ", userAddress='" + userAddress + '\'' +
             ", userHeadPortrait='" + userHeadPortrait + '\'' +
-            ", userBirthday=" + userBirthday +
+            ", userBirthday='" + userBirthday + '\'' +
+            ", userStateId=" + userStateId +
+            ", registerDate='" + registerDate + '\'' +
+            ", skip=" + skip +
+            ", size=" + size +
+            ", state=" + state +
             '}';
   }
 }

@@ -5,13 +5,21 @@ import java.util.List;
 
 public interface UserDao {
 
+    List<User> selectAllUser(User user);
+
+    int getUserCount(User user);
+
     User selectByUserPhoneAndMailbox(@Param("userPhoneAndMailbox") String userPhoneAndMailbox);
+
+    int UpdateUserStateId(@Param("userId") long userId, @Param("userStateId") long userStateId);
+
+    int MoreUpdateFlowerStateId(@Param("userIds") List<Integer> userIds,@Param("userStateId") long userStateId);
+
     int updateUser(User user);
-    List<User> selectAllUser();
-    User userLogin(@Param("userName") String userName, @Param("userPassword") String userPassword);
-    User selectUserId(@Param("userId") int userId);
-    List<User>selectAllUserByPage(@Param("pagelimit") int pagelimit, @Param("size") int size);
+
     int insertUser(User user);
+
     int deleteUser(@Param("userId") int userId);
-    int deleteAll(@Param("userIds") List<Integer> items);
+
+    int deleteAll(@Param("userIds") List<Integer> userIds);
 }

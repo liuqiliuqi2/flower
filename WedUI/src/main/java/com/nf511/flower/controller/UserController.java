@@ -20,41 +20,56 @@ public class UserController {
     UserService userService;
 
     /**
+     * 查询全部用户
+     * */
+    @RequestMapping(path = "/selectAllUser",method = RequestMethod.POST)
+    @ResponseBody
+    public R selectAllUser(User user) {
+        return R.ok(userService.selectAllUser(user));
+    }
+
+    /**
+     * 查询全部用户数量
+     * */
+    @RequestMapping(path = "/getUserCount",method = RequestMethod.POST)
+    @ResponseBody
+    public R getUserCount(User user) {
+        return R.ok(userService.getUserCount(user));
+    }
+
+    /**
      * 根据手机号或邮箱查询
      * */
     @RequestMapping("/selectByUserPhoneAndMailbox")
     @ResponseBody
     public R selectByUserPhoneAndMailbox(String userPhoneAndMailbox){
-        System.out.printf(userPhoneAndMailbox);
         return R.ok(userService.selectByUserPhoneAndMailbox(userPhoneAndMailbox));
     }
 
-
     /**
-     * 查询全部用户
+     * 批量启用
      * */
-    @RequestMapping(path = "/selectAllUser",method = RequestMethod.POST)
+    @RequestMapping("/MoreUpdateFlowerStateIdStart")
     @ResponseBody
-    public R selectAllUser() {
-        return R.ok(userService.selectAllUser());
+    public R MoreUpdateFlowerStateIdStart(@RequestBody List<Integer> userIds){
+        return R.ok(userService.MoreUpdateFlowerStateId(userIds,9));
+    }
+    /**
+     * 批量停用
+     * */
+    @RequestMapping("/MoreUpdateFlowerStateIdStop")
+    @ResponseBody
+    public R MoreUpdateFlowerStateIdStop(@RequestBody List<Integer> userIds){
+        return R.ok(userService.MoreUpdateFlowerStateId(userIds,10));
     }
 
     /**
-     *  用户登陆
+     * 修改状态
      * */
-    @RequestMapping(path = "/userLogin",method = RequestMethod.POST)
+    @RequestMapping("/UpdateUserStateId")
     @ResponseBody
-    public User userLogin(String userName ,String userPassword){
-        return userService.userLogin(userName,userPassword);
-    }
-
-    /**
-     * 根据ID查询
-     * */
-    @RequestMapping(path = "/selectUserId",method = RequestMethod.POST)
-    @ResponseBody
-    public R selectUserId(int userId){
-        return R.ok(userService.selectUserId(userId));
+    public R UpdateUserStateId(int userId,int userStateId){
+        return R.ok(userService.UpdateUserStateId(userId,userStateId));
     }
 
     /**
@@ -89,7 +104,7 @@ public class UserController {
      * */
     @RequestMapping(path = "/deleteAll",method = RequestMethod.POST)
     @ResponseBody
-    public R deleteAll(@RequestBody List<Integer> items){
-        return R.ok(userService.deleteAll(items));
+    public R deleteAll(@RequestBody List<Integer> userIds){
+        return R.ok(userService.deleteAll(userIds));
     }
 }
