@@ -49,7 +49,7 @@ public class OrderflowerDaoTest {
         List cartId=new ArrayList();
         cartId.add(3);
         cartId.add(4);
-        Assert.assertEquals(2, orderflowerDao.updateOrderflowerBycartId(1,cartId));
+        Assert.assertEquals(2, orderflowerDao.updateOrderflowerBycartId(2,cartId));
         System.out.println(cartId);
     }
 

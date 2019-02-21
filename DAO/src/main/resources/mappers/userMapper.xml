@@ -9,8 +9,17 @@
       select  * from user u,state s
       <where>
           u.userStateId=s.stateId
+          <if test="userId!=null and userId!=''">
+              and u.userId=#{userId}
+          </if>
           <if test="userName!=null and userName!=''">
               and u.userName like concat(concat('%',#{userName}),'%')
+          </if>
+          <if test="userPhone!=null and userPhone!=''">
+              and u.userPhone like concat(concat('%',#{userPhone}),'%')
+          </if>
+          <if test="userMailbox!=null and userMailbox!=''">
+              and u.userMailbox like concat(concat('%',#{userMailbox}),'%')
           </if>
       </where>
       ORDER BY u.registerDate DESC limit #{skip},#{size}
@@ -38,8 +47,17 @@
         select count(*) from user u,state s
         <where>
             u.userStateId=s.stateId
+            <if test="userId!=null and userId!=''">
+                and u.userId=#{userId}
+            </if>
             <if test="userName!=null and userName!=''">
                 and u.userName like concat(concat('%',#{userName}),'%')
+            </if>
+            <if test="userPhone!=null and userPhone!=''">
+                and u.userPhone like concat(concat('%',#{userPhone}),'%')
+            </if>
+            <if test="userMailbox!=null and userMailbox!=''">
+                and u.userMailbox like concat(concat('%',#{userMailbox}),'%')
             </if>
         </where>
     </select>
