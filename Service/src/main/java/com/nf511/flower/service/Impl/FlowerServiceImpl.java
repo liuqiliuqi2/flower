@@ -30,6 +30,18 @@ public class FlowerServiceImpl implements FlowerService {
         return flowerDAO.UpdateFlowerStateId(flowerId, stateId);
     }
 
+    public int UpdateFlowerCollectVolume(long flowerId, long flowerCollectVolume) {
+        return flowerDAO.UpdateFlowerCollectVolume(flowerId, flowerCollectVolume);
+    }
+
+    public int UpdateFlowerSalesVolume(long flowerId, long flowerSalesVolume) {
+        return flowerDAO.UpdateFlowerSalesVolume(flowerId, flowerSalesVolume);
+    }
+
+    public int UpdateFlowerTotalSales(long flowerId, long flowerTotalSales) {
+        return flowerDAO.UpdateFlowerTotalSales(flowerId, flowerTotalSales);
+    }
+
     public int MoreUpdateFlowerStateId(List<Integer> flowerIds, long stateId) {
         return flowerDAO.MoreUpdateFlowerStateId(flowerIds, stateId);
     }

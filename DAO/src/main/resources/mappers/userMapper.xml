@@ -77,10 +77,17 @@
         where userId=#{userId}
     </update>
 
-    <!-- 初始化用户密码 -->
+    <!-- 修改用户密码 -->
     <update id="UpdateUserPassword" parameterType="User">
         update user set
-        userPassword="123456"
+        userPassword=#{userPassword}
+        where userId=#{userId}
+    </update>
+
+    <!-- 修改用户邮箱 -->
+    <update id="UpdateUserMailbox" parameterType="User">
+        update user set
+        userMailbox=#{userMailbox}
         where userId=#{userId}
     </update>
 

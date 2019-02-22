@@ -10,6 +10,8 @@ public interface FlowertypeDAO {
 
     List<Flowertype> getAllFlowertype();
 
+
+
     Flowertype selectAllFlowertypeId(@Param("flowerTypeId") int flowerTypeId);
     int insertFlowertype(Flowertype flowertype);
     int updateFlowertype(Flowertype flowertype);

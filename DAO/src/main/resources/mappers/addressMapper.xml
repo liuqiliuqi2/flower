@@ -11,16 +11,38 @@
         <result column="consigneePhone" property="consigneePhone"></result>
         <result column="address" property="address"></result>
         <result column="detailedAddress" property="detailedAddress"></result>
+        <result column="stateId" property="stateId"></result>
+        <association property="state" javaType="State">
+            <id property="stateId" column="stateId"></id>
+            <result property="stateName" column="stateName"></result>
+        </association>
     </resultMap>
 
     <!--查询所有-->
     <select id="selectAllAddress" resultMap="allAddress">
-       select * from Address where userId=#{userId}
+       select * from Address a,state s
+       where a.stateId=s.stateId and userId=#{userId}
     </select>
 
     <select id="getAddressCount" resultType="int">
         select count(*) from Address where userId=#{userId}
     </select>
+
+    <!--添加-->
+    <insert id="insertAddress" parameterType="Address" useGeneratedKeys="true" keyProperty="addressId">
+        insert into address
+        (userId,consigneeName,consigneePhone,address,detailedAddress)
+        values
+         (#{userId},#{consigneeName},#{consigneePhone},#{address},
+        #{detailedAddress})
+    </insert>
+
+    <!--修改地址默认状态-->
+    <update id="updateAddressStateId" parameterType="Address">
+      update address set
+      stateId=#{stateId} where addressId=#{addressId}
+    </update>
+
 
     <!--查询id-->
     <select id="selectAddressId" resultMap="allAddress">
@@ -50,11 +72,7 @@
         </where>
     </delete>
 
-    <!--添加-->
-    <insert id="insertAddress" parameterType="Address" useGeneratedKeys="true" keyProperty="addressId">
-        insert into address(userId,consigneeName,consigneePhone,address,detailedAddress)
-        values (#{userId},#{consigneeName},#{consigneePhone},#{address},#{detailedAddress})
-    </insert>
+
 
     <!--修改-->
     <update id="updateAddress" parameterType="Address">

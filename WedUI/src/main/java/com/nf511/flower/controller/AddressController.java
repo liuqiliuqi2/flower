@@ -37,6 +37,29 @@ public class AddressController {
     }
 
     /**
+     * 添加
+     * */
+    @RequestMapping(path = "/insertAddress",method = RequestMethod.POST)
+    @ResponseBody
+    public R insertAddress(Address address){
+        return R.ok(addressService.insertAddress(address));
+    }
+
+    /**
+     * 修改地址默认状态
+     * */
+    @RequestMapping(path = "/updateAddressStateId",method = RequestMethod.POST)
+    @ResponseBody
+    public R updateAddressStateId(int addressId,int stateId){
+        return R.ok(addressService.updateAddressStateId(addressId,stateId));
+    }
+
+
+
+
+
+
+    /**
      * 根据ID查询
      * */
     @RequestMapping(path = "/selectAddressId",method = RequestMethod.POST)
@@ -45,14 +68,7 @@ public class AddressController {
         return R.ok(addressService.selectAddressId(addressId));
     }
 
-    /**
-     * 添加
-     * */
-    @RequestMapping(path = "/insertAddress",method = RequestMethod.POST)
-    @ResponseBody
-    public R insertAddress(Address address){
-        return R.ok(addressService.insertAddress(address));
-    }
+
 
     /**
      * 修改

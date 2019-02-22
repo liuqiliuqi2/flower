@@ -9,6 +9,9 @@ public class Address {
   private String consigneePhone;
   private String address;
   private String detailedAddress;
+  private long stateId;
+
+  private State state;
 
 
   public long getAddressId() {
@@ -64,6 +67,22 @@ public class Address {
     this.detailedAddress = detailedAddress;
   }
 
+  public long getStateId() {
+    return stateId;
+  }
+
+  public void setStateId(long stateId) {
+    this.stateId = stateId;
+  }
+
+  public State getState() {
+    return state;
+  }
+
+  public void setState(State state) {
+    this.state = state;
+  }
+
   @Override
   public String toString() {
     return "Address{" +
@@ -73,6 +92,8 @@ public class Address {
             ", consigneePhone='" + consigneePhone + '\'' +
             ", address='" + address + '\'' +
             ", detailedAddress='" + detailedAddress + '\'' +
+            ", stateId=" + stateId +
+            ", state=" + state +
             '}';
   }
 }

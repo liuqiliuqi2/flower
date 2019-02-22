@@ -37,5 +37,10 @@ public class AddressDaoTest {
         System.out.println(addressDao.getAddressCount(100000000));
     }
 
+    @Test
+    public void updateAddressStateId() {
+        System.out.println(addressDao.updateAddressStateId(3,11));
+    }
+
 
 }

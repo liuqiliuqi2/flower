@@ -26,7 +26,7 @@ public class CollectController {
     }
 
     /**
-     * 查询全部
+     * 添加
      * */
     @RequestMapping(path = "/insertCollect")
     @ResponseBody
@@ -35,12 +35,21 @@ public class CollectController {
     }
 
     /**
-     * 查询全部
+     * 查询是否存在
      * */
     @RequestMapping(path = "/selectCollectOne")
     @ResponseBody
     public R selectCollectOne(int userId,int flowerId){
         return R.ok(collectService.selectCollectOne(userId,flowerId));
+    }
+
+    /**
+     * 删除
+     * */
+    @RequestMapping(path = "/deleteCollect")
+    @ResponseBody
+    public R deleteCollect(int collect){
+        return R.ok(collectService.deleteCollect(collect));
     }
 
 }

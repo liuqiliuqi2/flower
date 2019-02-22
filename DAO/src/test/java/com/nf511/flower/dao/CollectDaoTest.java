@@ -46,4 +46,9 @@ public class CollectDaoTest {
     public void selectCollectOne() {
         System.out.println(collectDao.selectCollectOne(100000000,2));
     }
+
+    @Test
+    public void deleteCollect() {
+        System.out.println(collectDao.deleteCollect(2));
+    }
 }

@@ -73,12 +73,21 @@ public class UserController {
     }
 
     /**
-     * 修改状态
+     * 修改密码
      * */
     @RequestMapping("/UpdateUserPassword")
     @ResponseBody
-    public R UpdateUserPassword(int userId){
-        return R.ok(userService.UpdateUserPassword(userId));
+    public R UpdateUserPassword(int userId,String userPassword){
+        return R.ok(userService.UpdateUserPassword(userId,userPassword));
+    }
+
+    /**
+     * 修改邮箱
+     * */
+    @RequestMapping("/UpdateUserMailbox")
+    @ResponseBody
+    public R UpdateUserMailbox(int userId,String userMailbox){
+        return R.ok(userService.UpdateUserMailbox(userId,userMailbox));
     }
 
     /**

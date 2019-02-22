@@ -9,6 +9,8 @@ public interface AddressDao {
     List<Address> selectAllAddress(int userId);
     int insertAddress(Address address);
     int getAddressCount(int userId);
+    int updateAddressStateId(@Param("addressId") long addressId,@Param("stateId") long stateId);
+
 
 
 

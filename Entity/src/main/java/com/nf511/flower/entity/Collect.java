@@ -5,6 +5,7 @@ public class Collect {
   private long collectId;
   private long flowerId;
   private long userId;
+  private String CollectDateTime;
 
   private Flower flower;
 
@@ -42,12 +43,21 @@ public class Collect {
     this.flower = flower;
   }
 
+  public String getCollectDateTime() {
+    return CollectDateTime;
+  }
+
+  public void setCollectDateTime(String collectDateTime) {
+    CollectDateTime = collectDateTime;
+  }
+
   @Override
   public String toString() {
     return "Collect{" +
             "collectId=" + collectId +
             ", flowerId=" + flowerId +
             ", userId=" + userId +
+            ", CollectDateTime='" + CollectDateTime + '\'' +
             ", flower=" + flower +
             '}';
   }
