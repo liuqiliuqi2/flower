@@ -3,19 +3,51 @@
 <!--命名空间应该是对应接口的包名+接口名 -->
 <mapper namespace="com.nf511.flower.dao.CollectDao"><!--.dao-->
     <!--id应该是接口中的方法，结果类型如没有配置别名则应该使用全名称-->
-
+    <!--查询全部-->
+    <select id="selectAllCollect" resultMap="allCollect">
+         select * from collect
+    </select>
     <resultMap id="allCollect" type="Collect">
         <id column="collectId" property="collectId"></id>
         <result column="flowerId" property="flowerId"></result>
         <result column="userId" property="userId"></result>
+        <!--映射关系，指定属性与属性的类型-->
+        <association property="flower" javaType="Flower">
+            <id property="flowerId" column="flowerId"></id>
+            <result property="flowerTypeId" column="flowerTypeId"></result>
+            <result property="flowerUseId" column="flowerUseId"></result>
+            <result property="flowerBranchNumberId" column="flowerBranchNumberId"></result>
+            <result property="flowerMarketPrice" column="flowerMarketPrice"></result>
+            <result property="flowerPrice" column="flowerPrice"></result>
+            <result property="flowerInventory" column="flowerInventory"></result>
+            <result property="flowerImageName" column="flowerImageName"></result>
+            <result property="flowerName" column="flowerName"></result>
+            <result property="flowerDateTime" column="flowerDateTime"></result>
+            <result property="flowerMaterials" column="flowerMaterials"></result>
+            <result property="flowerPackaging" column="flowerPackaging"></result>
+            <result property="flowerLanguage" column="flowerLanguage"></result>
+            <result property="flowerIntroduce" column="flowerIntroduce"></result>
+            <result property="stateId" column="stateId"></result>
+            <result property="flowerSalesVolume" column="flowerSalesVolume"></result>
+            <result property="flowerTotalSales" column="flowerTotalSales"></result>
+            <result property="flowerCollectVolume" column="flowerCollectVolume"></result>
+        </association>
     </resultMap>
+
+    <!--添加-->
+    <insert id="insertCollect" parameterType="Collect" useGeneratedKeys="true" keyProperty="collectId">
+        insert into collect(flowerId,userId)
+        values (#{flowerId},#{userId})
+    </insert>
+
+    <select id="selectCollectOne" resultType="int">
+         select count(*) from collect where userId=#{userId} and flowerId=#{flowerId}
+    </select>
+
+
     <!--查询id-->
     <select id="selectAllCollectId" resultMap="allCollect">
       select  * from collect where collectId=#{collectId}
-    </select>
-    <!--查询全部-->
-    <select id="selectAllCollect" resultMap="allCollect">
-         select * from collect
     </select>
     <!--分页查询-->
     <select id="selectAllCollectByPage" resultMap="allCollect">
@@ -40,11 +72,7 @@
         </where>
     </delete>
 
-    <!--添加-->
-    <insert id="insertCollect" parameterType="Collect" useGeneratedKeys="true" keyProperty="collectId">
-        insert into collect(flowerId)
-        values (#{flowerId})
-    </insert>
+
     <!--修改-->
     <update id="updateCollect" parameterType="Collect">
       update collect set flowerId=#{flowerId} where collectId=#{collectId}

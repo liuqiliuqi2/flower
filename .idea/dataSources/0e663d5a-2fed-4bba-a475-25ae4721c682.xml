@@ -1269,52 +1269,60 @@
       <DefaultExpression>&apos;0.00&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="294" parent="232" name="flowerTypeId_FK">
+    <column id="294" parent="232" name="flowerCollectVolume">
+      <Position>18</Position>
+      <Comment>收藏量</Comment>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="295" parent="232" name="flowerTypeId_FK">
       <ColNames>flowerTypeId</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="295" parent="232" name="flowerUseId_FK">
+    <index id="296" parent="232" name="flowerUseId_FK">
       <ColNames>flowerUseId</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="296" parent="232" name="flowerBranchNumberId_FK">
+    <index id="297" parent="232" name="flowerBranchNumberId_FK">
       <ColNames>flowerBranchNumberId</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="297" parent="232" name="flowerState_FK">
+    <index id="298" parent="232" name="flowerState_FK">
       <ColNames>stateId</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="298" parent="232" name="PRIMARY">
+    <key id="299" parent="232" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>flowerId</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="299" parent="232" name="flowerTypeId_FK">
+    <foreign-key id="300" parent="232" name="flowerTypeId_FK">
       <ColNames>flowerTypeId</ColNames>
       <RefSchemaName>flower</RefSchemaName>
       <RefTableName>flowertype</RefTableName>
       <RefColNames>flowerTypeId</RefColNames>
     </foreign-key>
-    <foreign-key id="300" parent="232" name="flowerUseId_FK">
+    <foreign-key id="301" parent="232" name="flowerUseId_FK">
       <ColNames>flowerUseId</ColNames>
       <RefSchemaName>flower</RefSchemaName>
       <RefTableName>floweruse</RefTableName>
       <RefColNames>flowerUseId</RefColNames>
     </foreign-key>
-    <foreign-key id="301" parent="232" name="flowerBranchNumberId_FK">
+    <foreign-key id="302" parent="232" name="flowerBranchNumberId_FK">
       <ColNames>flowerBranchNumberId</ColNames>
       <RefSchemaName>flower</RefSchemaName>
       <RefTableName>flowerbranchnumber</RefTableName>
       <RefColNames>flowerBranchNumberId</RefColNames>
     </foreign-key>
-    <foreign-key id="302" parent="232" name="flowerState_FK">
+    <foreign-key id="303" parent="232" name="flowerState_FK">
       <ColNames>stateId</ColNames>
       <RefSchemaName>flower</RefSchemaName>
       <RefTableName>state</RefTableName>
       <RefColNames>stateId</RefColNames>
     </foreign-key>
-    <column id="303" parent="233" name="flowerBranchNumberId">
+    <column id="304" parent="233" name="flowerBranchNumberId">
       <Position>1</Position>
       <Comment>鲜花枝数编号</Comment>
       <DataType>int(11)|0s</DataType>
@@ -1322,19 +1330,19 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="304" parent="233" name="flowerBranchNumber">
+    <column id="305" parent="233" name="flowerBranchNumber">
       <Position>2</Position>
       <Comment>鲜花枝数</Comment>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="305" parent="233" name="PRIMARY">
+    <key id="306" parent="233" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>flowerBranchNumberId</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="306" parent="234" name="flowerTypeId">
+    <column id="307" parent="234" name="flowerTypeId">
       <Position>1</Position>
       <Comment>鲜花类型编号</Comment>
       <DataType>int(11)|0s</DataType>
@@ -1342,19 +1350,19 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="307" parent="234" name="flowerTypeName">
+    <column id="308" parent="234" name="flowerTypeName">
       <Position>2</Position>
       <Comment>鲜花类型名称</Comment>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="308" parent="234" name="PRIMARY">
+    <key id="309" parent="234" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>flowerTypeId</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="309" parent="235" name="flowerUseId">
+    <column id="310" parent="235" name="flowerUseId">
       <Position>1</Position>
       <Comment>鲜花用途编号</Comment>
       <DataType>int(11)|0s</DataType>
@@ -1362,19 +1370,19 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="310" parent="235" name="flowerUseName">
+    <column id="311" parent="235" name="flowerUseName">
       <Position>2</Position>
       <Comment>鲜花用途名称</Comment>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="311" parent="235" name="PRIMARY">
+    <key id="312" parent="235" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>flowerUseId</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="312" parent="236" name="imageId">
+    <column id="313" parent="236" name="imageId">
       <Position>1</Position>
       <Comment>图片编号</Comment>
       <DataType>int(11)|0s</DataType>
@@ -1382,33 +1390,33 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="313" parent="236" name="imageName">
+    <column id="314" parent="236" name="imageName">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="314" parent="236" name="flowerId">
+    <column id="315" parent="236" name="flowerId">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="315" parent="236" name="image_flower_FK">
+    <index id="316" parent="236" name="image_flower_FK">
       <ColNames>flowerId</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="316" parent="236" name="PRIMARY">
+    <key id="317" parent="236" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>imageId</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="317" parent="236" name="image_flower_FK">
+    <foreign-key id="318" parent="236" name="image_flower_FK">
       <ColNames>flowerId</ColNames>
       <RefSchemaName>flower</RefSchemaName>
       <RefTableName>flower</RefTableName>
       <RefColNames>flowerId</RefColNames>
     </foreign-key>
-    <column id="318" parent="237" name="orderId">
+    <column id="319" parent="237" name="orderId">
       <Position>1</Position>
       <Comment>订单编号</Comment>
       <DataType>int(11)|0s</DataType>
@@ -1416,14 +1424,14 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="319" parent="237" name="orderPrice">
+    <column id="320" parent="237" name="orderPrice">
       <Position>2</Position>
       <Comment>订单的价格</Comment>
       <DataType>double(11,2 digit)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="320" parent="237" name="orderState">
+    <column id="321" parent="237" name="orderState">
       <Position>3</Position>
       <Comment>订单状态</Comment>
       <DataType>int(11)|0s</DataType>
@@ -1431,116 +1439,116 @@
       <DefaultExpression>&apos;3&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="321" parent="237" name="orderDate">
+    <column id="322" parent="237" name="orderDate">
       <Position>4</Position>
       <Comment>订单日期</Comment>
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="322" parent="237" name="orderConsigneeName">
+    <column id="323" parent="237" name="orderConsigneeName">
       <Position>5</Position>
       <Comment>订单收货人姓名</Comment>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="323" parent="237" name="orderConsigneePhone">
+    <column id="324" parent="237" name="orderConsigneePhone">
       <Position>6</Position>
       <Comment>订单收货人手机</Comment>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="324" parent="237" name="orderAddress">
+    <column id="325" parent="237" name="orderAddress">
       <Position>7</Position>
       <Comment>订单收货地址</Comment>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="325" parent="237" name="orderDetailedAddress">
+    <column id="326" parent="237" name="orderDetailedAddress">
       <Position>8</Position>
       <Comment>订单收货详细地址</Comment>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="326" parent="237" name="orderDeliveryTime">
+    <column id="327" parent="237" name="orderDeliveryTime">
       <Position>9</Position>
       <Comment>订单配送时间</Comment>
       <DataType>date|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="327" parent="237" name="orderDeliveryTimeFrame">
+    <column id="328" parent="237" name="orderDeliveryTimeFrame">
       <Position>10</Position>
       <Comment>订单配送时段</Comment>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="328" parent="237" name="orderBuyerName">
+    <column id="329" parent="237" name="orderBuyerName">
       <Position>11</Position>
       <Comment>下单人姓名</Comment>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="329" parent="237" name="orderBuyerPhone">
+    <column id="330" parent="237" name="orderBuyerPhone">
       <Position>12</Position>
       <Comment>下单人手机</Comment>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="330" parent="237" name="orderMailbox">
+    <column id="331" parent="237" name="orderMailbox">
       <Position>13</Position>
       <Comment>下单人邮箱</Comment>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="331" parent="237" name="orderGreetingMessage">
+    <column id="332" parent="237" name="orderGreetingMessage">
       <Position>14</Position>
       <Comment>订单贺卡留言</Comment>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="332" parent="237" name="userId">
+    <column id="333" parent="237" name="userId">
       <Position>15</Position>
       <Comment>对应的用户编号</Comment>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="333" parent="237" name="order_state_FK">
+    <index id="334" parent="237" name="order_state_FK">
       <ColNames>orderState</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="334" parent="237" name="order_user_FK">
+    <index id="335" parent="237" name="order_user_FK">
       <ColNames>userId</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="335" parent="237" name="PRIMARY">
+    <key id="336" parent="237" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>orderId</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="336" parent="237" name="order_state_FK">
+    <foreign-key id="337" parent="237" name="order_state_FK">
       <ColNames>orderState</ColNames>
       <RefSchemaName>flower</RefSchemaName>
       <RefTableName>state</RefTableName>
       <RefColNames>stateId</RefColNames>
     </foreign-key>
-    <foreign-key id="337" parent="237" name="order_user_FK">
+    <foreign-key id="338" parent="237" name="order_user_FK">
       <ColNames>userId</ColNames>
       <RefSchemaName>flower</RefSchemaName>
       <RefTableName>user</RefTableName>
       <RefColNames>userId</RefColNames>
     </foreign-key>
-    <column id="338" parent="238" name="orderflowerId">
+    <column id="339" parent="238" name="orderflowerId">
       <Position>1</Position>
       <Comment>订单鲜花编号</Comment>
       <DataType>int(11)|0s</DataType>
@@ -1548,65 +1556,65 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="339" parent="238" name="flowerId">
+    <column id="340" parent="238" name="flowerId">
       <Position>2</Position>
       <Comment>对应的鲜花编号</Comment>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="340" parent="238" name="orderId">
+    <column id="341" parent="238" name="orderId">
       <Position>3</Position>
       <Comment>对应的订单编号</Comment>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="341" parent="238" name="orderFlowerAmount">
+    <column id="342" parent="238" name="orderFlowerAmount">
       <Position>4</Position>
       <Comment>订单鲜花的数量</Comment>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="342" parent="238" name="cartId">
+    <column id="343" parent="238" name="cartId">
       <Position>5</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="343" parent="238" name="orderFlowerPrice">
+    <column id="344" parent="238" name="orderFlowerPrice">
       <Position>6</Position>
       <Comment>订单鲜花的价格</Comment>
       <DataType>double|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="344" parent="238" name="orderflower_flower_FK">
+    <index id="345" parent="238" name="orderflower_flower_FK">
       <ColNames>flowerId</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="345" parent="238" name="orderflower_order_FK">
+    <index id="346" parent="238" name="orderflower_order_FK">
       <ColNames>orderId</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="346" parent="238" name="PRIMARY">
+    <key id="347" parent="238" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>orderflowerId</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="347" parent="238" name="orderflower_flower_FK">
+    <foreign-key id="348" parent="238" name="orderflower_flower_FK">
       <ColNames>flowerId</ColNames>
       <RefSchemaName>flower</RefSchemaName>
       <RefTableName>flower</RefTableName>
       <RefColNames>flowerId</RefColNames>
     </foreign-key>
-    <foreign-key id="348" parent="238" name="orderflower_order_FK">
+    <foreign-key id="349" parent="238" name="orderflower_order_FK">
       <ColNames>orderId</ColNames>
       <RefSchemaName>flower</RefSchemaName>
       <RefTableName>order</RefTableName>
       <RefColNames>orderId</RefColNames>
     </foreign-key>
-    <column id="349" parent="239" name="stateId">
+    <column id="350" parent="239" name="stateId">
       <Position>1</Position>
       <Comment>状态编号</Comment>
       <DataType>int(11)|0s</DataType>
@@ -1614,19 +1622,19 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="350" parent="239" name="stateName">
+    <column id="351" parent="239" name="stateName">
       <Position>2</Position>
       <Comment>状态名称</Comment>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="351" parent="239" name="PRIMARY">
+    <key id="352" parent="239" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>stateId</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="352" parent="240" name="userId">
+    <column id="353" parent="240" name="userId">
       <Position>1</Position>
       <Comment>用户编号</Comment>
       <DataType>int(11)|0s</DataType>
@@ -1634,14 +1642,14 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="353" parent="240" name="userPassword">
+    <column id="354" parent="240" name="userPassword">
       <Position>2</Position>
       <Comment>用户密码</Comment>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="354" parent="240" name="userSex">
+    <column id="355" parent="240" name="userSex">
       <Position>3</Position>
       <Comment>用户性别</Comment>
       <DataType>varchar(255)|0s</DataType>
@@ -1649,45 +1657,43 @@
       <DefaultExpression>&apos;男&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="355" parent="240" name="userName">
+    <column id="356" parent="240" name="userName">
       <Position>4</Position>
       <Comment>用户姓名</Comment>
       <DataType>varchar(255)|0s</DataType>
-      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="356" parent="240" name="userMailbox">
+    <column id="357" parent="240" name="userMailbox">
       <Position>5</Position>
       <Comment>用户邮箱</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="357" parent="240" name="userPhone">
+    <column id="358" parent="240" name="userPhone">
       <Position>6</Position>
       <Comment>用户手机</Comment>
       <DataType>varchar(255)|0s</DataType>
-      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="358" parent="240" name="userAddress">
+    <column id="359" parent="240" name="userAddress">
       <Position>7</Position>
       <Comment>用户地址</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="359" parent="240" name="userHeadPortrait">
+    <column id="360" parent="240" name="userHeadPortrait">
       <Position>8</Position>
       <Comment>用户头像</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="360" parent="240" name="userBirthday">
+    <column id="361" parent="240" name="userBirthday">
       <Position>9</Position>
       <Comment>用户生日</Comment>
       <DataType>date|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="361" parent="240" name="userStateId">
+    <column id="362" parent="240" name="userStateId">
       <Position>10</Position>
       <Comment>对应的状态编号</Comment>
       <DataType>int(11)|0s</DataType>
@@ -1695,23 +1701,23 @@
       <DefaultExpression>&apos;9&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="362" parent="240" name="registerDate">
+    <column id="363" parent="240" name="registerDate">
       <Position>11</Position>
       <Comment>注册时间</Comment>
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="363" parent="240" name="userStateId_Fk">
+    <index id="364" parent="240" name="userStateId_Fk">
       <ColNames>userStateId</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="364" parent="240" name="PRIMARY">
+    <key id="365" parent="240" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>userId</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="365" parent="240" name="userStateId_Fk">
+    <foreign-key id="366" parent="240" name="userStateId_Fk">
       <ColNames>userStateId</ColNames>
       <RefSchemaName>flower</RefSchemaName>
       <RefTableName>state</RefTableName>

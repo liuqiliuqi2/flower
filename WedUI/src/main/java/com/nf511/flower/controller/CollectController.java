@@ -19,10 +19,28 @@ public class CollectController {
     /**
      * 查询全部
      * */
-    @RequestMapping(path = "/selectAllCollect",method = RequestMethod.POST)
+    @RequestMapping(path = "/selectAllCollect")
     @ResponseBody
-    public R selectAllCollect(){
-        return R.ok(collectService.selectAllCollect());
+    public R selectAllCollect(int userId){
+        return R.ok(collectService.selectAllCollect(userId));
+    }
+
+    /**
+     * 查询全部
+     * */
+    @RequestMapping(path = "/insertCollect")
+    @ResponseBody
+    public R insertCollect(Collect collect){
+        return R.ok(collectService.insertCollect(collect));
+    }
+
+    /**
+     * 查询全部
+     * */
+    @RequestMapping(path = "/selectCollectOne")
+    @ResponseBody
+    public R selectCollectOne(int userId,int flowerId){
+        return R.ok(collectService.selectCollectOne(userId,flowerId));
     }
 
 }

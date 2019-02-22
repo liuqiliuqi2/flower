@@ -13,8 +13,8 @@ public class CollectImpl implements CollectService {
     @Autowired
     CollectDao collectDao;
 
-    public List<Collect> selectAllCollect() {
-        return collectDao.selectAllCollect();
+    public List<Collect> selectAllCollect(long userId) {
+        return collectDao.selectAllCollect(userId);
     }
 
 
@@ -28,6 +28,10 @@ public class CollectImpl implements CollectService {
 
     public int insertCollect(Collect collect) {
         return collectDao.insertCollect(collect);
+    }
+
+    public int selectCollectOne(long userId, long flowerId) {
+        return collectDao.selectCollectOne(userId, flowerId);
     }
 
     public int updateCollect(Collect collect) {

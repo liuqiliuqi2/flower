@@ -6,10 +6,14 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 public interface CollectDao {
-    List<Collect> selectAllCollect();
+    List<Collect> selectAllCollect(long userId);
+    int insertCollect(Collect collect);
+    int selectCollectOne(@Param("userId") long userId,@Param("flowerId") long flowerId);
+
+
+
     Collect selectAllCollectId(@Param("collectId") int collectId);
     List<Collect>selectAllCollectByPage(@Param("pagelimit") int pagelimit, @Param("size") int size);
-    int insertCollect(Collect collect);
     int updateCollect(Collect collect);
     int deleteCollect(@Param("collectId") String collectId);
     int deleteAll(@Param("collectIds") List<Integer> items);
