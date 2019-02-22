@@ -45,6 +45,24 @@ public class FlowerController {
         return R.ok(flowerService.UpdateFlowerStateId(flowerId,stateId));
     }
 
+    @RequestMapping("/UpdateFlowerCollectVolume")
+    @ResponseBody
+    public R UpdateFlowerCollectVolume(int flowerId, int flowerCollectVolume){
+        return R.ok(flowerService.UpdateFlowerCollectVolume(flowerId,flowerCollectVolume));
+    }
+
+    @RequestMapping("/UpdateFlowerSalesVolume")
+    @ResponseBody
+    public R UpdateFlowerSalesVolume(int flowerId, int flowerSalesVolume){
+        return R.ok(flowerService.UpdateFlowerSalesVolume(flowerId,flowerSalesVolume));
+    }
+
+    @RequestMapping("/UpdateFlowerTotalSales")
+    @ResponseBody
+    public R UpdateFlowerTotalSales(int flowerId, int flowerTotalSales){
+        return R.ok(flowerService.UpdateFlowerTotalSales(flowerId,flowerTotalSales));
+    }
+
     @RequestMapping("/MoreUpdateFlowerStateIdStop")
     @ResponseBody
     public R MoreUpdateFlowerStateIdStop(@RequestBody List<Integer> flowerIds){

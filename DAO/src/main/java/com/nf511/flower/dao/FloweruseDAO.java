@@ -9,6 +9,8 @@ public interface FloweruseDAO {
 
     List<Floweruse> getAllFloweruse();
 
+
+
     Floweruse selectAllFloweruseId(@Param("flowerUseId") int flowerUseId);
     int insertFloweruse(Floweruse floweruse);
     int updateFloweruse(Floweruse floweruse);

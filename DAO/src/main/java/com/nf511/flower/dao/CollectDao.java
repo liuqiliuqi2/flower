@@ -14,6 +14,7 @@ public interface CollectDao {
 
 
 
+
     Collect selectAllCollectId(@Param("collectId") int collectId);
     List<Collect>selectAllCollectByPage(@Param("pagelimit") int pagelimit, @Param("size") int size);
     int updateCollect(Collect collect);

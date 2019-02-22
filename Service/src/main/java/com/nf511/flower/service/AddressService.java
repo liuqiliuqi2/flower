@@ -8,12 +8,14 @@ import java.util.List;
 
 public interface AddressService {
     List<Address> selectAllAddress(int userId);
-
     int getAddressCount(int userId);
+    int insertAddress(Address address);
+    int updateAddressStateId(@Param("addressId") long addressId,@Param("stateId") long stateId);
+
 
     Address selectAddressId(@Param("addressId") int addressId);
     List<Address>selectAllAddressByPage(@Param("pagelimit") int pagelimit, @Param("size") int size);
-    int insertAddress(Address address);
+
     int updateAddress(Address address);
     int deleteAddress(@Param("addressId") int addressId);
     int deleteAll(@Param("addressIds") List<Integer> items);

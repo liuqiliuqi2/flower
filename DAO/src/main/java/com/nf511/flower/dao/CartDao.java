@@ -13,6 +13,7 @@ public interface CartDao {
     List<Cart> selectAllCartId(@Param("cartIds") List<Integer> cartIds);
 
 
+
     List<Cart>selectAllCartByPage(@Param("pagelimit") int pagelimit, @Param("size") int size);
     int updateCart(Cart cart);
     int deleteAll(@Param("cartIds") List<Integer> items);

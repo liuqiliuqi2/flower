@@ -26,7 +26,7 @@ public class CollectController {
     }
 
     /**
-     * 查询全部
+     * 添加
      * */
     @RequestMapping(path = "/insertCollect")
     @ResponseBody
@@ -35,7 +35,7 @@ public class CollectController {
     }
 
     /**
-     * 查询全部
+     * 查询是否存在
      * */
     @RequestMapping(path = "/selectCollectOne")
     @ResponseBody
@@ -44,7 +44,7 @@ public class CollectController {
     }
 
     /**
-     * 查询全部
+     * 删除
      * */
     @RequestMapping(path = "/deleteCollect")
     @ResponseBody

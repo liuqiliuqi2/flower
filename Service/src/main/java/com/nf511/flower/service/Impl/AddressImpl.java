@@ -35,6 +35,10 @@ public class AddressImpl implements AddressService {
         return addressDao.insertAddress(address);
     }
 
+    public int updateAddressStateId(long addressId, long stateId) {
+        return addressDao.updateAddressStateId(addressId, stateId);
+    }
+
     public int updateAddress(Address address) {
         return addressDao.updateAddress(address);
     }
