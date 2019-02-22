@@ -17,7 +17,9 @@ public interface UserService {
 
     int MoreUpdateUserStateId(@Param("userIds") List<Integer> userIds,@Param("userStateId") long userStateId);
 
-    int UpdateUserPassword(@Param("userId") long userId);
+    int UpdateUserPassword(@Param("userId") long userId,@Param("userPassword") String userPassword);
+
+    int UpdateUserMailbox(@Param("userId") long userId,@Param("userMailbox") String userMailbox);
 
     int updateUser(User user);
 

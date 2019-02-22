@@ -35,8 +35,12 @@ public class UserImpl implements UserService {
         return userDao.MoreUpdateUserStateId(userIds, userStateId);
     }
 
-    public int UpdateUserPassword(long userId) {
-        return userDao.UpdateUserPassword(userId);
+    public int UpdateUserPassword(long userId,String userPassword) {
+        return userDao.UpdateUserPassword(userId,userPassword);
+    }
+
+    public int UpdateUserMailbox(long userId, String userMailbox) {
+        return userDao.UpdateUserMailbox(userId, userMailbox);
     }
 
     public int updateUser(User user) {

@@ -14,7 +14,9 @@ public interface UserDao {
 
     int MoreUpdateUserStateId(@Param("userIds") List<Integer> userIds,@Param("userStateId") long userStateId);
 
-    int UpdateUserPassword(@Param("userId") long userId);
+    int UpdateUserPassword(@Param("userId") long userId,@Param("userPassword") String userPassword);
+
+    int UpdateUserMailbox(@Param("userId") long userId,@Param("userMailbox") String userMailbox);
 
     int updateUser(User user);
 
@@ -23,4 +25,6 @@ public interface UserDao {
     int deleteUser(@Param("userId") int userId);
 
     int deleteAll(@Param("userIds") List<Integer> userIds);
+
+
 }
