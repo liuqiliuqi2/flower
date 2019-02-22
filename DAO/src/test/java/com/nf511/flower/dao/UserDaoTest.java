@@ -54,6 +54,11 @@ public class UserDaoTest {
         System.out.println(userDao.UpdateUserStateId(100000000,9));
     }
 
+    @Test
+    public void UpdateUserPassword() {
+        System.out.println(userDao.UpdateUserPassword(100000000));
+    }
+
 
     @Test
     public void deleteUser() {

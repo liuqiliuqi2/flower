@@ -13,6 +13,7 @@ public class User {
   private String userBirthday;
   private long userStateId;
   private String registerDate;
+  private String age;
 
   private int skip;
   private int size;
@@ -138,6 +139,14 @@ public class User {
     this.state = state;
   }
 
+  public String getAge() {
+    return age;
+  }
+
+  public void setAge(String age) {
+    this.age = age;
+  }
+
   @Override
   public String toString() {
     return "User{" +
@@ -152,6 +161,7 @@ public class User {
             ", userBirthday='" + userBirthday + '\'' +
             ", userStateId=" + userStateId +
             ", registerDate='" + registerDate + '\'' +
+            ", age='" + age + '\'' +
             ", skip=" + skip +
             ", size=" + size +
             ", state=" + state +

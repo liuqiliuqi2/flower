@@ -6,7 +6,9 @@
 
     <!--查询所有-->
     <select id="selectAllUser" resultMap="allUser">
-      select  * from user u,state s
+      select u.userId,u.userSex,u.userName,u.userMailbox,u.userPhone,u.userAddress,
+        u.userHeadPortrait,u.userBirthday,u.userStateId,u.registerDate,
+        YEAR(NOW())-year(userBirthday) age,s.stateName from user u,state s
       <where>
           u.userStateId=s.stateId
           <if test="userId!=null and userId!=''">
@@ -37,6 +39,7 @@
         <result column="userBirthday" property="userBirthday"></result>
         <result column="userStateId" property="userStateId"></result>
         <result column="registerDate" property="registerDate"></result>
+        <result column="age" property="age"></result>
         <association property="state" javaType="State">
             <id property="stateId" column="stateId"></id>
             <result property="stateName" column="stateName"></result>
@@ -74,8 +77,15 @@
         where userId=#{userId}
     </update>
 
+    <!-- 初始化用户密码 -->
+    <update id="UpdateUserPassword" parameterType="User">
+        update user set
+        userPassword="123456"
+        where userId=#{userId}
+    </update>
+
     <!-- 多修改用户状态 -->
-    <update id="MoreUpdateFlowerStateId" parameterType="User">
+    <update id="MoreUpdateUserStateId" parameterType="User">
         update user set
         userStateId=#{userStateId}
         where userId in

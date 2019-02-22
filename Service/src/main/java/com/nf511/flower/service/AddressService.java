@@ -9,6 +9,8 @@ import java.util.List;
 public interface AddressService {
     List<Address> selectAllAddress(int userId);
 
+    int getAddressCount(int userId);
+
     Address selectAddressId(@Param("addressId") int addressId);
     List<Address>selectAllAddressByPage(@Param("pagelimit") int pagelimit, @Param("size") int size);
     int insertAddress(Address address);

@@ -31,8 +31,12 @@ public class UserImpl implements UserService {
         return userDao.UpdateUserStateId(userId, userStateId);
     }
 
-    public int MoreUpdateFlowerStateId(List<Integer> userIds, long userStateId) {
-        return userDao.MoreUpdateFlowerStateId(userIds, userStateId);
+    public int MoreUpdateUserStateId(List<Integer> userIds, long userStateId) {
+        return userDao.MoreUpdateUserStateId(userIds, userStateId);
+    }
+
+    public int UpdateUserPassword(long userId) {
+        return userDao.UpdateUserPassword(userId);
     }
 
     public int updateUser(User user) {

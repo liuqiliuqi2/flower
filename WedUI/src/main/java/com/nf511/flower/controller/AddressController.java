@@ -28,6 +28,15 @@ public class AddressController {
     }
 
     /**
+     * 根据用户名查询地址个数
+     * */
+    @RequestMapping(path = "/getAddressCount",method = RequestMethod.POST)
+    @ResponseBody
+    public R getAddressCount(int userId){
+        return R.ok(addressService.getAddressCount(userId));
+    }
+
+    /**
      * 根据ID查询
      * */
     @RequestMapping(path = "/selectAddressId",method = RequestMethod.POST)

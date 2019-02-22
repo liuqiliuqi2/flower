@@ -19,6 +19,10 @@ public class AddressImpl implements AddressService {
         return addressDao.selectAllAddress(userId);
     }
 
+    public int getAddressCount(int userId) {
+        return addressDao.getAddressCount(userId);
+    }
+
     public Address selectAddressId(int addressId) {
         return addressDao.selectAddressId(addressId);
     }

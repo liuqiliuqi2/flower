@@ -18,7 +18,9 @@
        select * from Address where userId=#{userId}
     </select>
 
-
+    <select id="getAddressCount" resultType="int">
+        select count(*) from Address where userId=#{userId}
+    </select>
 
     <!--查询id-->
     <select id="selectAddressId" resultMap="allAddress">
@@ -56,7 +58,9 @@
 
     <!--修改-->
     <update id="updateAddress" parameterType="Address">
-      update address set consigneeName=#{consigneeName},consigneePhone=#{consigneePhone},address=#{address},detailedAddress=#{detailedAddress} where addressId=#{addressId}
+      update address set
+      consigneeName=#{consigneeName},consigneePhone=#{consigneePhone},
+      address=#{address},detailedAddress=#{detailedAddress} where addressId=#{addressId}
     </update>
 
 </mapper>

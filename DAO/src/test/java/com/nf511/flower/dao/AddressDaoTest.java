@@ -32,5 +32,10 @@ public class AddressDaoTest {
         System.out.println(addressDao.selectAllAddress(100000000));
     }
 
+    @Test
+    public void getAddressCount() {
+        System.out.println(addressDao.getAddressCount(100000000));
+    }
+
 
 }
