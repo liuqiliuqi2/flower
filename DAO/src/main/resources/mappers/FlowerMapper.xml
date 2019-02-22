@@ -53,6 +53,7 @@
         <result property="stateId" column="stateId"></result>
         <result property="flowerSalesVolume" column="flowerSalesVolume"></result>
         <result property="flowerTotalSales" column="flowerTotalSales"></result>
+        <result property="flowerCollectVolume" column="flowerCollectVolume"></result>
         <!--映射关系，指定属性与属性的类型-->
         <association property="flowertype" javaType="Flowertype">
             <id property="flowerTypeId" column="flowerTypeId"></id>

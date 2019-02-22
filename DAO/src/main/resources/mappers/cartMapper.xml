@@ -31,6 +31,8 @@
             <result property="flowerLanguage" column="flowerLanguage"></result>
             <result property="flowerIntroduce" column="flowerIntroduce"></result>
             <result property="stateId" column="stateId"></result>
+            <result property="flowerSalesVolume" column="flowerSalesVolume"></result>
+            <result property="flowerTotalSales" column="flowerTotalSales"></result>
         </association>
     </resultMap>
 

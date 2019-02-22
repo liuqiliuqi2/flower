@@ -4,6 +4,9 @@ public class Collect {
 
   private long collectId;
   private long flowerId;
+  private long userId;
+
+  private Flower flower;
 
 
   public long getCollectId() {
@@ -23,11 +26,29 @@ public class Collect {
     this.flowerId = flowerId;
   }
 
+  public long getUserId() {
+    return userId;
+  }
+
+  public void setUserId(long userId) {
+    this.userId = userId;
+  }
+
+  public Flower getFlower() {
+    return flower;
+  }
+
+  public void setFlower(Flower flower) {
+    this.flower = flower;
+  }
+
   @Override
   public String toString() {
     return "Collect{" +
             "collectId=" + collectId +
             ", flowerId=" + flowerId +
+            ", userId=" + userId +
+            ", flower=" + flower +
             '}';
   }
 }

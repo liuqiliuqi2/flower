@@ -20,6 +20,7 @@ public class Flower {
   private long stateId;
   private long flowerSalesVolume;
   private double flowerTotalSales;
+  private long flowerCollectVolume;
 
 
   private Flowertype flowertype;
@@ -254,6 +255,14 @@ public class Flower {
     this.flowerTotalSales = flowerTotalSales;
   }
 
+  public long getFlowerCollectVolume() {
+    return flowerCollectVolume;
+  }
+
+  public void setFlowerCollectVolume(long flowerCollectVolume) {
+    this.flowerCollectVolume = flowerCollectVolume;
+  }
+
   @Override
   public String toString() {
     return "Flower{" +
@@ -274,6 +283,7 @@ public class Flower {
             ", stateId=" + stateId +
             ", flowerSalesVolume=" + flowerSalesVolume +
             ", flowerTotalSales=" + flowerTotalSales +
+            ", flowerCollectVolume=" + flowerCollectVolume +
             ", flowertype=" + flowertype +
             ", flowerTypeName='" + flowerTypeName + '\'' +
             ", floweruse=" + floweruse +
