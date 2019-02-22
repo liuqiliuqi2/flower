@@ -43,4 +43,13 @@ public class CollectController {
         return R.ok(collectService.selectCollectOne(userId,flowerId));
     }
 
+    /**
+     * 查询全部
+     * */
+    @RequestMapping(path = "/deleteCollect")
+    @ResponseBody
+    public R deleteCollect(int collect){
+        return R.ok(collectService.deleteCollect(collect));
+    }
+
 }
