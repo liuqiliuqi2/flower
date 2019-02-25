@@ -1,5 +1,6 @@
 package com.nf511.flower.dao;
 
+import com.nf511.flower.entity.Admin;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -14,10 +15,10 @@ import static org.junit.Assert.*;
 @ContextConfiguration(locations = { "classpath:applicationContext.xml"})
 //使用标准的JUnit @RunWith注释来告诉JUnit使用Spring TestRunner
 @RunWith(SpringJUnit4ClassRunner.class)
-public class AddressDaoTest {
+public class AdminDaoTest {
 
     @Autowired
-    AddressDao addressDao;
+    AdminDao adminDao;
 
     @Before
     public void setUp() throws Exception {
@@ -28,23 +29,7 @@ public class AddressDaoTest {
     }
 
     @Test
-    public void selectAllAddress() {
-        System.out.println(addressDao.selectAllAddress(100000000));
+    public void selectAdmin() {
+        System.out.println(adminDao.selectAdmin("liuqi"));
     }
-
-    @Test
-    public void getAddressCount() {
-        System.out.println(addressDao.getAddressCount(100000000));
-    }
-
-    @Test
-    public void updateAddressStateId() {
-        System.out.println(addressDao.updateAddressStateId(3,11));
-    }
-
-    @Test
-    public void getAddressByMaxAddressId() {
-        System.out.println(addressDao.getAddressByMaxAddressId(100000000));
-    }
-
 }

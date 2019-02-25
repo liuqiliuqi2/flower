@@ -18,6 +18,20 @@ public class AdminController {
 
     @Autowired
     AdminService adminService;
+
+
+    /**
+     * 根据ID查询
+     * */
+    @RequestMapping(path = "/selectAdmin")
+    @ResponseBody
+    public R selectAdmin(String adminAccount){
+        return R.ok(adminService.selectAdmin(adminAccount));
+    }
+
+
+
+
     /**
      * 查询全部
      * */

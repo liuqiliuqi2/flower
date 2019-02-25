@@ -6,6 +6,14 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 public interface AdminDao {
+
+    Admin selectAdmin(@Param("adminAccount") String adminAccount);
+
+
+
+
+
+
     List<Admin> selectAllAdmin();
     Admin selectAllAdminId(@Param("adminId") int adminId);
     List<Admin>selectAllAdminByPage(@Param("pagelimit") int pagelimit, @Param("size") int size);

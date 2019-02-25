@@ -8,6 +8,9 @@ import java.util.List;
 
 public interface AdminService {
 
+    Admin selectAdmin(@Param("adminAccount") String adminAccount);
+
+
     List<Admin> selectAllAdmin();
     Admin selectAllAdminId(@Param("adminId") int adminId);
     List<Admin>selectAllAdminByPage(@Param("pagelimit") int pagelimit, @Param("size") int size);

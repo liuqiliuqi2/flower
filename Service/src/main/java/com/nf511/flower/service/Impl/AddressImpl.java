@@ -39,6 +39,10 @@ public class AddressImpl implements AddressService {
         return addressDao.updateAddressStateId(addressId, stateId);
     }
 
+    public Address getAddressByMaxAddressId(int userId) {
+        return addressDao.getAddressByMaxAddressId(userId);
+    }
+
     public int updateAddress(Address address) {
         return addressDao.updateAddress(address);
     }
