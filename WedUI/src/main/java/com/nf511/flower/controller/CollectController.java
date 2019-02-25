@@ -5,6 +5,7 @@ import com.nf511.flower.entity.Collect;
 import com.nf511.flower.service.CollectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -50,6 +51,12 @@ public class CollectController {
     @ResponseBody
     public R deleteCollect(int collect){
         return R.ok(collectService.deleteCollect(collect));
+    }
+
+    @RequestMapping("/deleteAll")
+    @ResponseBody
+    public R deleteAll(@RequestBody List<Integer> collects){
+        return R.ok(collectService.deleteAll(collects));
     }
 
 }

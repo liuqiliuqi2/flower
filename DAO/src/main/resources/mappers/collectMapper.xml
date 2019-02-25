@@ -50,6 +50,17 @@
         delete from collect where collectId=#{collectId};
     </delete>
 
+    <!--批量删除-->
+    <delete id="deleteAll" parameterType="java.util.List">
+        delete from collect
+        <where>
+            collectId in
+            <foreach collection="collectIds" item="collectId" open="(" separator="," close=")">
+                #{collectId}
+            </foreach>
+        </where>
+    </delete>
+
 
 
 
@@ -64,18 +75,7 @@
 
 
 
-    <!--批量删除-->
-    <delete id="deleteAll" parameterType="java.util.List">
-        delete from collect
-        <where>
-            <if test="collectId!=null and collectId.size() gt 0">
-                collectId in
-                <foreach collection="collectIds" item="item" open="(" separator="," close=")">
-                    #{item}
-                </foreach>
-            </if>
-        </where>
-    </delete>
+
 
 
     <!--修改-->

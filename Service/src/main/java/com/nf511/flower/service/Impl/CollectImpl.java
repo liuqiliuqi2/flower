@@ -42,7 +42,7 @@ public class CollectImpl implements CollectService {
         return collectDao.deleteCollect(collectId);
     }
 
-    public int deleteAll(List<Integer> items) {
-        return collectDao.deleteAll(items);
+    public int deleteAll(List<Integer> collectIds) {
+        return collectDao.deleteAll(collectIds);
     }
 }

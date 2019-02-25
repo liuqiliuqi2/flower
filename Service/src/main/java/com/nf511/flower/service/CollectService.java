@@ -11,6 +11,7 @@ public interface CollectService {
     int insertCollect(Collect collect);
     int selectCollectOne(@Param("userId") long userId,@Param("flowerId") long flowerId);
     int deleteCollect(@Param("collectId") int collectId);
+    int deleteAll(@Param("collectIds") List<Integer> collectIds);
 
 
 
@@ -18,5 +19,4 @@ public interface CollectService {
     List<Collect>selectAllCollectByPage(@Param("pagelimit") int pagelimit, @Param("size") int size);
     int updateCollect(Collect collect);
 
-    int deleteAll(@Param("collectIds") List<Integer> items);
 }

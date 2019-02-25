@@ -6,11 +6,11 @@
     <!--添加-->
     <insert id="insertOrder" parameterType="Order" useGeneratedKeys="true" keyProperty="orderId">
         insert into order
-        (orderPrice,orderDate,orderConsigneeName,orderConsigneePhone,orderAddress,
+        (orderId,orderPrice,orderDate,orderConsigneeName,orderConsigneePhone,orderAddress,
         orderDetailedAddress,orderDeliveryTime,orderDeliveryTimeFrame,orderBuyerName,
         orderBuyerPhone,orderMailbox,orderGreetingMessage,userId)
         values
-        (#{orderPrice},NOW(),#{orderConsigneeName},#{orderConsigneePhone},
+        (#{orderId},#{orderPrice},NOW(),#{orderConsigneeName},#{orderConsigneePhone},
         #{orderAddress},#{orderDetailedAddress},#{orderDeliveryTime},#{orderDeliveryTimeFrame},#{orderBuyerName},
         #{orderBuyerPhone},#{orderMailbox},#{orderGreetingMessage},#{userId})
     </insert>
