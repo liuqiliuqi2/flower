@@ -11,8 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
+
+import static com.nf511.flower.common.token.JavaWebToken.createToken;
 
 @Controller
 @RequestMapping(path = "/user")
@@ -44,6 +45,16 @@ public class UserController {
     @RequestMapping("/selectByUserPhoneAndMailbox")
     @ResponseBody
     public R selectByUserPhoneAndMailbox(String userPhoneAndMailbox){
+        User user=new User();
+        Map<String, Object> sessionUser = new HashMap<String, Object>();
+        sessionUser.put("userName", user.getUserName());
+        sessionUser.put("userMailbox", user.getUserMailbox());
+        sessionUser.put("userPhone", user.getUserPhone());
+        long createTime = new Date().getTime();
+        long invalidTime = new Date().getTime() + 10 * 60 * 1000;
+        String token = createToken(sessionUser, createTime, invalidTime);
+        System.out.println("生成token1：" + token);
+
         return R.ok(userService.selectByUserPhoneAndMailbox(userPhoneAndMailbox));
     }
 
