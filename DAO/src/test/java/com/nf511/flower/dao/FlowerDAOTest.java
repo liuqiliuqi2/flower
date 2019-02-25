@@ -72,6 +72,7 @@ public class FlowerDAOTest {
         flower.setFlowerLanguage("下雨的时候，给她撑一把雨伞；寒冷的时候，给她一个温暖的臂弯；天黑了，永远有一盏灯为她点亮；晨起时，给她一缕温暖的阳光。爱她，就送她一束99枝的玫瑰花！");
         flower.setFlowerIntroduce("经典99枝，鼎力推荐！");
         Assert.assertEquals(1, flowerDAO.insertFlower(flower));
+        flower.getFlowerId();
     }
 
     @Test
