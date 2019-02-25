@@ -16,14 +16,17 @@
     </insert>
     <!--查询全部-->
     <select id="selectAllOrder" resultMap="allOrder">
-        select * from `order` o,orderflower op,flower f
+        select * from `order` o,orderflower op,flower f,user u
         <where>
-            o.orderId=op.orderId and op.flowerId=f.flowerId
+            o.orderId=op.orderId and op.flowerId=f.flowerId and o.userId=u.userId
+            <if test="orderId!='' and orderId!=null">
+                and o.orderId=#{orderId}
+            </if>
             <if test="userId!='' and userId!=null">
-                and userId=#{userId}
+                and o.userId=#{userId}
             </if>
             <if test="orderState!=8">
-                and orderState =#{orderState}
+                and o.orderState =#{orderState}
             </if>
         </where>
         ORDER BY orderDate DESC
@@ -45,6 +48,20 @@
         <result column="orderMailbox" property="orderMailbox"></result>
         <result column="orderGreetingMessage" property="orderGreetingMessage"></result>
         <result column="userId" property="userId"></result>
+        <!--映射关系，指定属性与属性的类型-->
+        <association property="user" javaType="User">
+            <id property="userId" column="userId"></id>
+            <result property="userPassword" column="userPassword"></result>
+            <result property="userSex" column="userSex"></result>
+            <result property="userName" column="userName"></result>
+            <result property="userMailbox" column="userMailbox"></result>
+            <result property="userPhone" column="userPhone"></result>
+            <result property="userAddress" column="userAddress"></result>
+            <result property="userHeadPortrait" column="userHeadPortrait"></result>
+            <result property="userBirthday" column="userBirthday"></result>
+            <result property="userStateId" column="userStateId"></result>
+            <result property="registerDate" column="registerDate"></result>
+        </association>
         <!--映射集合，指定属性与属性的类型-->
         <collection property="orderflowerList" resultMap="orderflowerLists">
 

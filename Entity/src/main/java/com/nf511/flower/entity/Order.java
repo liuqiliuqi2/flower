@@ -26,6 +26,7 @@ public class Order {
 
   private List<Orderflower> orderflowerList;
   private Flower flower;
+  private User user;
 
 
   public long getOrderId() {
@@ -192,6 +193,14 @@ public class Order {
     this.flower = flower;
   }
 
+  public User getUser() {
+    return user;
+  }
+
+  public void setUser(User user) {
+    this.user = user;
+  }
+
   @Override
   public String toString() {
     return "Order{" +
@@ -214,6 +223,7 @@ public class Order {
             ", size=" + size +
             ", orderflowerList=" + orderflowerList +
             ", flower=" + flower +
+            ", user=" + user +
             '}';
   }
 }
