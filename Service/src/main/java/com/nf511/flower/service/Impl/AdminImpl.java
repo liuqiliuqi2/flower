@@ -13,6 +13,14 @@ public class AdminImpl implements AdminService {
     @Autowired
     AdminDao adminDao;
 
+    public Admin selectAdmin(String adminAccount) {
+        return adminDao.selectAdmin(adminAccount);
+    }
+
+
+
+
+
     public List<Admin> selectAllAdmin() {
         return adminDao.selectAllAdmin();
     }

@@ -54,7 +54,14 @@ public class AddressController {
         return R.ok(addressService.updateAddressStateId(addressId,stateId));
     }
 
-
+    /**
+     * 查询添加的地址编号
+     * */
+    @RequestMapping(path = "/getAddressByMaxAddressId")
+    @ResponseBody
+    public R getAddressByMaxAddressId(int userId){
+        return R.ok(addressService.getAddressByMaxAddressId(userId));
+    }
 
 
 

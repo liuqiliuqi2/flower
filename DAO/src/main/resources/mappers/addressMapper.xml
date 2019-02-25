@@ -25,7 +25,8 @@
     </select>
 
     <select id="getAddressCount" resultType="int">
-        select count(*) from Address where userId=#{userId}
+        select count(*) from Address a,state s
+       where a.stateId=s.stateId and userId=#{userId}
     </select>
 
     <!--添加-->
@@ -42,6 +43,13 @@
       update address set
       stateId=#{stateId} where addressId=#{addressId}
     </update>
+
+    <select id="getAddressByMaxAddressId" resultType="Address">
+        select * FROM address where userId=#{userId} ORDER BY addressId DESC LIMIT 0,1
+    </select>
+
+
+
 
 
     <!--查询id-->

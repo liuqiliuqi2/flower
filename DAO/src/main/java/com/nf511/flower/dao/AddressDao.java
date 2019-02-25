@@ -10,6 +10,7 @@ public interface AddressDao {
     int insertAddress(Address address);
     int getAddressCount(int userId);
     int updateAddressStateId(@Param("addressId") long addressId,@Param("stateId") long stateId);
+    Address getAddressByMaxAddressId(int userId);
 
 
 
