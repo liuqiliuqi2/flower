@@ -56,7 +56,7 @@ public class UserDaoTest {
 
     @Test
     public void UpdateUserPassword() {
-        System.out.println(userDao.UpdateUserPassword(100000000));
+        System.out.println(userDao.UpdateUserPassword(100000000,"123456"));
     }
 
 
