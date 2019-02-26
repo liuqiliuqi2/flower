@@ -8,7 +8,7 @@ import java.util.Map;
  */
 public class R extends HashMap<String, Object> {
 	private static final long serialVersionUID = 1L;
-	
+	private Map<String, Object> data;
 	public R() {
 		put("code", 1);
 		put("msg", "success");
@@ -36,7 +36,12 @@ public class R extends HashMap<String, Object> {
 		r.put("msg", msg);
 		return r;
 	}
-	
+
+	public static R putToken(String key, Object value) {
+		R r = new R();
+		r.put(key,value);
+		return r;
+	}
 	public static R ok(Map<String, Object> map) {
 		R r = new R();
 		r.putAll(map);
