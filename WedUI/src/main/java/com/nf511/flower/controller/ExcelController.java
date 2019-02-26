@@ -2,6 +2,7 @@ package com.nf511.flower.controller;
 
 import com.nf511.flower.entity.Address;
 import com.nf511.flower.entity.Flower;
+import com.nf511.flower.entity.Order;
 import com.nf511.flower.entity.User;
 import com.nf511.flower.service.*;
 import org.springframework.stereotype.Controller;
@@ -163,7 +164,7 @@ public class ExcelController {
     }
 
     //用户导出
-    @RequestMapping("/UserPushCsv2")
+    @RequestMapping("/UserPushCsv")
     @ResponseBody
     public void UserPushCsv(HttpServletResponse response,User user) throws IOException {
         response.setHeader("Content-Type","application/octet-stream;charset=utf-8");
@@ -180,6 +181,28 @@ public class ExcelController {
         str.append("用户编号,用户名称\r\n");
         for (User commodity:list) {
             str.append(commodity.getUserId()+","+commodity.getUserName()+"\r\n");
+        }
+        response.getWriter().write(str.toString());
+    }
+
+    //用户导出
+    @RequestMapping("/OrderPushCsv")
+    @ResponseBody
+    public void OrderPushCsv(HttpServletResponse response,Order order) throws IOException {
+        response.setHeader("Content-Type","application/octet-stream;charset=utf-8");
+        response.setHeader("Content-Disposition","attachment;filename=product.csv");
+        PrintWriter out = response.getWriter();
+        //加上bom头,解决excel打开乱码问题
+        byte[] bomStrByteArr = new byte[] { (byte) 0xef, (byte) 0xbb, (byte) 0xbf };
+        String bomStr = new String(bomStrByteArr, "UTF-8");
+        out.write(bomStr);
+        System.out.println(bomStr);
+
+        List<Order> list=orderService.selectAllOrderPage(order);
+        StringBuffer str=new StringBuffer("");
+        str.append("订单编号,订单价格\r\n");
+        for (Order commodity:list) {
+            str.append(commodity.getOrderId()+","+commodity.getOrderPrice()+"\r\n");
         }
         response.getWriter().write(str.toString());
     }
