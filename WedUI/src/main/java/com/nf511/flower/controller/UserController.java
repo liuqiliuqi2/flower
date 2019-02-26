@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 import java.util.UUID;
 
@@ -126,4 +129,6 @@ public class UserController {
     public R deleteAll(@RequestBody List<Integer> userIds){
         return R.ok(userService.deleteAll(userIds));
     }
+
+
 }

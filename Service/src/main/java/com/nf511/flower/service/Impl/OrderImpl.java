@@ -18,6 +18,18 @@ public class OrderImpl  implements OrderService {
         return orderDao.selectAllOrder(order);
     }
 
+    public int getOrderCount(Order order) {
+        return orderDao.getOrderCount(order);
+    }
+
+    public List<Order> selectAllOrderPage(Order order) {
+        return orderDao.selectAllOrderPage(order);
+    }
+
+    public int UpdateOrderState(long orderId, long orderState) {
+        return orderDao.UpdateOrderState(orderId, orderState);
+    }
+
     public Order selectAllOrderId(int orderId) {
         return orderDao.selectAllOrderId(orderId);
     }

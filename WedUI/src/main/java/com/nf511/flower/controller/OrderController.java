@@ -19,13 +19,32 @@ import java.util.List;
 public class OrderController {
     @Autowired
     OrderService orderService;
+
     /**
-     * 查询全部
+     * 查询全部订单及订单商品信息
      * */
-    @RequestMapping(path = "/selectAllOrder",method = RequestMethod.GET)
+    @RequestMapping(path = "/selectAllOrder")
     @ResponseBody
     public R selectAllOrder(Order order){
         return R.ok(orderService.selectAllOrder(order));
+    }
+
+    /**
+     * 查询全部订单信息
+     * */
+    @RequestMapping(path = "/selectAllOrderByPage")
+    @ResponseBody
+    public R selectAllOrderByPage(Order order){
+        return R.ok(orderService.selectAllOrderPage(order));
+    }
+
+    /**
+     * 查询全部订单数量
+     * */
+    @RequestMapping(path = "/getOrderCount")
+    @ResponseBody
+    public R getOrderCount(Order order){
+        return R.ok(orderService.getOrderCount(order));
     }
 
     /**
@@ -45,6 +64,21 @@ public class OrderController {
     public R insertOrder(Order order){
         return R.ok(orderService.insertOrder(order));
     }
+
+
+    /**
+     * 修改订单状态
+     * */
+    @RequestMapping(path = "/UpdateOrderState",method = RequestMethod.POST)
+    @ResponseBody
+    public R UpdateOrderState(int orderId, int orderState){
+        return R.ok(orderService.UpdateOrderState(orderId,orderState));
+    }
+
+
+
+
+
 
     /**
      * 修改
@@ -72,4 +106,6 @@ public class OrderController {
     public R deleteAll(@RequestBody List<Integer> items){
         return R.ok(orderService.deleteAll(items));
     }
+
+
 }

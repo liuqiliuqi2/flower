@@ -143,7 +143,7 @@ public class ExcelController {
     //商品导出
     @RequestMapping("/FlowerPushCsv")
     @ResponseBody
-    public void pushcsv(HttpServletResponse response,Flower flower) throws IOException {
+    public void FlowerPushCsv(HttpServletResponse response,Flower flower) throws IOException {
         response.setHeader("Content-Type","application/octet-stream;charset=utf-8");
         response.setHeader("Content-Disposition","attachment;filename=product.csv");
         PrintWriter out = response.getWriter();
@@ -162,10 +162,10 @@ public class ExcelController {
         response.getWriter().write(str.toString());
     }
 
-    //商品导出
-    @RequestMapping("/UserPushCsv")
+    //用户导出
+    @RequestMapping("/UserPushCsv2")
     @ResponseBody
-    public void pushcsv(HttpServletResponse response,User user) throws IOException {
+    public void UserPushCsv(HttpServletResponse response,User user) throws IOException {
         response.setHeader("Content-Type","application/octet-stream;charset=utf-8");
         response.setHeader("Content-Disposition","attachment;filename=product.csv");
         PrintWriter out = response.getWriter();
@@ -177,9 +177,9 @@ public class ExcelController {
 
         List<User> list=userService.selectAllUser(user);
         StringBuffer str=new StringBuffer("");
-        str.append("用户编号,用户手机号\r\n");
+        str.append("用户编号,用户名称\r\n");
         for (User commodity:list) {
-            str.append(commodity.getUserId()+","+commodity.getUserPhone()+"\r\n");
+            str.append(commodity.getUserId()+","+commodity.getUserName()+"\r\n");
         }
         response.getWriter().write(str.toString());
     }

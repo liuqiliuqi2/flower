@@ -31,9 +31,24 @@ public class  OrderDaoTest {
     @Test
     public void selectAllOrder() {
         Order order=new Order();
-        order.setUserId(100000000);
+//        order.setUserId(100000000);
         order.setOrderState(8);
         System.out.println(orderDao.selectAllOrder(order));
+
+    }
+
+    @Test
+    public void getOrderCount() {
+        Order order=new Order();
+//        order.setUserId(100000000);
+//        order.setOrderState(8);
+        System.out.println(orderDao.getOrderCount(order));
+
+    }
+
+    @Test
+    public void UpdateOrderState() {
+        System.out.println(orderDao.UpdateOrderState(1902170001,4));
 
     }
 }
