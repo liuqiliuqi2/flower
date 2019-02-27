@@ -1,6 +1,7 @@
 package com.nf511.flower.controller;
 
 import com.nf511.flower.common.R;
+import com.nf511.flower.common.token.JwtUtils;
 import com.nf511.flower.entity.Cart;
 import com.nf511.flower.entity.User;
 import com.nf511.flower.service.UserService;
@@ -11,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 @Controller
@@ -47,6 +50,19 @@ public class UserController {
         return R.ok(userService.selectByUserPhoneAndMailbox(userPhoneAndMailbox));
     }
 
+
+    /**
+     * app专用登录
+     * */
+    @RequestMapping("/appLogin")
+    @ResponseBody
+    public R appLogin(String userPhoneAndMailbox){
+        String token=JwtUtils.encode(userPhoneAndMailbox,10000);
+        Map map=new HashMap();
+        map.put("token",token);
+        map.put("userPhoneAndMailbox",userService.selectByUserPhoneAndMailbox(userPhoneAndMailbox));
+        return R.ok(map);
+    }
     /**
      * 批量启用
      * */
