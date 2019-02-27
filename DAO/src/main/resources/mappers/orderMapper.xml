@@ -6,21 +6,24 @@
     <!--添加-->
     <insert id="insertOrder" parameterType="Order" useGeneratedKeys="true" keyProperty="orderId">
         insert into order
-        (orderPrice,orderDate,orderConsigneeName,orderConsigneePhone,orderAddress,
+        (orderId,orderPrice,orderConsigneeName,orderConsigneePhone,orderAddress,
         orderDetailedAddress,orderDeliveryTime,orderDeliveryTimeFrame,orderBuyerName,
         orderBuyerPhone,orderMailbox,orderGreetingMessage,userId)
         values
-        (#{orderPrice},NOW(),#{orderConsigneeName},#{orderConsigneePhone},
+        (#{orderId},#{orderPrice},#{orderConsigneeName},#{orderConsigneePhone},
         #{orderAddress},#{orderDetailedAddress},#{orderDeliveryTime},#{orderDeliveryTimeFrame},#{orderBuyerName},
         #{orderBuyerPhone},#{orderMailbox},#{orderGreetingMessage},#{userId})
     </insert>
-    <!--查询全部-->
+    <!--查询全部订单及订单商品信息-->
     <select id="selectAllOrder" resultMap="allOrder">
         select * from `order` o,orderflower op,flower f
         <where>
-            o.orderId=op.orderId and op.flowerId=f.flowerId and userId=#{userId}
+            o.orderId=op.orderId and op.flowerId=f.flowerId
+            <if test="userId!='' and userId!=null">
+                and o.userId=#{userId}
+            </if>
             <if test="orderState!=8">
-                and orderState =#{orderState}
+                and o.orderState =#{orderState}
             </if>
         </where>
         ORDER BY orderDate DESC
@@ -42,6 +45,24 @@
         <result column="orderMailbox" property="orderMailbox"></result>
         <result column="orderGreetingMessage" property="orderGreetingMessage"></result>
         <result column="userId" property="userId"></result>
+        <!--映射关系，指定属性与属性的类型-->
+        <association property="user" javaType="User">
+            <id property="userId" column="userId"></id>
+            <result property="userPassword" column="userPassword"></result>
+            <result property="userSex" column="userSex"></result>
+            <result property="userName" column="userName"></result>
+            <result property="userMailbox" column="userMailbox"></result>
+            <result property="userPhone" column="userPhone"></result>
+            <result property="userAddress" column="userAddress"></result>
+            <result property="userHeadPortrait" column="userHeadPortrait"></result>
+            <result property="userBirthday" column="userBirthday"></result>
+            <result property="userStateId" column="userStateId"></result>
+            <result property="registerDate" column="registerDate"></result>
+        </association>
+        <association property="state" javaType="State">
+            <id property="stateId" column="stateId"></id>
+            <result property="stateName" column="stateName"></result>
+        </association>
         <!--映射集合，指定属性与属性的类型-->
         <collection property="orderflowerList" resultMap="orderflowerLists">
 
@@ -78,6 +99,44 @@
     <select id="selectAllOrderId" resultMap="allOrder">
       select  * from `order` where orderId=#{orderId}
     </select>
+
+    <!--查询全部订单信息-->
+    <select id="selectAllOrderPage" resultMap="allOrder">
+        select * from `order` o,user u,state s
+        <where>
+            o.userId=u.userId and o.orderState=s.stateId
+            <if test="orderId!='' and orderId!=null">
+                and o.orderId=#{orderId}
+            </if>
+            <if test="orderState!=8">
+                and o.orderState =#{orderState}
+            </if>
+        </where>
+        ORDER BY orderDate DESC limit #{skip},#{size}
+    </select>
+
+    <select id="getOrderCount" resultType="int">
+        select COUNT(*) from `order` o
+        <where>
+            <if test="orderId!='' and orderId!=null">
+                and o.orderId=#{orderId}
+            </if>
+            <if test="orderState!=8">
+                and o.orderState =#{orderState}
+            </if>
+        </where>
+    </select>
+
+    <!-- 修改订单状态 -->
+    <update id="UpdateOrderState" parameterType="Order">
+        update `order` set
+        orderState=#{orderState}
+        where orderId=#{orderId}
+    </update>
+
+
+
+
 
 
 

@@ -10,6 +10,10 @@ public interface OrderService {
     int insertOrder(Order order);
     Order selectAllOrderId(@Param("orderId") int orderId);
     List<Order> selectAllOrder(Order order);
+    int getOrderCount(Order order);
+    List<Order> selectAllOrderPage(Order order);
+    int UpdateOrderState(@Param("orderId") long orderId, @Param("orderState") long orderState);
+
 
 
 

@@ -107,10 +107,10 @@
     <!--添加-->
     <insert id="insertFlower" parameterType="Flower" useGeneratedKeys="true" keyProperty="flowerId">
         insert into flower(flowerTypeId,flowerUseId,flowerBranchNumberId,flowerMarketPrice,
-        flowerPrice,flowerInventory,flowerImageName,flowerName,flowerDateTime,flowerMaterials,
+        flowerPrice,flowerInventory,flowerImageName,flowerName,flowerMaterials,
         flowerPackaging,flowerLanguage,flowerIntroduce)
         values (#{flowerTypeId},#{flowerUseId},#{flowerBranchNumberId},#{flowerMarketPrice},
-        #{flowerPrice},#{flowerInventory},#{flowerImageName},#{flowerName},NOW(),
+        #{flowerPrice},#{flowerInventory},#{flowerImageName},#{flowerName},
         #{flowerMaterials},#{flowerPackaging},#{flowerLanguage},#{flowerIntroduce})
     </insert>
 
