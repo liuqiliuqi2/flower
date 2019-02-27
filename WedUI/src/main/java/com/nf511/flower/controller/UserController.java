@@ -46,11 +46,6 @@ public class UserController {
     @RequestMapping("/selectByUserPhoneAndMailbox")
     @ResponseBody
     public R selectByUserPhoneAndMailbox(String userPhoneAndMailbox){
-        User user=new User();
-        user.setUserPhone(userPhoneAndMailbox);
-        user.setUserMailbox(userPhoneAndMailbox);
-        String  token=JwtUtils.encode(user,10000);
-        System.out.println(token);
         return R.ok(userService.selectByUserPhoneAndMailbox(userPhoneAndMailbox));
     }
 
