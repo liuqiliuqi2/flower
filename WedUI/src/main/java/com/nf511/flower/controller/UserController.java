@@ -1,17 +1,25 @@
 package com.nf511.flower.controller;
 
+import com.nf511.flower.common.CookieUtils;
 import com.nf511.flower.common.R;
+import com.nf511.flower.common.token.JwtUtils;
 import com.nf511.flower.entity.Cart;
 import com.nf511.flower.entity.User;
 import com.nf511.flower.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
+import javax.jws.WebParam;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.net.HttpCookie;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 @Controller
@@ -45,6 +53,21 @@ public class UserController {
     @ResponseBody
     public R selectByUserPhoneAndMailbox(String userPhoneAndMailbox){
         return R.ok(userService.selectByUserPhoneAndMailbox(userPhoneAndMailbox));
+    }
+    /**
+     * app登陆
+    * */
+    @RequestMapping("/selectLogin")
+    @ResponseBody
+    public R selectLogin(String userPhoneAndMailbox,
+                                         HttpSession session,HttpServletRequest request,
+                                         HttpServletResponse response)throws Exception{
+        String token=JwtUtils.encode(userPhoneAndMailbox,10000);
+        //CookieUtils.writeCookie(response,"token",token);
+        Map map=new HashMap();
+        map.put("token",token);
+        map.put("userPhoneAndMailbox",userService.selectByUserPhoneAndMailbox(userPhoneAndMailbox));
+        return R.ok(map);
     }
 
     /**
