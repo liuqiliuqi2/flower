@@ -51,6 +51,10 @@
         <nimbusds.version>6.1.1</nimbusds.version>
         <json.version>20160810</json.version>
         <java-jwt.version>2.2.0</java-jwt.version>
+
+
+        <cors-filter.version>2.5</cors-filter.version>
+
     </properties>
 
     <dependencyManagement>
@@ -275,6 +279,13 @@
                 <artifactId>java-jwt</artifactId>
                 <version>${java-jwt.version}</version>
             </dependency>
+            <!-- https://mvnrepository.com/artifact/com.thetransactioncompany/cors-filter -->
+            <dependency>
+                <groupId>com.thetransactioncompany</groupId>
+                <artifactId>cors-filter</artifactId>
+                <version>${cors-filter.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 

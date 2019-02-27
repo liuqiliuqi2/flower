@@ -58,7 +58,6 @@
       <param-value>true</param-value>
     </init-param>
   </filter>
-  <!-- 路径映射 -->
   <filter-mapping>
     <filter-name>characterEncodingFilter</filter-name>
     <url-pattern>/*</url-pattern>

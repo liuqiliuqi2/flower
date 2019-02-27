@@ -22,7 +22,7 @@ public class CookieUtils {
     public static void writeCookie(HttpServletResponse response, String cookieName, String value) {
         Cookie cookie = new Cookie(cookieName, value);
         cookie.setPath("/");
-        cookie.setMaxAge(5 * 60);
+        cookie.setMaxAge(5 * 3600);
         response.addCookie(cookie);
     }
 }
