@@ -1,11 +1,13 @@
 package com.nf511.flower.controller;
 
 import com.nf511.flower.common.R;
+import com.nf511.flower.common.token.JwtUtils;
 import com.nf511.flower.entity.Cart;
 import com.nf511.flower.entity.User;
 import com.nf511.flower.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -44,6 +46,11 @@ public class UserController {
     @RequestMapping("/selectByUserPhoneAndMailbox")
     @ResponseBody
     public R selectByUserPhoneAndMailbox(String userPhoneAndMailbox){
+        User user=new User();
+        user.setUserPhone(userPhoneAndMailbox);
+        user.setUserMailbox(userPhoneAndMailbox);
+        String  token=JwtUtils.encode(user,10000);
+        System.out.println(token);
         return R.ok(userService.selectByUserPhoneAndMailbox(userPhoneAndMailbox));
     }
 
