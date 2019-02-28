@@ -9,6 +9,9 @@ public class Messagecontent {
   private long messageId;
   private long stateId;
 
+  private Message message;
+  private User user;
+
 
   public long getMessageContentId() {
     return messageContentId;
@@ -52,4 +55,32 @@ public class Messagecontent {
     this.stateId = stateId;
   }
 
+  public Message getMessage() {
+    return message;
+  }
+
+  public void setMessage(Message message) {
+    this.message = message;
+  }
+
+  public User getUser() {
+    return user;
+  }
+
+  public void setUser(User user) {
+    this.user = user;
+  }
+
+  @Override
+  public String toString() {
+    return "Messagecontent{" +
+            "messageContentId=" + messageContentId +
+            ", messageContent='" + messageContent + '\'' +
+            ", messageContentDate='" + messageContentDate + '\'' +
+            ", messageId=" + messageId +
+            ", stateId=" + stateId +
+            ", message=" + message +
+            ", user=" + user +
+            '}';
+  }
 }
