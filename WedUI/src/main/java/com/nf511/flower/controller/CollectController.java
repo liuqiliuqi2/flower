@@ -59,4 +59,11 @@ public class CollectController {
         return R.ok(collectService.deleteAll(collects));
     }
 
+
+    @RequestMapping("/selectCollectId")
+    @ResponseBody
+    public R selectCollectId(long userId,long flowerId){
+        return R.ok(collectService.selectCollectId(userId,flowerId));
+    }
+
 }

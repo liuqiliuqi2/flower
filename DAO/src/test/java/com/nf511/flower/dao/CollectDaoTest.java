@@ -51,4 +51,10 @@ public class CollectDaoTest {
     public void deleteCollect() {
         System.out.println(collectDao.deleteCollect(2));
     }
+
+    @Test
+    public void selectCollectId() {
+        System.out.println(collectDao.selectCollectId(100000000,43));
+    }
+
 }

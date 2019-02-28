@@ -68,6 +68,12 @@
     <select id="selectAllCollectId" resultMap="allCollect">
       select  * from collect where collectId=#{collectId}
     </select>
+
+    <!--app查询id-->
+    <select id="selectCollectId" resultMap="allCollect">
+      select  * from collect where userId=#{userId} and flowerId=#{flowerId}
+    </select>
+
     <!--分页查询-->
     <select id="selectAllCollectByPage" resultMap="allCollect">
          select * from collect limit #{pagelimit},#{size};
