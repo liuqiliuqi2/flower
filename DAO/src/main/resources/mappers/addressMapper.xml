@@ -32,10 +32,10 @@
     <!--添加-->
     <insert id="insertAddress" parameterType="Address" useGeneratedKeys="true" keyProperty="addressId">
         insert into address
-        (userId,consigneeName,consigneePhone,address,detailedAddress)
+        (userId,consigneeName,consigneePhone,address,detailedAddress,stateId)
         values
          (#{userId},#{consigneeName},#{consigneePhone},#{address},
-        #{detailedAddress})
+        #{detailedAddress},#{stateId})
     </insert>
 
     <!--修改地址默认状态-->
