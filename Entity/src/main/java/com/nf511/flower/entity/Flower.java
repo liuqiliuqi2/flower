@@ -32,6 +32,7 @@ public class Flower {
   private State state;
   private int skip;
   private int size;
+  private String rank;
 
 
   public long getFlowerId() {
@@ -263,6 +264,14 @@ public class Flower {
     this.flowerCollectVolume = flowerCollectVolume;
   }
 
+  public String getRank() {
+    return rank;
+  }
+
+  public void setRank(String rank) {
+    this.rank = rank;
+  }
+
   @Override
   public String toString() {
     return "Flower{" +
@@ -293,6 +302,7 @@ public class Flower {
             ", state=" + state +
             ", skip=" + skip +
             ", size=" + size +
+            ", rank='" + rank + '\'' +
             '}';
   }
 }

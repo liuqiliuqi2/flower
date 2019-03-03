@@ -33,7 +33,7 @@
             </if>
 
         </where>
-        ORDER BY flowerDateTime DESC limit #{skip},#{size}
+        ORDER BY #{rank} DESC limit #{skip},#{size}
     </select>
     <resultMap id="Flower_All" type="Flower">
         <id property="flowerId" column="flowerId"></id>
