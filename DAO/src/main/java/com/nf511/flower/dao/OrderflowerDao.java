@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface OrderflowerDao {
     int insertOrderflower(@Param("cartIds") List<Integer> cartIds);
-    int updateOrderflowerBycartId(@Param("orderId") int orderId,@Param("cartIds") List<Integer> cartIds);
+    int updateOrderflowerBycartId(@Param("orderId") long orderId,@Param("cartIds") List<Integer> cartIds);
     List<Orderflower> selectAllByOrderId(@Param("orderId") int orderId);
 
 
