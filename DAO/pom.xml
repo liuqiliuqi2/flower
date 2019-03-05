@@ -16,6 +16,10 @@
             <groupId>com.nf511.Flower</groupId>
             <artifactId>Entity</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.nf511.Flower</groupId>
+            <artifactId>Common</artifactId>
+        </dependency>
 
         <!--log4j日志包 -->
         <dependency>

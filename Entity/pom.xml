@@ -12,11 +12,6 @@
     <artifactId>Entity</artifactId>
 
     <dependencies>
-        <dependency>
-            <groupId>com.nf511.Flower</groupId>
-            <artifactId>Common</artifactId>
-        </dependency>
-
         <!--log4j日志包 -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>

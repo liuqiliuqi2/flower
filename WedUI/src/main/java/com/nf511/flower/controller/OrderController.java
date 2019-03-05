@@ -1,9 +1,11 @@
 package com.nf511.flower.controller;
 
 
+import com.nf511.flower.common.PrintPdf;
 import com.nf511.flower.common.R;
 import com.nf511.flower.entity.Cart;
 import com.nf511.flower.entity.Order;
+import com.nf511.flower.entity.Orderflower;
 import com.nf511.flower.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,7 +14,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.awt.print.PageFormat;
+import java.awt.print.PrinterException;
+import java.awt.print.PrinterJob;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping(path = "/order")
@@ -106,6 +114,7 @@ public class OrderController {
     public R deleteAll(@RequestBody List<Integer> items){
         return R.ok(orderService.deleteAll(items));
     }
+
 
 
 }
