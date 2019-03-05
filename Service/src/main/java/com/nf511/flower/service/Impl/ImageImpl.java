@@ -17,9 +17,10 @@ public class ImageImpl implements ImageService {
         return imageDao.selectAllImage();
     }
 
-    public Image selectAllImageId(int imageId) {
-        return imageDao.selectAllImageId(imageId);
+    public List<Image> selectAllFlowerId(int flowerId) {
+        return imageDao.selectAllFlowerId(flowerId);
     }
+
 
     public List<Image> selectAllImageByPage(int pagelimit, int size) {
         return imageDao.selectAllImageByPage(pagelimit, size);

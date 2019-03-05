@@ -30,10 +30,10 @@ public class ImageController {
     /**
      * 根据ID查询
      * */
-    @RequestMapping(path = "/selectAllImageId",method = RequestMethod.POST)
+    @RequestMapping(path = "/selectAllFlowerId",method = RequestMethod.POST)
     @ResponseBody
-    public R selectAllImageId(int imageId){
-        return R.ok(imageService.selectAllImageId(imageId));
+    public R selectAllFlowerId(int flowerId){
+        return R.ok(imageService.selectAllFlowerId(flowerId));
     }
 
     /**
