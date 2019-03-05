@@ -31,9 +31,63 @@
             <if test="flowerMaterials!=null and flowerMaterials!=''">
                 and f.flowerMaterials like concat(concat('%',#{flowerMaterials}),'%')
             </if>
-
+             ORDER BY
+            <if test="rank==1">
+                flowerId DESC
+            </if>
+            <if test="rank==2">
+                flowerName DESC
+            </if>
+            <if test="rank==3">
+                flowerPrice DESC
+            </if>
+            <if test="rank==4">
+                flowerInventory DESC
+            </if>
+            <if test="rank==5">
+                flowerSalesVolume DESC
+            </if>
+            <if test="rank==6">
+                flowerTotalSales DESC
+            </if>
+            <if test="rank==7">
+                flowerCollectVolume DESC
+            </if>
+            <if test="rank==8">
+                flowerDateTime DESC
+            </if>
+            <if test="rank==9">
+                stateId DESC
+            </if>
+            <if test="rank==11">
+                flowerId
+            </if>
+            <if test="rank==12">
+                flowerName
+            </if>
+            <if test="rank==13">
+                flowerPrice
+            </if>
+            <if test="rank==14">
+                flowerInventory
+            </if>
+            <if test="rank==15">
+                flowerSalesVolume
+            </if>
+            <if test="rank==16">
+                flowerTotalSales
+            </if>
+            <if test="rank==17">
+                flowerCollectVolume
+            </if>
+            <if test="rank==18">
+                flowerDateTime
+            </if>
+            <if test="rank==19">
+                stateId
+            </if>
         </where>
-        ORDER BY #{rank} DESC limit #{skip},#{size}
+         limit #{skip},#{size}
     </select>
     <resultMap id="Flower_All" type="Flower">
         <id property="flowerId" column="flowerId"></id>

@@ -38,7 +38,7 @@ public class FlowerDAOTest {
         Flower flower=new Flower();
         flower.setSkip(0);
         flower.setSize(5);
-        flower.setRank("flowerDateTime");
+        flower.setRank("18");
 //        flower.setFlowerId(35);
 //        flower.setFlowerUseName("爱情鲜花");
 //        flower.setFlowerTypeName("花束");
