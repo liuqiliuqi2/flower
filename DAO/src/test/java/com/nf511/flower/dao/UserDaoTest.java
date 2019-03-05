@@ -1,6 +1,5 @@
 package com.nf511.flower.dao;
 
-import com.nf511.flower.common.phoneVerCode.SendMessage;
 import com.nf511.flower.entity.User;
 import org.junit.After;
 import org.junit.Assert;
@@ -72,13 +71,5 @@ public class UserDaoTest {
         user.setUserName("刘琪");
         user.setUserId(100000000);
         Assert.assertEquals(1, userDao.updateUser(user));
-    }
-
-    @Test
-    public void SendVerificationCode() {
-        int a=(int)((Math.random()*9+1)*100000);
-        String b=a+"";
-        SendMessage sendMessage=new SendMessage();
-        sendMessage.EX("17679164807",b);
     }
 }
