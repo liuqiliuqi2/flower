@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface ImageDao {
     List<Image> selectAllImage();
-    Image selectAllImageId(@Param("imageId") int imageId);
+    List<Image>selectAllFlowerId(@Param("flowerId") int flowerId);
     List<Image>selectAllImageByPage(@Param("pagelimit") int pagelimit, @Param("size") int size);
     int insertImage(Image image);
     int updateImage(Image image);

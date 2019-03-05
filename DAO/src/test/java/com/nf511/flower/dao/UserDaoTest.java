@@ -72,5 +72,4 @@ public class UserDaoTest {
         user.setUserId(100000000);
         Assert.assertEquals(1, userDao.updateUser(user));
     }
-
 }

@@ -10,4 +10,6 @@ public interface MessagecontentService {
 
     int insertMessagecontent(Messagecontent messagecontent);
 
+    int updateMessagecontent(Messagecontent messagecontent);
+
 }

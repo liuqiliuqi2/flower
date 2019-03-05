@@ -8,6 +8,7 @@ public class Message {
   private long messageId;
   private long senderId;
   private long recipientId;
+  private long stateId;
 
   private List<Messagecontent> messagecontentList;
   private User user;
@@ -48,6 +49,14 @@ public class Message {
     this.messagecontentList = messagecontentList;
   }
 
+  public long getStateId() {
+    return stateId;
+  }
+
+  public void setStateId(long stateId) {
+    this.stateId = stateId;
+  }
+
   public User getUser() {
     return user;
   }
@@ -62,6 +71,8 @@ public class Message {
             "messageId=" + messageId +
             ", senderId=" + senderId +
             ", recipientId=" + recipientId +
+            ", stateId=" + stateId +
+            ", messagecontentList=" + messagecontentList +
             ", user=" + user +
             '}';
   }

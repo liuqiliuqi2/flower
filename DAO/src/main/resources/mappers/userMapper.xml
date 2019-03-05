@@ -127,7 +127,7 @@
 
     <!--添加-->
     <insert id="insertUser" parameterType="User" useGeneratedKeys="true" keyProperty="userId">
-        insert into user(userPassword,userSex,userName,userMailbox,userPhone,userAddress,userHeadPortrait,userBirthday)
-        values (#{userPassword},#{userSex},#{userName},#{userMailbox},#{userPhone},#{userAddress},#{userHeadPortrait},#{userBirthday})
+        insert into user(userPassword,userPhone)
+        values (#{userPassword},#{userPhone})
     </insert>
 </mapper>

@@ -21,4 +21,8 @@ public class MessagecontentServiceImpl implements MessagecontentService {
     public int insertMessagecontent(Messagecontent messagecontent) {
         return messagecontentDao.insertMessagecontent(messagecontent);
     }
+
+    public int updateMessagecontent(Messagecontent messagecontent) {
+        return messagecontentDao.updateMessagecontent(messagecontent);
+    }
 }

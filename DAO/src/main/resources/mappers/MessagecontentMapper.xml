@@ -3,11 +3,7 @@
 <!--命名空间应该是对应接口的包名+接口名 -->
 <mapper namespace="com.nf511.flower.dao.MessagecontentDao"><!--.dao-->
 
-    <!--根据用户编号查询用户和客服之间的消息信息
-    select * FROM message m ,messagecontent mc,`user` u
-        WHERE m.messageId=mc.messageId and m.senderId=u.userId AND
-        (senderId=#{userId} or recipientId=#{userId})
-    -->
+    <!--根据用户编号查询用户和客服之间的消息信息-->
     <select id="selectAllMessageContentByUserId" resultMap="allMessageContent">
         select * FROM message m ,messagecontent mc,`user` u
         WHERE m.messageId=mc.messageId and m.senderId=u.userId AND
@@ -47,5 +43,9 @@
         insert into messagecontent(messageContent,messageContentDate,messageId)
         values (#{messageContent},NOW(),#{messageId})
     </insert>
+
+    <update id="updateMessagecontent" parameterType="messagecontent">
+        update messagecontent set stateId=14 WHERE messageId=#{messageId}
+    </update>
 
 </mapper>

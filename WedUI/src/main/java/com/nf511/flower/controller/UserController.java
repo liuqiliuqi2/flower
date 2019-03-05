@@ -1,6 +1,7 @@
 package com.nf511.flower.controller;
 
 import com.nf511.flower.common.R;
+import com.nf511.flower.common.phoneVerCode.SendMessage;
 import com.nf511.flower.common.token.JwtUtils;
 import com.nf511.flower.entity.Cart;
 import com.nf511.flower.entity.User;
@@ -142,4 +143,17 @@ public class UserController {
     public R deleteAll(@RequestBody List<Integer> userIds){
         return R.ok(userService.deleteAll(userIds));
     }
+
+    /**
+     * 发送验证码
+     * */
+    @RequestMapping("/SendVerificationCode")
+    @ResponseBody
+    public void SendVerificationCode(String phone,String code){
+        System.out.println(phone);
+        System.out.println(code);
+        SendMessage sendMessage=new SendMessage();
+        sendMessage.EX(phone,code);
+    }
+
 }

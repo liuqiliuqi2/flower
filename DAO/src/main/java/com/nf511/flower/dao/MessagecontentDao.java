@@ -8,4 +8,6 @@ public interface MessagecontentDao {
     List<Messagecontent> selectAllMessageContentByUserId(int userId);
 
     int insertMessagecontent(Messagecontent messagecontent);
+
+    int updateMessagecontent(Messagecontent messagecontent);
 }

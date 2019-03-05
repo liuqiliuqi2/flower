@@ -3,11 +3,13 @@
 <!--命名空间应该是对应接口的包名+接口名 -->
 <mapper namespace="com.nf511.flower.dao.MessageDao"><!--.dao-->
 
-    <!--查询所有用户发给客服的未读信息-->
+    <!--查询所有用户发给客服的信息-->
     <select id="selectAllMessage" resultMap="allMessage">
         select * FROM message m ,messagecontent mc,`user` u
-        WHERE m.messageId=mc.messageId and m.senderId=u.userId
-        and stateId=13 AND senderId!=999999 ORDER BY messageContentDate DESC
+        <where>
+            m.messageId=mc.messageId and m.senderId=u.userId AND senderId!=999999 and stateId=13
+        </where>
+        ORDER BY messageContentDate DESC
     </select>
 
     <resultMap id="allMessage" type="Message">

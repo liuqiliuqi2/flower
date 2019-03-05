@@ -32,4 +32,14 @@ public class MessagecontentController {
     public R insertMessagecontent(Messagecontent messagecontent){
         return R.ok(messagecontentService.insertMessagecontent(messagecontent));
     }
+
+    /**
+     * 修改
+     * */
+    @RequestMapping(path = "/updateMessagecontent")
+    @ResponseBody
+    public R updateMessagecontent(Messagecontent messagecontent){
+        return R.ok(messagecontentService.updateMessagecontent(messagecontent));
+    }
+
 }
