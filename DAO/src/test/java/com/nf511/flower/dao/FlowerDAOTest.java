@@ -40,6 +40,8 @@ public class FlowerDAOTest {
         flower.setSize(5);
         flower.setRank("18");
 //        flower.setFlowerId(35);
+        flower.setSize(999);
+        flower.setFlowerUseId(1);
 //        flower.setFlowerUseName("爱情鲜花");
 //        flower.setFlowerTypeName("花束");
 //        flower.setFlowerBranchNumber("99");

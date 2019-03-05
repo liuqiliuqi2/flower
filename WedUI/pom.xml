@@ -94,6 +94,10 @@
             <groupId>com.thetransactioncompany</groupId>
             <artifactId>cors-filter</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.nf511.Flower</groupId>
+            <artifactId>Common</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

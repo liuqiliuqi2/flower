@@ -45,4 +45,8 @@ public class CollectImpl implements CollectService {
     public int deleteAll(List<Integer> collectIds) {
         return collectDao.deleteAll(collectIds);
     }
+
+    public Collect selectCollectId(long userId, long flowerId) {
+        return collectDao.selectCollectId(userId,flowerId);
+    }
 }

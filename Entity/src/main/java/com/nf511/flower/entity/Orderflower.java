@@ -1,5 +1,7 @@
 package com.nf511.flower.entity;
 
+import javax.naming.NamingException;
+
 public class Orderflower {
 
   private long orderflowerId;
@@ -82,5 +84,18 @@ public class Orderflower {
             ", orderFlowerPrice=" + orderFlowerPrice +
             ", flower=" + flower +
             '}';
+  }
+
+  public Orderflower() {
+  }
+
+  public Orderflower(long orderflowerId, long flowerId, long orderId, long orderFlowerAmount, long cartId, long orderFlowerPrice, Flower flower) {
+    this.orderflowerId = orderflowerId;
+    this.flowerId = flowerId;
+    this.orderId = orderId;
+    this.orderFlowerAmount = orderFlowerAmount;
+    this.cartId = cartId;
+    this.orderFlowerPrice = orderFlowerPrice;
+    this.flower = flower;
   }
 }

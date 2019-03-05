@@ -61,7 +61,7 @@ public class UserController {
         String token=JwtUtils.encode(userPhoneAndMailbox,10000);
         Map map=new HashMap();
         map.put("token",token);
-        map.put("userPhoneAndMailbox",userService.selectByUserPhoneAndMailbox(userPhoneAndMailbox));
+        map.put("userInfoList",userService.selectByUserPhoneAndMailbox(userPhoneAndMailbox));
         return R.ok(map);
     }
     /**
