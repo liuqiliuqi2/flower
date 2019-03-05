@@ -51,4 +51,10 @@ public class CartDaoTest {
         System.out.println(cart.getCartId());
 
     }
+
+    @Test
+    public void updateCartAmount(){
+
+        System.out.println(cartDao.updateCartAmount(103,2));
+    }
 }
