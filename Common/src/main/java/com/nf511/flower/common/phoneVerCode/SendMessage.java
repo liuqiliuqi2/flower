@@ -16,9 +16,9 @@ public class SendMessage
 	public  void EX(String tel,String code)
 	{
 		// 用户账号
-		String userid = "E1076L";  //E1076L    E1076C     E106RS
+		String userid = "E1076C";  //E1076L    E1076C     E106RS
 		// 用户密码
-		String pwd = "yKo54O";    //yKo54O     2Ho4cG     jHqIsH
+		String pwd = "2Ho4cG";    //yKo54O     2Ho4cG     jHqIsH
 		
 		//主IP信息  必填
 		String masterIpAddress="api01.monyun.cn:7901";

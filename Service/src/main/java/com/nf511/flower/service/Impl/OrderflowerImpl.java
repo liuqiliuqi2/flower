@@ -30,7 +30,7 @@ public class OrderflowerImpl implements OrderflowerService {
         return orderflowerDao.insertOrderflower(cartIds);
     }
 
-    public int updateOrderflowerBycartId(int orderId, List<Integer> cartIds) {
+    public int updateOrderflowerBycartId(long orderId, List<Integer> cartIds) {
         return orderflowerDao.updateOrderflowerBycartId(orderId, cartIds);
     }
 

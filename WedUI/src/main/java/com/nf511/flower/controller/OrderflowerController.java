@@ -4,9 +4,9 @@ package com.nf511.flower.controller;
 
 
 import com.nf511.flower.common.R;
-import com.nf511.flower.entity.Cart;
 import com.nf511.flower.entity.Order;
 import com.nf511.flower.entity.Orderflower;
+import com.nf511.flower.service.OrderService;
 import com.nf511.flower.service.OrderflowerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,13 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.awt.print.PageFormat;
-import java.awt.print.PrinterException;
-import java.awt.print.PrinterJob;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Controller
 @RequestMapping(path = "/orderflowerService")
@@ -30,6 +24,8 @@ public class OrderflowerController {
     @Autowired
     OrderflowerService orderflowerService;
 
+    @Autowired
+    OrderService orderService;
 
     /**
      * 添加
@@ -45,7 +41,13 @@ public class OrderflowerController {
      * */
     @RequestMapping(path = "/updateOrderflowerBycartId",method = RequestMethod.POST)
     @ResponseBody
-    public R updateOrderflowerBycartId(@RequestBody int orderId,@RequestBody List<Integer> cartIds){
+    public R updateOrderflowerBycartId(@RequestBody List<Integer> cartIds){
+        Order order=new Order();
+        order.setOrderState(8);
+        order.setSkip(0);
+        order.setSize(1);
+        System.out.println(orderService.selectAllOrderPage(order).get(0).getOrderId());
+        long orderId=orderService.selectAllOrderPage(order).get(0).getOrderId();
         return R.ok(orderflowerService.updateOrderflowerBycartId(orderId,cartIds));
     }
 

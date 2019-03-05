@@ -16,6 +16,9 @@ public class CartImpl implements CartService {
         return cartDao.selectAllCart(userId);
     }
 
+    public Cart selectCartByUserIdAndFlowerId(long userId, long flowerId) {
+        return cartDao.selectCartByUserIdAndFlowerId(userId, flowerId);
+    }
 
 
     public List<Cart> selectAllCartByPage(int pagelimit, int size) {

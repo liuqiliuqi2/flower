@@ -1,6 +1,7 @@
 package com.nf511.flower.dao;
 
 import com.nf511.flower.entity.Cart;
+import com.nf511.flower.entity.Order;
 import com.nf511.flower.entity.Orderflower;
 import org.junit.After;
 import org.junit.Assert;
@@ -26,6 +27,8 @@ public class OrderflowerDaoTest {
     @Autowired
     OrderflowerDao orderflowerDao;
 
+    @Autowired
+    OrderDao orderDao;
 
     @Before
     public void setUp() throws Exception {
@@ -38,19 +41,25 @@ public class OrderflowerDaoTest {
     @Test
     public void insertOrderflower() {
         List cartId=new ArrayList();
-        cartId.add(3);
-        cartId.add(4);
+        cartId.add(96);
+        cartId.add(97);
         Assert.assertEquals(2, orderflowerDao.insertOrderflower(cartId));
         System.out.println(cartId);
     }
 
     @Test
     public void updateOrderflowerBycartId() {
+        Order order=new Order();
+        order.setOrderState(8);
+        order.setSkip(0);
+        order.setSize(1);
+
+        System.out.println(orderDao.selectAllOrderPage(order).get(0).getOrderId());
+        long orderId=orderDao.selectAllOrderPage(order).get(0).getOrderId();
         List cartId=new ArrayList();
         cartId.add(3);
         cartId.add(4);
-        Assert.assertEquals(2, orderflowerDao.updateOrderflowerBycartId(2,cartId));
-        System.out.println(cartId);
+        Assert.assertEquals(2, orderflowerDao.updateOrderflowerBycartId(orderId,cartId));
     }
 
     @Test

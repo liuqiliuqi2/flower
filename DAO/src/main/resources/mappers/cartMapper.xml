@@ -36,6 +36,11 @@
         </association>
     </resultMap>
 
+    <!--查询购物车是否存在-->
+    <select id="selectCartByUserIdAndFlowerId" resultMap="allCart">
+         select * FROM cart where userId=#{userId} and flowerId=#{flowerId}
+    </select>
+
     <!--添加-->
     <insert id="insertCart" parameterType="Cart" useGeneratedKeys="true" keyProperty="cartId">
         insert into Cart(flowerId,userId,cartAmount)

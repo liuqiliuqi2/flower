@@ -29,6 +29,15 @@ public class CartController {
     }
 
     /**
+     * 查询购物车是否存在
+     * */
+    @RequestMapping(path = "/selectCartByUserIdAndFlowerId")
+    @ResponseBody
+    public R selectCartByUserIdAndFlowerId(int userId,int flowerId){
+        return R.ok(cartService.selectCartByUserIdAndFlowerId(userId,flowerId));
+    }
+
+    /**
      * 添加
      * */
     @RequestMapping(path = "/insertCart",method = RequestMethod.POST)

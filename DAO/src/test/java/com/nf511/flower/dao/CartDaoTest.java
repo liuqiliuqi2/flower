@@ -37,6 +37,11 @@ public class CartDaoTest {
     }
 
     @Test
+    public void selectCartByUserIdAndFlowerId() {
+        System.out.println(cartDao.selectCartByUserIdAndFlowerId(100000017,60));
+    }
+
+    @Test
     public void insertCart() {
         Cart cart=new Cart();
         cart.setFlowerId(3);
