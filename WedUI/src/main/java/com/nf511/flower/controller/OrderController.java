@@ -3,6 +3,7 @@ package com.nf511.flower.controller;
 
 import com.nf511.flower.common.PrintPdf;
 import com.nf511.flower.common.R;
+import com.nf511.flower.common.SerialNumber;
 import com.nf511.flower.entity.Cart;
 import com.nf511.flower.entity.Order;
 import com.nf511.flower.entity.Orderflower;
@@ -17,10 +18,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.awt.print.PageFormat;
 import java.awt.print.PrinterException;
 import java.awt.print.PrinterJob;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 @Controller
 @RequestMapping(path = "/order")
@@ -69,8 +68,19 @@ public class OrderController {
      * */
     @RequestMapping(path = "/insertOrder",method = RequestMethod.POST)
     @ResponseBody
-    public R insertOrder(Order order){
-        return R.ok(orderService.insertOrder(order));
+    public R insertOrder(Order order1){
+        Order order=new Order();
+        order.setOrderState(8);
+        order.setOrderDate(new SimpleDateFormat("YYYY-MM-dd").format(new Date()));
+        long count=orderService.getOrderCount(order)+1;
+
+        String s=SerialNumber.Getnum();
+        long gnum=Long.valueOf(s);
+        long getCount=gnum+count;
+        System.out.println(getCount);
+
+        order1.setOrderId(getCount);
+        return R.ok(orderService.insertOrder(order1));
     }
 
 
