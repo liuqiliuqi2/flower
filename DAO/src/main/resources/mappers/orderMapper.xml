@@ -5,7 +5,7 @@
 
     <!--添加-->
     <insert id="insertOrder" parameterType="Order" useGeneratedKeys="true" keyProperty="orderId">
-        insert into order
+        insert into `order`
         (orderId,orderPrice,orderConsigneeName,orderConsigneePhone,orderAddress,
         orderDetailedAddress,orderDeliveryTime,orderDeliveryTimeFrame,orderBuyerName,
         orderBuyerPhone,orderMailbox,orderGreetingMessage,userId)
