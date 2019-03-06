@@ -46,6 +46,10 @@ public class CollectImpl implements CollectService {
         return collectDao.deleteAll(collectIds);
     }
 
+    public int collectCount(Collect collect) {
+        return collectDao.collectCount(collect);
+    }
+
     public Collect selectCollectId(long userId, long flowerId) {
         return collectDao.selectCollectId(userId,flowerId);
     }

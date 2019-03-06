@@ -61,6 +61,15 @@
         </where>
     </delete>
 
+    <select id="collectCount" resultType="int">
+         select count(*) from collect
+         <where>
+             and CollectDateTime like concat(concat('%',#{CollectDateTime}),'%')
+         </where>
+    </select>
+
+
+
 
 
 

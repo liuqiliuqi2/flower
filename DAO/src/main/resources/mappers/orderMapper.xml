@@ -124,6 +124,9 @@
             <if test="orderState!=8">
                 and o.orderState =#{orderState}
             </if>
+            <if test="orderDate!='' and orderDate!=null">
+                and orderDate like concat(concat('%',#{orderDate}),'%')
+            </if>
         </where>
     </select>
 
@@ -133,6 +136,10 @@
         orderState=#{orderState}
         where orderId=#{orderId}
     </update>
+
+
+
+
 
 
 

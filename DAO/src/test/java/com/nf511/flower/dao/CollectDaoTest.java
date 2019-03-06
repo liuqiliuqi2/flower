@@ -57,4 +57,20 @@ public class CollectDaoTest {
         System.out.println(collectDao.selectCollectId(100000000,43));
     }
 
+    @Test
+    public void CollectCount() {
+
+        for (int i=1;i<=12;i++){
+            Collect collect=new Collect();
+            if (i<10){
+                collect.setCollectDateTime("2019-0"+i);
+            }else {
+                collect.setCollectDateTime("2019-"+i);
+            }
+            System.out.println("2019-"+i);
+            System.out.println( collectDao.collectCount(collect));
+        }
+
+    }
+
 }

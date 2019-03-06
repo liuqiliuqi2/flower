@@ -11,6 +11,9 @@ public interface CollectDao {
     int selectCollectOne(@Param("userId") long userId,@Param("flowerId") long flowerId);
     int deleteCollect(@Param("collectId") int collectId);
     int deleteAll(@Param("collectIds") List<Integer> collectIds);
+    int collectCount(Collect collect);
+
+
 
     Collect selectCollectId(@Param("userId") long userId,@Param("flowerId") long flowerId);
     Collect selectAllCollectId(@Param("collectId") int collectId);

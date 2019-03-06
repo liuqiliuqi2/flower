@@ -66,4 +66,10 @@ public class CollectController {
         return R.ok(collectService.selectCollectId(userId,flowerId));
     }
 
+    @RequestMapping("/collectCount")
+    @ResponseBody
+    public R collectCount(Collect collect){
+        return R.ok(collectService.collectCount(collect));
+    }
+
 }

@@ -41,7 +41,10 @@ public class  OrderDaoTest {
     public void getOrderCount() {
         Order order=new Order();
 //        order.setUserId(100000000);
-//        order.setOrderState(8);
+        order.setOrderState(8);
+
+
+        order.setOrderDate("2019-02-17");
         System.out.println(orderDao.getOrderCount(order));
 
     }

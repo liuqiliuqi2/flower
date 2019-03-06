@@ -9,7 +9,7 @@ public interface CartDao {
     List<Cart> selectAllCart(int userId);
     Cart selectCartByUserIdAndFlowerId(@Param("userId") long userId, @Param("flowerId") long flowerId);
     int insertCart(Cart cart);
-    int updateCartAmount(@Param("cartId") int cartId, @Param("cartAmount") int cartAmount);
+    int updateCartAmount(@Param("cartId") long cartId, @Param("cartAmount") long cartAmount);
     int deleteCart(@Param("cartId") int cartId);
     List<Cart> selectAllCartId(@Param("cartIds") List<Integer> cartIds);
 
