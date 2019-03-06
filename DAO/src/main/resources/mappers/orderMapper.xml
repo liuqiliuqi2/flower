@@ -5,7 +5,7 @@
 
     <!--添加-->
     <insert id="insertOrder" parameterType="Order" useGeneratedKeys="true" keyProperty="orderId">
-        insert into order
+        insert into `order`
         (orderId,orderPrice,orderConsigneeName,orderConsigneePhone,orderAddress,
         orderDetailedAddress,orderDeliveryTime,orderDeliveryTimeFrame,orderBuyerName,
         orderBuyerPhone,orderMailbox,orderGreetingMessage,userId)
@@ -123,6 +123,9 @@
             </if>
             <if test="orderState!=8">
                 and o.orderState =#{orderState}
+            </if>
+            <if test="orderDate!='' and orderDate!=null">
+                and orderDate like concat(concat('%',#{orderDate}),'%')
             </if>
         </where>
     </select>
