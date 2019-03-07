@@ -43,6 +43,10 @@ public class AddressImpl implements AddressService {
         return addressDao.getAddressByMaxAddressId(userId);
     }
 
+    public Address selectUserIdByStateId(long userId, long stateId) {
+        return addressDao.selectUserIdByStateId(userId,stateId);
+    }
+
     public int updateAddress(Address address) {
         return addressDao.updateAddress(address);
     }

@@ -22,4 +22,6 @@ public interface OrderService {
     int updateOrder(Order order);
     int deleteOrder(@Param("orderId") int orderId);
     int deleteAll(@Param("orderIds") List<Integer> items);
+    int insertOrderByOrderId(Order order);
+
 }

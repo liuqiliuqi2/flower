@@ -66,7 +66,7 @@ public class OrderController {
     /**
      * 添加
      * */
-    @RequestMapping(path = "/insertOrder",method = RequestMethod.POST)
+    @RequestMapping(path = "/insertOrder")
     @ResponseBody
     public R insertOrder(Order order1){
         Order order=new Order();
@@ -78,7 +78,6 @@ public class OrderController {
         long gnum=Long.valueOf(s);
         long getCount=gnum+count;
         System.out.println(getCount);
-
         order1.setOrderId(getCount);
         return R.ok(orderService.insertOrder(order1));
     }
@@ -94,7 +93,27 @@ public class OrderController {
     }
 
 
+/**
+ * 添加app
+ * */
+    @RequestMapping(path = "/insertOrderByOrderId")
+    @ResponseBody
+    public R insertOrderByOrderId(Order order1){
+        Order order=new Order();
+        order.setOrderState(8);
+        order.setOrderDate(new SimpleDateFormat("YYYY-MM-dd").format(new Date()));
+        long count=orderService.getOrderCount(order)+1;
 
+        String s=SerialNumber.Getnum();
+        long gnum=Long.valueOf(s);
+        long getCount=gnum+count;
+        System.out.println(getCount);
+        order1.setOrderId(getCount);
+        Map map=new HashMap();
+        map.put("getCount",getCount);
+        map.put("order",orderService.insertOrderByOrderId(order1));
+        return R.ok(map);
+    }
 
 
 

@@ -105,5 +105,13 @@ public class AddressController {
     }
 
 
+    /*
+     * 根据ID查询 app
+     * */
+    @RequestMapping(path = "/selectUserIdByStateId",method = RequestMethod.POST)
+    @ResponseBody
+    public R selectUserIdByStateId(int userId,int stateId){
+        return R.ok(addressService.selectUserIdByStateId(userId,stateId));
+    }
 
 }

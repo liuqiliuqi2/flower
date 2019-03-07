@@ -53,4 +53,9 @@ public class OrderImpl  implements OrderService {
     public int deleteAll(List<Integer> items) {
         return orderDao.deleteAll(items);
     }
+
+    public int insertOrderByOrderId(Order order) {
+        return orderDao.insertOrderByOrderId(order);
+    }
+
 }

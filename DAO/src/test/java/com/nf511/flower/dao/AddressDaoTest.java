@@ -47,4 +47,9 @@ public class AddressDaoTest {
         System.out.println(addressDao.getAddressByMaxAddressId(100000000));
     }
 
+    @Test
+    public void selectUserIdByStateId() {
+        System.out.println(addressDao.selectUserIdByStateId(100000000,11));
+    }
+
 }

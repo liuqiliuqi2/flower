@@ -57,6 +57,11 @@
       select  * from Address where addressId=#{addressId}
     </select>
 
+    <!--查询id和状态-->
+    <select id="selectUserIdByStateId" resultMap="allAddress">
+      select  * from Address where userId=#{userId} and stateId=#{stateId}
+    </select>
+
     <!--分页查询-->
     <select id="selectAllAddressByPage" resultMap="allAddress">
          select * from Address limit #{pagelimit},#{size};

@@ -14,6 +14,17 @@
         #{orderAddress},#{orderDetailedAddress},#{orderDeliveryTime},#{orderDeliveryTimeFrame},#{orderBuyerName},
         #{orderBuyerPhone},#{orderMailbox},#{orderGreetingMessage},#{userId})
     </insert>
+    <!--添加 app-->
+    <insert id="insertOrderByOrderId" parameterType="Order" useGeneratedKeys="true" keyProperty="orderId">
+        insert into `order`
+        (orderId,orderPrice,orderConsigneeName,orderConsigneePhone,orderAddress,
+        orderDetailedAddress,orderDeliveryTime,orderDeliveryTimeFrame,orderBuyerName,
+        orderBuyerPhone,orderMailbox,orderGreetingMessage,userId)
+        values
+        (#{orderId},#{orderPrice},#{orderConsigneeName},#{orderConsigneePhone},
+        #{orderAddress},#{orderDetailedAddress},#{orderDeliveryTime},#{orderDeliveryTimeFrame},#{orderBuyerName},
+        #{orderBuyerPhone},#{orderMailbox},#{orderGreetingMessage},#{userId})
+    </insert>
     <!--查询全部订单及订单商品信息-->
     <select id="selectAllOrder" resultMap="allOrder">
         select * from `order` o,orderflower op,flower f
